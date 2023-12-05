@@ -34,8 +34,4 @@ user.save!
 worspace1 = Workspace.new(
   ambiance:"calme",
   address:"rue de la paix",
-  
-
-
-
 )
