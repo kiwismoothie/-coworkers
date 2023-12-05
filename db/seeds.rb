@@ -27,6 +27,7 @@ user2 = User.new(
 )
 user2.save!
 
+
 user3 = User.new(
   first_name: "laura",
   last_name: "berretta",
@@ -82,6 +83,7 @@ workspace3 = Workspace.new(
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785332/Coworkers/paris2.jpg")
 workspace3.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace3.save!
+
 
 workspace4 = Workspace.new(
   ambiance: "appero",
