@@ -9,7 +9,9 @@ class Workspace < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
   validates :capacity, presence: true
-  validates :internet_connexion, presence: true
-  validates :smoking, presence: true
+  validates :internet_connexion, inclusion: [true, false]
+  # validates :internet_connexion, presence: true
+  # validates :smoking, presence: true
+  validates :smoking, inclusion: [true, false]
   validates :animals, presence: true
 end
