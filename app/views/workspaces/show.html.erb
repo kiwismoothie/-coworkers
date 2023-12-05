@@ -1,0 +1,27 @@
+
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Cartes à gauche -->
+    <div class="col-lg-8 col-md-8 col-12">
+      <div class="mx-auto mt-2 mb-3">
+        <h1>   <%= @workspace.name %> </h1>
+          <ul><li> Adresse : <%= @workspace.address %> </li>
+              <li> Nombre de places disponibles : <%= @workspace.capacity %> </li>
+              <li> Connexion internet : <%= @workspace.internet_connexion %> </li>
+              <li> Fumeur : <%= @workspace.smoking %> </li>
+              <li> Présence d'amimaux : <%= @workspace.animals %> </li>
+          </ul>
+
+      </div>
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-12 mb-5"> <!-- Réduisez la largeur des cartes ici -->
+                <div class="card-trip card-trip-list custom-link">
+                  <% @workspace.photos %>
+                    <%= cl_image_tag @workspace.photos.first.key, height: 300, width: 400, crop: :fill %>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>

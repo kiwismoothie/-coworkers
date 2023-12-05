@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Mes informations</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -10,26 +10,36 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+    <%= f.input :first_name, label: "Prénom",
+                required: false,
+                input_html: { autocomplete: "Prénom" } %>
+    <%= f.input :last_name, label: "Nom",
+                required: false,
+                input_html: { autocomplete: "Nom" } %>
+    <%= f.input :password, label: "Mot de passe",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+    <%= f.input :password, label: "Mot de passe",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+    <%= f.input :password_confirmation, label: "Confirmation du mot de passe",
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :current_password, label: "Mot de passe actuel",
+                hint: "Pour valider les modifications, merci de saisir votre mot de passe actuel",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Sauvegarder les changements" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<div>
+<h5>Supprimer mon compte</h5>
 
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+<%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr ?", turbo_confirm: "Êtes-vous sûr de supprimer votre compte ainsi que toutes ses données ? Il ne sera pas possible de le réactiver plus tard, vous devrez créer un nouveau compte." }, method: :delete %></div>
 
-<%= link_to "Back", :back %>
+<%= link_to "Retour", :back %>
+</div>
