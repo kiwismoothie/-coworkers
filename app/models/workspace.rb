@@ -1,9 +1,7 @@
 class Workspace < ApplicationRecord
   belongs_to :user
+  has_many :bookings # bookings pour réserver un workspace
   has_many :bookmarks
-  has_many :bookings
-  has_many :favorites_users, through: :bookmarks, source: :user
-  has_many :bookings_users, through: :bookings, source: :user
   has_many_attached :photos
 
   validates :name, presence: true
@@ -15,3 +13,8 @@ class Workspace < ApplicationRecord
   validates :smoking, inclusion: [true, false]
   validates :animals, presence: true
 end
+
+  # has_many :bookings_users, through: :workspaces, source: :bookings
+  # has_many :bookmarks_workspaces, through: :bookmarks, source: :workspaces #  retourne les workspaces favoris
+  # has_many :bookmarks_workspaces, through: :bookmarks, source: :workspaces #  retourne les workspaces favoris
+  # has_many :favorites_users, through: :bookmarks, source: :user
