@@ -24,6 +24,7 @@ user2 = User.new(
   password: "test123456"
 )
 user.save!
+
 user3 = User.new(
   first_name: "Test3",
   last_name: "test3",
@@ -34,7 +35,7 @@ user.save!
 worspace1 = Workspace.new(
   ambiance:"calme",
   address:"rue de la paix",
-  
+
 
 
 
