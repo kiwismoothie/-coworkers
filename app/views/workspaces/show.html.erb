@@ -15,11 +15,18 @@
 
       </div>
       <div class="container">
-        <div class="row">
             <div class="col-lg-4 col-md-4 col-12 mb-5"> <!-- Réduisez la largeur des cartes ici -->
                 <div class="card-trip card-trip-list custom-link">
-                  <% @workspace.photos %>
-                    <%= cl_image_tag @workspace.photos.first.key, height: 300, width: 400, crop: :fill %>
+                  <div class="row">
+                    <% @workspace.photos %>
+                      <%= cl_image_tag @workspace.photos.first.key, width: 400, crop: :fill %>
+                      <%= simple_form_for([@workspace, @booking]) do |f| %>
+                        <%= f.input :start_date,
+                                    as: :string,
+                                    input_html: { data: { controller: "datepicker" } } %>
+
+                        <%= f.button :submit, class: "btn btn-primary" %>
+                        <% end %>
                 </div>
             </div>
         </div>

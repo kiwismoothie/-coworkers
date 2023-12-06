@@ -14,11 +14,13 @@ end
 
 def show
   @workspace = Workspace.find(params[:id])
+  @booking = Booking.new
 end
 
 def new
   @workspace = Workspace.new
 end
+
 
 def create
   @workspace = Workspace.new(workspace_params)
