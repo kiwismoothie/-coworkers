@@ -36,13 +36,13 @@
               hint: "Pour valider les modifications, merci de saisir votre mot de passe actuel",
               required: true,
               input_html: { autocomplete: "current-password" } %>
-          <%= f.button :submit, "Sauvegarder les modifications" %>
+          <%= f.button :submit, "Sauvegarder les modifications", class:"yellow-btn" %>
         </div>
       <% end %>
 
       <div>
 
-        <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr ?", turbo_confirm: "Êtes-vous sûr de supprimer votre compte ainsi que toutes ses données ? Il ne sera pas possible de le réactiver plus tard, vous devrez créer un nouveau compte." }, method: :delete class: "blue-button" %></div>
+        <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr ?", turbo_confirm: "Êtes-vous sûr de supprimer votre compte ainsi que toutes ses données ? Il ne sera pas possible de le réactiver plus tard, vous devrez créer un nouveau compte." }, method: :delete, class: "delete-btn" %></div>
 
         <%= link_to "Retour", :back %>
       </div>
