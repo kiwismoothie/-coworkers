@@ -4,4 +4,9 @@ module ApplicationHelper
       raw file.read
     end
   end
+
+  def current_page?(page)
+    page == controller_name
+  end
+
 end
