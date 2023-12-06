@@ -10,31 +10,31 @@ class WorkspacesController < ApplicationController
       }
     end
   end
-end
 
-def show
-  @workspace = Workspace.find(params[:id])
-  @booking = Booking.new
-end
-
-def new
-  @workspace = Workspace.new
-end
-
-
-def create
-  @workspace = Workspace.new(workspace_params)
-  @workspace.user = current_user
-  if @workspace.save
-    redirect_to workspace_path(@workspace)
-  else
-    render :new
+  def show
+    @workspace = Workspace.find(params[:id])
+    @booking = Booking.new
   end
-end
 
-  private
+  def new
+    @workspace = Workspace.new
+  end
 
-def workspace_params
-  params.require(:workspace).permit(:name, :address, :capacity, :internet_connexion, :smoking, :animals, :price,
-                                    :description, photos: [])
+
+  def create
+    @workspace = Workspace.new(workspace_params)
+    @workspace.user = current_user
+    if @workspace.save
+      redirect_to workspace_path(@workspace)
+    else
+      render :new
+    end
+  end
+
+    private
+
+  def workspace_params
+    params.require(:workspace).permit(:name, :address, :capacity, :internet_connexion, :smoking, :animals, :price,
+                                      :description, photos: [])
+  end
 end
