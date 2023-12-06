@@ -95,4 +95,11 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  # For SVGs
+  config.assets.precompile += %w( '.svg' )
+
+  # Must include to get inline SVGs to work in deploy
+  config.assets.css_compressor = :sass
+
 end
