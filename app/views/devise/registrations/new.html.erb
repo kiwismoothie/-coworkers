@@ -12,19 +12,13 @@
               <%= f.input :first_name, label: 'Prénom',
                           required: true,
                           autofocus: true,
-                          input_html: { autocomplete: "Prénom" }%>
+                          input_html: { autocomplete: "first_name" }%>
               <%= f.input :last_name, label: 'Nom',
                           required: true,
-                          input_html: { autocomplete: "Nom" }%>
-              <%= f.input :last_name, label: "Addresse",
-                      required: false,
-                      input_html: { autocomplete: "Adresse" } %>
-              <%= f.input :last_name, label: "Code postal",
-                      required: false,
-                      input_html: { autocomplete: "Code postal" } %>
-              <%= f.input :last_name, label: "Ville",
-                      required: false,
-                      input_html: { autocomplete: "Ville" } %>
+                          input_html: { autocomplete: "last_name" }%>
+              <%= f.input :address, label: "Adresse",
+                          required: false,
+                          input_html: { autocomplete: "address" } %>
               <%= f.input :email, label: 'Email',
                           required: true,
                           input_html: { autocomplete: "email" }%>
