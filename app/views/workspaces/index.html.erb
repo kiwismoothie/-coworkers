@@ -14,15 +14,15 @@
                 <div class="card-trip card-trip-list custom-link">
                   <% workspace.photos.each do |photo| %>
                     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-                  <% end  %>
-                  <div class="card-trip-infos">
+                    <% end  %>
+                    <div class="card-trip-infos">
                     <div>
-                      <%= workspace.name %>   </a>
-              </div>
+                      <%= workspace.name %>
+                  <% end %>  </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <% end %>
 
 <!-- map -->
 <div class="col-lg-4 col-md-4 col-12 d-md-block">
@@ -32,10 +32,8 @@
       <div style="width: 300px; height: 600px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
-
-  </div>
-
   </div>
 </div>
