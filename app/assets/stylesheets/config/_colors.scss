@@ -8,3 +8,20 @@ $orange: #E67E22;
 $green: #1EDD88;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
+
+:root {
+  --black: rgba(6, 6, 6, 1);
+  --grey: rgba(217, 217, 217, 1);
+  --white: rgba(255, 255, 255, 1);
+  --gris-clair: rgba(243, 248, 254, 1);
+  --gris-fonc: rgba(86, 86, 86, 1);
+  --orange-clair: rgba(255, 177, 22, 1);
+  --bleu-fonc: rgba(0, 48, 81, 1);
+  --bleu-moyen: rgba(0, 71, 146, 1);
+  --bleu-clair: rgba(63, 124, 175, 1);
+  --light-black: rgba(35, 35, 35, 1);
+  --orange-fonc: rgba(252, 145, 0, 1);
+  --lines: rgba(184, 184, 184, 1);
+  --collection-1-bleu-moyen: rgba(0, 71, 146, 1);
+  --collection-1-lineare-orange: rgba(207, 139, 90, 0);
+}
