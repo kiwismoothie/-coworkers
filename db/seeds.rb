@@ -20,7 +20,7 @@ user1 = User.new(
 user1.save!
 
 user2 = User.new(
-  first_name: "debora",
+  first_name: "deborah",
   last_name: "morchipont",
   email: "test2@test.com",
   password: "test123456"
