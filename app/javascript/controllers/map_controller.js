@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl'
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 
 // Connects to data-controller="map"
@@ -19,6 +20,16 @@ export default class extends Controller {
     // [...]
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+
+    this.geocoder = new MapboxGeocoder({
+      accessToken: this.apiKeyValue,
+      types: "country,region,place,postcode,locality,neighborhood,address"
+    })
+    this.geocoder.addTo(this.element)
+  }
+
+  disconnect() {
+    this.geocoder.onRemove()
   }
 
   #addMarkersToMap() {

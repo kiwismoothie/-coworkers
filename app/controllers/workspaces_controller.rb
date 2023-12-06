@@ -9,7 +9,9 @@ class WorkspacesController < ApplicationController
     @markers = @workspaces.geocoded.map do |workspace|
       {
         lat: workspace.latitude,
-        lng: workspace.longitude
+        lng: workspace.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {workspace: workspace}),
+        marker_html: render_to_string(partial: "marker", locals: {workspace: workspace})
       }
     end
 
@@ -23,7 +25,6 @@ class WorkspacesController < ApplicationController
   def new
     @workspace = Workspace.new
   end
-
 
   def create
     @workspace = Workspace.new(workspace_params)
