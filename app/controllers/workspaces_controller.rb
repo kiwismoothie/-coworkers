@@ -2,6 +2,9 @@ class WorkspacesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   def index
     @workspaces = Workspace.all
+    if params[:query].present?
+      @workspaces = Workspace.global_search(params[:query])
+    end
     # The `geocoded` scope filters only flats with coordinates
     @markers = @workspaces.geocoded.map do |workspace|
       {
@@ -9,6 +12,7 @@ class WorkspacesController < ApplicationController
         lng: workspace.longitude
       }
     end
+
   end
 
   def show

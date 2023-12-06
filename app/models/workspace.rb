@@ -15,6 +15,15 @@ class Workspace < ApplicationRecord
   # # validates :smoking, presence: true
   # validates :smoking, inclusion: [true, false]
   # validates :animals, presence: true
+  include PgSearch::Model
+  pg_search_scope :global_search,
+  against: [ :address, :name ],
+  associated_against: {
+  user: [ :first_name, :last_name ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
 end
 
 # has_many :bookings_users, through: :workspaces, source: :bookings
