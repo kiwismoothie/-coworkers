@@ -1,4 +1,6 @@
-<div class="marker">
-<h4><%= workspace.name %></h4>
-<p><%= workspace.address %></p>
-</div>
+
+<%= link_to workspace_path(workspace), class: "font-marker" do%>
+  <h3><%= workspace.name %></h3>
+  <h4><%= workspace.address %></h4>
+  <h5>400m de vous.</h5>
+<% end %>
