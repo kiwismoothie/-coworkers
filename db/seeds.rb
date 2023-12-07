@@ -11,74 +11,91 @@ Booking.destroy_all
 Workspace.destroy_all
 User.destroy_all
 
-user1 = User.new(
-  first_name: "kevin",
-  last_name: "falck",
+Kevin = User.new(
+  first_name: "Kevin",
+  last_name: "Falck",
   email: "test1@test.com",
   password: "test123456"
 )
-user1.save!
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701953711/Kevin_nlbsrz.jpg")
+Kevin.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
+Kevin.save!
 
-user2 = User.new(
-  first_name: "deborah",
-  last_name: "morchipont",
+Deborah = User.new(
+  first_name: "Deborah",
+  last_name: "Morchipont",
   email: "test2@test.com",
   password: "test123456"
 )
-user2.save!
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701953712/Deborah_och7ml.jpg")
+Deborah.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
+Deborah.save!
 
 
-user3 = User.new(
-  first_name: "laura",
-  last_name: "berretta",
+Laura = User.new(
+  first_name: "Laura",
+  last_name: "Berretta",
   email: "test3@test.com",
   password: "test123456"
 )
-user3.save!
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701953712/Laura_okhnel.jpg")
+Laura.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
+Laura.save!
+
+
+Valerian = User.new(
+  first_name: "Valérian",
+  last_name: "Barreau",
+  email: "test4@test.com",
+  password: "test123456"
+)
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701953712/Valerian_wcdbst.jpg")
+Valerian.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
+Valerian.save!
 
 workspace1 = Workspace.new(
-  ambiance: "calme",
-  address: "paris",
-  user: user1,
+  ambiance: "Calme",
+  address: "Paris",
+  user: Kevin,
   internet_connexion: true,
   smoking: false,
   animals: "chien",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
-  name: "office parisien"
+  name: "Office parisien"
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785333/Coworkers/toulouse.jpg")
 workspace1.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace1.save!
 
 workspace2 = Workspace.new(
-  ambiance: "festif",
-  address: "toulouse",
-  user: user1,
+  ambiance: "Festive",
+  address: "2 avenue Charles de gaulle, Toulouse",
+  user: Kevin,
   internet_connexion: true,
   smoking: false,
   animals: "chien",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
-  name: "tout pour la fete"
+  name: "Tout pour la fete"
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785333/Coworkers/toulouse.jpg")
 workspace2.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace2.save!
 
 workspace3 = Workspace.new(
-  ambiance: "bureau",
-  address: "lyon",
-  user: user1,
+  ambiance: "Bureau",
+  address: "4 place Carnot, Lyon",
+  user: Kevin,
   internet_connexion: true,
   smoking: false,
   animals: "chien",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
-  name: "ici on travaille"
+  name: "Ici on travaille"
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785332/Coworkers/paris2.jpg")
 workspace3.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -86,32 +103,32 @@ workspace3.save!
 
 
 workspace4 = Workspace.new(
-  ambiance: "appero",
-  address: "nantes",
-  user: user1,
+  ambiance: "Apéro",
+  address: "3 Rue de la soif, Nantes",
+  user: Valerian,
   internet_connexion: true,
   smoking: false,
   animals: "chien",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
-  name: "a maison de la biere"
+  name: "A maison de la biere"
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785332/Coworkers/nantes.jpg")
 workspace4.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace4.save!
 
 workspace5 = Workspace.new(
-  ambiance: "bruyant",
-  address: "paris",
-  user: user2,
+  ambiance: "Bruyant",
+  address: "4 rue Leconte de Lisle, Paris",
+  user: Deborah,
   internet_connexion: true,
   smoking: false,
   animals: "chien",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
-  name: "workspace5"
+  name: "La maison des chiens"
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785332/Coworkers/paris2.jpg")
 workspace5.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -119,15 +136,15 @@ workspace5.save!
 
 workspace6 = Workspace.new(
   ambiance: "calme",
-  address: "versaille",
-  user: user2,
+  address: "2 route de la reine, Versailles",
+  user: Laura,
   internet_connexion: true,
   smoking: true,
   animals: "chien",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 2,
-  name: "la maison du bonheur"
+  name: "La maison du bonheur"
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785332/Coworkers/paris2.jpg")
 workspace6.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -135,7 +152,7 @@ workspace6.save!
 
 booking1 = Booking.new(
   workspace: workspace3,
-  user: user1,
+  user: Kevin,
   rating: 5,
   start_date: "Thu, 30 Nov 2023",
   end_date: "Tue, 12 Dec 2023",
@@ -145,7 +162,7 @@ booking1.save!
 
 booking2 = Booking.new(
   workspace: workspace6,
-  user: user1,
+  user: Valerian,
   rating: 5,
   start_date: "Thu, 30 Nov 2023",
   end_date: "Tue, 12 Dec 2023",
@@ -155,7 +172,7 @@ booking2.save!
 
 booking3 = Booking.new(
   workspace: workspace2,
-  user: user2,
+  user: Deborah,
   rating: 5,
   start_date: "Thu, 30 Nov 2023",
   end_date: "Tue, 12 Dec 2023",
@@ -165,7 +182,7 @@ booking3.save!
 
 booking4 = Booking.new(
   workspace: workspace1,
-  user: user3,
+  user: Laura,
   rating: 5,
   start_date: "Thu, 30 Nov 2023",
   end_date: "Tue, 12 Dec 2023",
