@@ -5,54 +5,100 @@
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
-    <div class="col-11 text-center">
-      <div class="search-container">
-        <input type="text" id="search-input" placeholder="Ou souhaitez vous télétravailler ?">
+    <div class="col-10 text-center">
+        <form id="search-form" action="<%= workspaces_path %>" method="GET">
+          <input type="text" id="search-input" placeholder="Ou souhaitez vous télétravailler ?">
+          <!-- Ajouter un champ caché pour stocker la valeur de recherche -->
+          <input type="hidden" id="search-query" name="query">
+        </form>
       </div>
-<div class="container">
-  <div class="row">
-    <div class="col-11 text-center mt-5">
-<article class="card">
-  <img
-    class="card__background"
-    src="https://i.ibb.co/p1FWWSP/bureau-de-travail-avec-verriere.jpg"
-    alt="Photo of Cartagena's cathedral at the background and some colonial style houses"
-    width="1920"
-    height="2193"
-/>
-  <div class="card__content | flow">
-    <div class="card__content--container | flow">
-      <h2 class="card__title">Chez Kévin</h2>
-      <p class="card__description">
-        Ambiance Cosy - Fumeur accepté - Deux chats gentils
-      </p>
     </div>
-    <button class="card__button">J'aime</button>
   </div>
-</article>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="container">
-  <div class="teletravaillez mt-3 mb-4">
-    <h2 style="font-size: 40px;">
-        Télétravaillez<br />
-        Autrement
-    </h2>
+  <div class="mt-4">
+    <h2 style="font-size: 20px;">Populaire</h2>
   </div>
 </div>
 <div class="container">
   <div class="row">
+<div class="col-5 col-md-5 mb-4">
+  <!-- Utilisation de col-12 pour la disposition sur mobile et col-md-6 pour la disposition sur les écrans plus larges -->
+  <a href="<%= workspaces_path%>/37"> <!-- Ajout du lien autour de la carte -->
+    <article class="card">
+      <img
+        class="card__background"
+        src="https://i.ibb.co/p1FWWSP/bureau-de-travail-avec-verriere.jpg"
+        alt="Photo d'un bureau de travail avec verrière"
+        width="1920"
+        height="2193"
+      />
+      <div class="card__content | flow">
+        <div class="card__content--container | flow">
+          <h2 style="font-size: 14px;" class="card__title">Chez Kévin</h2>
+          <p style="font-size: 9px;" class="card__description">
+            Ambiance Cosy - Fumeur accepté - Deux chats gentils
+          </p>
+        </div>
+        <button style="font-size: 9px;" class="card__button">J'aime</button>
+      </div>
+    </article>
+  </a>
+</div>
+
+    <div class="col-5 col-md-5 mb-4"> <!-- Utilisation de col-12 pour la disposition sur mobile et col-md-6 pour la disposition sur les écrans plus larges -->
+    <a href="<%= workspaces_path%>/42"> <!-- Ajout du lien autour de la carte -->
+
+      <article class="card">
+        <img
+          class="card__background"
+          src="https://i.ibb.co/Q9Pzk5z/Large-SCH-2021-EPICERIE-mannequin-TELETRAVAIL-070.jpg"
+          alt="Photo d'un bureau en hauteur"
+          width="1920"
+          height="2193"
+        />
+        <div class="card__content | flow">
+          <div class="card__content--container | flow">
+            <h2 style="font-size: 14px;" class="card__title">Chez Déborah</h2>
+            <p style="font-size: 9px;"  class="card__description">
+              Ambiance studieuse - Fumeur refusé - Un chien mignon
+            </p>
+          </div>
+          <button style="font-size: 9px;" class="card__button">J'aime</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+  </a>
+<div class="container">
+  <div class="mt-3">
+    <h2 style="font-size: 38px;">Télétravaillez<br />Autrement</h2>
+  </div>
+</div>
+<div class="container">
     <div class="col-11 text-center">
-      <div class="container">
-        <div class="row">
           <div class="col-11 text-center">
-        <button class="yellow-btn btn-home">Proposer mon bureau</button>
+            <a class="yellow-btn btn-home" href="<%= new_workspace_path %>">Proposer mon bureau</a>
       </div>
     </div>
-  </div>
-  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('search-input');
+    const searchForm = document.getElementById('search-form');
+    const searchQuery = document.getElementById('search-query');
+
+    searchInput.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        event.preventDefault(); // Empêcher la soumission du formulaire par défaut
+        const inputValue = searchInput.value;
+        searchQuery.value = inputValue; // Mettre la valeur de recherche dans le champ caché
+        searchForm.submit(); // Envoyer le formulaire
+      }
+    });
+  });
+</script>

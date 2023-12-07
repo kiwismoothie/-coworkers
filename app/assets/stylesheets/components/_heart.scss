@@ -17,27 +17,32 @@
   width: 20px;
 
 }
-@media (max-width: 960px) {
-  /* Pour un écran < 960px, cette classe CSS s'applique */
-  .container {
-    width: 700px;
 
-  }
-}
 
-@media (max-width: 720px) {
-  /* Pour un écran < 720px, cette classe CSS s'applique */
-  .container {
-    width: 500px;
-  }
-}
+// J'AI ENLEVE CA POUR LE MOMENT CAR BUG
 
-@media (max-width: 540px) {
-  /* Pour un écran < 540px, cette classe CSS s'applique */
-  .container {
-    width: 300px;
-  }
-}
+// @media (max-width: 960px) {
+//   /* Pour un écran < 960px, cette classe CSS s'applique */
+//   .container {
+//     width: 700px;
+
+//   }
+// }
+
+// @media (max-width: 720px) {
+//   /* Pour un écran < 720px, cette classe CSS s'applique */
+//   .container {
+//     width: 500px;
+//   }
+// }
+
+// @media (max-width: 540px) {
+//   /* Pour un écran < 540px, cette classe CSS s'applique */
+//   .container {
+//     width: 300px;
+//   }
+// }
+
 
 // .heart {
 //   position: relative;

@@ -1,6 +1,6 @@
 .logo-carr {
-  margin: 3% auto;
-  width: 55%;
+  margin: 1% auto;
+  width: 45%;
 }
 
 /* Sur les tablettes */
@@ -21,12 +21,11 @@
   display: flex;
   align-items: center;
   width: 100%;
-  padding-top: 0px;
 }
 
 #search-input {
   width: 100%;
-  padding: 8px 20px;
+  padding: 6px 16px;
   margin-left: 10%;
   background-color: transparent;
   transition: transform 250ms ease-in-out;
@@ -64,7 +63,6 @@
   background-color: rgba(76, 175, 79, 0.733);
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
@@ -72,6 +70,7 @@
 
 #search-button:hover {
   background-color: #45a049;
+}
 
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap");
 
@@ -94,20 +93,6 @@
   box-sizing: border-box;
 }
 
-/* Remove default margin */
-body,
-h2,
-p {
-  margin: 0;
-}
-
-/* GLOBAL STYLES */
-body {
-  display: grid;
-  place-items: center;
-  height: 100vh;
-}
-
 .card h2 {
   font-size: 2.25rem;
   font-family: var(--font-title);
@@ -115,7 +100,7 @@ body {
   line-height: 1.1;
 }
 
-p {
+.card p {
   font-family: var(--font-text);
   font-size: 1rem;
   line-height: 1.5;
@@ -131,9 +116,9 @@ p {
 .card {
   display: grid;
   place-items: center;
-  width: 80vw;
-  max-width: 16.875rem;
-  height: 23.125rem;
+  width: 45vw;
+  max-width: 9.875rem;
+  height: 14.125rem;
   overflow: hidden;
   border-radius: 0.625rem;
   box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
@@ -156,13 +141,13 @@ p {
   flex-direction: column;
   justify-content: space-between;
   align-self: flex-end;
-  height: 55%;
+  height: 65%;
   padding: 12% 1.25rem 1.875rem;
   background: linear-gradient(
     180deg,
     hsla(0, 0%, 0%, 0) 0%,
-    hsla(0, 0%, 0%, 0.3) 10%,
-    hsl(0, 0%, 0%) 100%
+    hsla(0, 0%, 0%, 0.308) 10%,
+    hsla(0, 0%, 0%, 0.815) 100%
   );
 }
 
@@ -181,13 +166,13 @@ p {
   position: absolute;
   height: 0.4125rem;
   width: calc(100% + 1.25rem);
-  bottom: calc((1.25rem - 0.5rem) * -1);
+  bottom: calc((1.25rem - 0.55rem) * -1);
   left: -1.25rem;
   background-color: var(--brand-color);
 }
 
 .card__button {
-  padding: 0.75em 1.6em;
+  padding: 0.15em 0.80em;
   width: fit-content;
   width: -moz-fit-content; /* Prefijo necesario para Firefox  */
   font-variant: small-caps;
@@ -196,7 +181,7 @@ p {
   border: none;
   background-color: var(--brand-color);
   font-family: var(--font-title);
-  font-size: 1.125rem;
+  font-size: 1.025rem;
   color: var(--black);
 }
 
