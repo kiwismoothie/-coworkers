@@ -9,14 +9,16 @@
 <div class="container">
   <div class="row">
     <div class="col-10 text-center">
-        <form id="search-form" action="<%= workspaces_path %>" method="GET">
-          <input type="text" id="search-input" placeholder="Ou souhaitez vous télétravailler ?">
+      <form id="search-form" action="<%= workspaces_path %>" method="GET">
+        <div class="search-container">
+          <input type="text" id="search-input" class="search-input" placeholder="Où souhaitez-vous télétravailler ?">
           <!-- Ajouter un champ caché pour stocker la valeur de recherche -->
           <input type="hidden" id="search-query" name="query">
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 <div class="container">
   <div class="mt-4">
     <h2 style="font-size: 20px;">Populaire</h2>
@@ -91,14 +93,28 @@
     const searchInput = document.getElementById('search-input');
     const searchForm = document.getElementById('search-form');
     const searchQuery = document.getElementById('search-query');
+    let isSecondClick = false;
 
-    searchInput.addEventListener('keydown', function (event) {
-      if (event.key === 'Enter') {
-        event.preventDefault(); // Empêcher la soumission du formulaire par défaut
-        const inputValue = searchInput.value;
-        searchQuery.value = inputValue; // Mettre la valeur de recherche dans le champ caché
-        searchForm.submit(); // Envoyer le formulaire
+    // Ajouter un gestionnaire de clic à l'image de fond
+    searchInput.addEventListener('click', function () {
+      if (!isSecondClick) {
+        isSecondClick = true;
+        return;
       }
+
+      const inputValue = searchInput.value;
+
+      // Vérifier si le champ n'est pas vide
+      if (inputValue.trim() !== "") {
+        searchQuery.value = inputValue; // Mettre la valeur de recherche dans le champ caché
+        searchForm.submit(); // Envoyer le formulaire lorsque le deuxième clic est détecté et que le champ n'est pas vide
+        searchForm.reset(); // Réinitialiser le formulaire
+        isSecondClick = false; // Réinitialiser le compteur de clics
+      }
+    });
+
+    searchForm.addEventListener('submit', function (event) {
+      event.preventDefault(); // Empêcher la soumission du formulaire par défaut
     });
   });
 </script>
