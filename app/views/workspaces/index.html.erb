@@ -1,5 +1,5 @@
 
-   <!-- Titre -->
+<!-- Titre -->
     <div class="col-lg-8 col-md-8 col-12">
       <div class="mx-auto mt-2 mb-3">
         <h1 class="text-center">Workspaces</h1>
@@ -36,16 +36,17 @@
         </div>
       </div>
 
+
 <!-- map -->
-<div class="col-lg-4 col-md-4 col-12 d-md-block">
-  <div class="row">
-    <!-- Pour mobiles, afficher d'abord la carte en haut -->
-    <div class="col-12">
-      <div style="width: 300px; height: 600px;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="col-lg-4 col-md-4 col-12 d-md-block">
+      <div class="row">
+        <div class="col-12">
+          <div style="square" id="map"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 </div>
