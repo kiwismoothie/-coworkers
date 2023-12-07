@@ -17,12 +17,17 @@
     white-space: normal;
   }
 
-  .yellow-btn:hover {
+.btn-home {
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+.yellow-btn:hover {
     background-position: right center;
     /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
-  }
+}
 
   .yellow-btn:active {
     transform: scale(0.95);
