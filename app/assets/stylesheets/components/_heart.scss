@@ -1,0 +1,70 @@
+.heart-position{
+  position: relative;
+
+}
+
+.heart{
+  position: absolute;
+  top: 130px;
+  left: 220px;
+
+}
+
+.background{
+  background: white;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+
+}
+@media (max-width: 960px) {
+  /* Pour un écran < 960px, cette classe CSS s'applique */
+  .container {
+    width: 700px;
+
+  }
+}
+
+@media (max-width: 720px) {
+  /* Pour un écran < 720px, cette classe CSS s'applique */
+  .container {
+    width: 500px;
+  }
+}
+
+@media (max-width: 540px) {
+  /* Pour un écran < 540px, cette classe CSS s'applique */
+  .container {
+    width: 300px;
+  }
+}
+
+// .heart {
+//   position: relative;
+//   width: 100px;
+//   height: 100px;
+//   background-color: white;
+// }
+
+// .heart::before,
+// .heart::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   width: 52px;
+//   height: 80px;
+//   background: red;
+//   border-radius: 50% 50% 0 0;
+// }
+
+// .heart::before {
+//   left: 50px;
+//   transform: rotate(-45deg);
+//   transform-origin: 0 100%;
+// }
+
+// .heart::after {
+//   left: 0;
+//   transform: rotate(45deg);
+//   transform-origin: 100% 100%;
+// }
