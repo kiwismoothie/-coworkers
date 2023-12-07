@@ -1,9 +1,22 @@
-.marker {
-  border-bottom: 1px solid #e5e5e5;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+.font-marker{
+background-color: #EFE9E1;
+text-decoration: none;
+h3 {
+  font-size: 16px;
+  font-family: $body-font;
+}
+h4 {
   font-size: 14px;
-  font-family: sans-serif;
+  font-family: $body-font;
+}
+
+h5 {
+  font-size: 12px;
+  font-family: $body-font;
+}
+}
+
+
+.avatar2 {
+  border-radius: 50%;
 }
