@@ -1,0 +1,15 @@
+<div class="heart">
+  <% if @bookmark.persisted? %>
+    <%= link_to  [@bookmark], data: { turbo_method: :delete } do %>
+    <div class="background">
+      <i class="fa-solid fa-heart fa-lg" style="color: #f0ad00;"></i>
+    </div>
+    <% end %>
+  <% else %>
+    <%= link_to  [@workspace, @bookmark], data: { turbo_method: :post, action: "click->submit-heart#delay"} do %>
+      <div class="background">
+        <i class="fa-regular fa-heart fa-lg" style="color: #f0ad00;"></i>
+      </div>
+    <% end %>
+  <% end %>
+</div>
