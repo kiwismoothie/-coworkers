@@ -3,18 +3,27 @@ class WorkspacesController < ApplicationController
   def index
     @workspaces = Workspace.all
     if params[:query].present?
-      @workspaces = Workspace.global_search(params[:query])
+      # Use the Mapbox API to geocode the location
+      response = RestClient.get "https://api.mapbox.com/geocoding/v5/mapbox.places/#{params[:query]}.json?access_token=#{ENV['MAPBOX_API_KEY']}"
+      location_data = JSON.parse(response.body)
+
+      if location_data["features"].present?
+        # Extract the coordinates from the Mapbox response
+        coordinates = location_data["features"].first["center"]
+
+        # Filter workspaces within a 100km radius using coordinates
+        @workspaces = @workspaces.near([coordinates[1], coordinates[0]], 100, units: :km)
+      end
     end
-    # The `geocoded` scope filters only flats with coordinates
+
     @markers = @workspaces.geocoded.map do |workspace|
       {
         lat: workspace.latitude,
         lng: workspace.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {workspace: workspace}),
-        marker_html: render_to_string(partial: "marker", locals: {workspace: workspace})
+        info_window_html: render_to_string(partial: "info_window", locals: { workspace: workspace }),
+        marker_html: render_to_string(partial: "marker", locals: { workspace: workspace })
       }
     end
-
   end
 
   def show

@@ -113,6 +113,22 @@
       }
     });
 
+    // Ajouter un gestionnaire d'événements "keydown" sur le champ de recherche
+    searchInput.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        event.preventDefault(); // Empêcher la soumission du formulaire par défaut
+        const inputValue = searchInput.value;
+
+        // Vérifier si le champ n'est pas vide
+        if (inputValue.trim() !== "") {
+          searchQuery.value = inputValue; // Mettre la valeur de recherche dans le champ caché
+          searchForm.submit(); // Envoyer le formulaire lorsque l'utilisateur appuie sur "Enter" et que le champ n'est pas vide
+          searchForm.reset(); // Réinitialiser le formulaire
+          isSecondClick = false; // Réinitialiser le compteur de clics
+        }
+      }
+    });
+
     searchForm.addEventListener('submit', function (event) {
       event.preventDefault(); // Empêcher la soumission du formulaire par défaut
     });
