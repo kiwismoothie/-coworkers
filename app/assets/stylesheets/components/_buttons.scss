@@ -1,49 +1,49 @@
 .yellow-btn {
-    padding: 10px 20px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    border-radius: 10px;
-    display: block;
-    border: 0px;
-    font-weight: 700;
-    box-shadow: 0px 0px 14px -7px #FFB116;
-    background-image: linear-gradient(45deg, #FC9100 0%, #FFB116  51%, #FC9100  100%);
-    cursor: pointer;
-    opacity: 0.9;
-    width: 100%;
-    white-space: normal;
-  }
+  padding: 10px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #FFB116;
+  background-image: linear-gradient(45deg, #FC9100 0%, #FFB116  51%, #FC9100  100%);
+  cursor: pointer;
+  opacity: 0.9;
+  width: 100%;
+  white-space: normal;
+}
 
 .btn-home {
-  margin-top: 10%;
-  margin-left: 10%;
+margin-top: 10%;
+margin-left: 10%;
 }
 
 .yellow-btn:hover {
-    background-position: right center;
-    /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 
-  .yellow-btn:active {
-    transform: scale(0.95);
-  }
+.yellow-btn:active {
+  transform: scale(0.95);
+}
 
 .delete-btn {
-  background-color: #8E959F;
-  box-shadow: 0px 0px 14px -7px #494949;
-  transition: 0.5s;
-  opacity: 0.6;
-  color: white;
-  margin-top: 30px;
-  padding: 10px 20px;
-  border-radius: 10px;
-  text-align: center;
-  text-transform: uppercase;
-  width: 100%;
-  font-weight: 700;
+background-color: #8E959F;
+box-shadow: 0px 0px 14px -7px #494949;
+transition: 0.5s;
+opacity: 0.6;
+color: white;
+margin-top: 30px;
+padding: 10px 20px;
+border-radius: 10px;
+text-align: center;
+text-transform: uppercase;
+width: 100%;
+font-weight: 700;
 }
