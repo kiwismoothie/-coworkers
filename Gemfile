@@ -78,3 +78,6 @@ end
 
 # Gemfile
 gem "geocoder"
+
+# Pour geolocalisation 100km autour de l'adresse
+gem 'rest-client'
