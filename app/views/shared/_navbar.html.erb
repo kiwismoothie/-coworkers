@@ -1,23 +1,25 @@
-<div class="navbar navbar-expand px-2">
-  <div class="container-fluid">
-    <ul class="navbar-nav me-auto">
-      <li class="nav-item">
-        <%= image_tag('svg/Home-icon-gray.svg', class: "nav-link", style: "width: 50%;") %>
+<div class="navbar navbar-expand px-4">
+  <div class="container">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item" style="margin-left: 25px;">
+        <%= link_to image_tag("#{@current_page == 'home' ? 'svg/Home-icon-orange.svg' : 'svg/Home-icon-gray.svg'}", class: "nav-link", style: "width: 70%;"), root_path %>
       </li>
       <li class="nav-item">
-        <%= image_tag('svg/Heart-icon-gray.svg', class: "nav-link", style: "width: 50%;") %>
+        <%= image_tag('svg/Heart-icon-gray.svg', class: "nav-link", style: "width: 70%;") %>
       </li>
       <li class="nav-item">
-        <%= image_tag('svg/Laptop-icon-gray.svg', class: "nav-link", style: "width: 50%;") %>
+        <%= image_tag('svg/Laptop-icon-gray.svg', class: "nav-link", style: "width: 70%;") %>
       </li>
       <li class="nav-item">
-        <%= image_tag('svg/Chat-icon-gray.svg', class: "nav-link", style: "width: 50%;") %>
+        <%= image_tag('svg/Chat-icon-gray.svg', class: "nav-link", style: "width: 70%;") %>
       </li>
       <li class="nav-item">
-        <% if user_signed_in? %>
-          <%= image_tag('svg/Profil-icon-gray.svg', class: "nav-link", style: "width: 50%;") %>
+        <% if devise_controller? %>
+          <%= link_to image_tag('svg/Profil-icon-orange.svg', class: "nav-link", style: "width: 70%;"), user_session_path %>
+        <% elsif user_signed_in? %>
+          <%= link_to image_tag('svg/Profil-icon-gray.svg', class: "nav-link", style: "width: 70%;"), edit_user_registration_path %>
         <% else %>
-          <%= image_tag('svg/Profil-icon-gray.svg', class: "nav-link", style: "width: 50%;") %>
+          <%= link_to image_tag('svg/Profil-icon-gray.svg', class: "nav-link", style: "width: 70%;"), user_session_path %>
         <% end %>
       </li>
     </ul>

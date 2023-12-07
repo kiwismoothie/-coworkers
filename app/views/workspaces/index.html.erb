@@ -25,17 +25,16 @@
               <a href="<%= workspace_path(workspace) %>">
                 <div class="card-trip card-trip-list custom-link">
                   <% workspace.photos.each do |photo| %>
-                    <%= cl_image_tag photo.key, width: 340, crop: :fill %>
-                  <% end  %>
-                  <div class="card-trip-infos">
+                    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+                    <% end  %>
+                    <div class="card-trip-infos">
                     <div>
-                      <h2><%= workspace.name %> </h2>  </a>
-              </div>
+                      <%= workspace.name %>
+                  <% end %>  </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <% end %>
-
 
 
 <!-- map -->
