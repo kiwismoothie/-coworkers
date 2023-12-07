@@ -20,6 +20,8 @@ class WorkspacesController < ApplicationController
   def show
     @workspace = Workspace.find(params[:id])
     @booking = Booking.new
+    @bookmark = Bookmark.find_by(workspace: @workspace, user: current_user) || Bookmark.new
+
   end
 
   def new

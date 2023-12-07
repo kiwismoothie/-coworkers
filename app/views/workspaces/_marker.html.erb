@@ -1,5 +1,4 @@
-<div class="marker">
-<% if workspace.photos.any? %>
-  <%= image_tag workspace.photos.first, height: 30, width: 30, alt: "Logo" %>
+
+<% if workspace.user.photos.any? %>
+  <%= image_tag workspace.user.photos.first, height: 30, width: 30, class: "avatar2", alt: "Photo" %>
 <% end %>
-</div>
