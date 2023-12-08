@@ -1,0 +1,80 @@
+.chat-container {
+  margin-top: 5%;
+  max-height: 80vh;
+  overflow-y: auto; /* Utilisez "auto" au lieu de "scroll" */
+}
+
+.chat-container::-webkit-scrollbar {
+  width: 0.5em; /* Largeur de la barre de défilement */
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background-color: #b3b3b3; /* Couleur de la poignée de défilement */
+}
+
+.msg-form {
+  position: fixed;
+  bottom: 0;
+  width: 90%;
+  margin-bottom: 110px;
+}
+
+.msg-content {
+  width: 80%;
+  margin-right: 5px;
+}
+
+.message-box-user1, .message-box-user2 {
+  width: fit-content;
+  max-width: 40%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: #fff;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.message-box-user1 {
+  background-color: #808080; /* Gris foncé pour user1 */
+}
+
+.message-box-user2 {
+  background-color: #3F7CAF; /* Bleu pour user2 */
+}
+
+.message-container {
+  display: flex;
+}
+
+.message-container.user1 {
+  justify-content: flex-start;
+}
+
+.message-container.user2 {
+  justify-content: flex-end;
+}
+
+.chatrooms-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.chatroom {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.chatroom img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.chatroom-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}

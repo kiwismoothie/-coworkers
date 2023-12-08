@@ -16,4 +16,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+  scope :all_except, ->(user) { where.not(id: user.id) }
+  after_create_commit -> { broadcast_append_to "users" }
 end
