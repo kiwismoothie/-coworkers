@@ -20,10 +20,11 @@
   <div class="card-product-infos">
     <div class="row">
       <h2>Mes réservations</h2>
+       <br>
       <ul> <% current_user.bookings.each do |booking| %>
         <li> <%= booking.workspace.name %> </li>
         <li> <%= booking.start_date %> au <%= booking.end_date %> </li>
-        <li> <%= booking.status %> </li>
+        <li>Statut : <%= booking.status %> </li>
       <% end %></ul>
   </div>
 </div>
@@ -32,16 +33,18 @@
 <div class="card-product3">
   <div class="card-product-infos">
     <div class="row">
+
       <h2>Mes workspaces</h2>
       <ul><% current_user.bookings_workspaces.each do |booking| %>
         <li> <%= booking.workspace.name %> </li>
         <li> <%= booking.start_date %> au <%= booking.end_date %> </li>
         <li><% if booking.status == "pending" %>
                 <%= link_to "Accept", accept_booking_path(booking), data:{turbo_method: :patch}, class: "yellow-btn-mini " %>
-                <%= link_to "Decline", decline_booking_path(booking), data:{turbo_method: :patch}, class: "yellow-btn-mini " %>
+                <%= link_to "Decline", decline_booking_path(booking), data:{turbo_method: :patch}, class: "yellow-btn-mini-clair" %>
               <% else %>
-                <%= booking.status %>
+                Statut : <%= booking.status %>
               <% end %><li>
+                 <br>
       <% end %></ul>
   </div>
 </div>
