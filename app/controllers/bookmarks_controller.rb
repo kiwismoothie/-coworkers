@@ -1,10 +1,12 @@
 class BookmarksController < ApplicationController
 
   def index
+    @current_page = 'bookmarks'
     @bookmarks = Bookmark.all
   end
 
   def show
+    @current_page = 'bookmarks'
     @bookmark = Bookmark.find_by(id: params[:id])
   end
 
