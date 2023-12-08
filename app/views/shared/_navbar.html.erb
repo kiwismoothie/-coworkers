@@ -2,16 +2,16 @@
   <div class="container">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item" style="margin-left: 25px;">
-        <%= link_to image_tag("#{@current_page == 'home' ? 'svg/Home-icon-orange.svg' : 'svg/Home-icon-gray.svg'}", class: "nav-link", style: "width: 70%;"), root_path %>
+        <%= link_to image_tag(@current_page == 'home' ? 'svg/Home-icon-orange.svg' : 'svg/Home-icon-gray.svg', class: "nav-link", style: "width: 70%;"), root_path %>
       </li>
       <li class="nav-item">
-        <%= image_tag('svg/Heart-icon-gray.svg', class: "nav-link", style: "width: 70%;") %>
+        <%= link_to image_tag(@current_page == 'bookmarks' ? 'svg/Heart-icon-orange.svg' : 'svg/Heart-icon-gray.svg', class: "nav-link", style: "width: 70%;"), bookmarks_path %>
       </li>
       <li class="nav-item">
-        <%= image_tag('svg/Laptop-icon-gray.svg', class: "nav-link", style: "width: 70%;") %>
+        <%= link_to image_tag(@current_page == 'dashboard' ? 'svg/Laptop-icon-orange.svg' : 'svg/Laptop-icon-gray.svg', class: "nav-link", style: "width: 70%;"), dashboard_path %>
       </li>
       <li class="nav-item">
-        <%= image_tag('svg/Chat-icon-gray.svg', class: "nav-link", style: "width: 70%;") %>
+        <%= link_to image_tag(@current_page == 'chatrooms' ? 'svg/Chat-icon-orange.svg' : 'svg/Chat-icon-gray.svg', class: "nav-link", style: "width: 70%;"), chatrooms_path %>
       </li>
       <li class="nav-item">
         <% if devise_controller? %>

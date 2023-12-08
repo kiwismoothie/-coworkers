@@ -1,0 +1,23 @@
+<div class="container text-center mt-4">
+    <div class="col-lg-8 col-md-8 col-12">
+      <div class="mx-auto mt-4">
+        <h1 class="text-center display-4" style="text-shadow: 2px 2px 4px rgba(5, 0, 0, 0.2);">Chatrooms</h1>
+      </div>
+    </div>
+  <%= turbo_stream_from "chatrooms" %>
+  <div id="chatrooms">
+    <% @user1_chatrooms.each do |chatroom| %>
+      <div class="chatroom mt-3">
+        <%= cl_image_tag(chatroom.user2.photos.last.key, height: 70, width: 70, crop: :fill) if chatroom.user1.photos.attached? %>
+       <strong><h4> <%= link_to chatroom.user2.first_name, chatroom_path(chatroom), class: "chatroom-link" %></strong></h4>
+      </div>
+    <% end %>
+
+    <% @user2_chatrooms.each do |chatroom| %>
+      <div class="chatroom">
+        <%= cl_image_tag(chatroom.user1.photos.last.key, height: 70, width: 70, crop: :fill) if chatroom.user2.photos.attached? %>
+       <strong><h4> <%= link_to chatroom.user1.first_name, chatroom_path(chatroom), class: "chatroom-link" %></strong></h4>
+      </div>
+    <% end %>
+  </div>
+</div>
