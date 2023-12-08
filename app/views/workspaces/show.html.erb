@@ -1,6 +1,7 @@
-<%= image_tag @workspace.user.photos.first, height: 30, width: 30, class: "avatar2", alt: "Photo" %>
 <div class="container-fluid">
-    <h1><%= @workspace.name %></h1>
+      <div class="mx-auto mt-4">
+        <h1 class="text-center display-4" style="text-shadow: 2px 2px 4px rgba(5, 0, 0, 0.2);"><%= @workspace.name %> <%= image_tag @workspace.user.photos.first, height: 50, width: 50, class: "avatar2", alt: "Photo" %></h1>
+      </div>
         <div class="col-lg-4 col-md-4 col-12 pb-5 mb-5"> <!-- Réduisez la largeur des cartes ici -->
           <div class="card-trip card-trip-list custom-link">
             <div class="row heart-position">
@@ -12,7 +13,7 @@
                       <li> Adresse : <%= @workspace.address %> </li>
                       <li> Nombre de places disponibles : <%= @workspace.capacity %> </li>
 
-                       <div class= "d-flex justify-content-between"> Connexion internet: <% if @workspace.internet_connexion%>
+                      <div class= "d-flex justify-content-between"> Fibre : <% if @workspace.internet_connexion%>
                       <div><i class="fa-solid fa-check fa-beat fa-2xl" style="color: #004792;"></i></div>
                       <% else %>
                       <div><i class="fa-solid fa-xmark fa-beat fa-2xl" style="color: #004792;"></i></div>
@@ -23,15 +24,15 @@
                       <% else %>
                       <div><i class="fa-solid fa-xmark fa-beat fa-2xl" style="color: #004792;"></i></div>
                       <% end %></div>
-                      <li> Présence d'aimaux : <%= @workspace.animals %> </li>
+                      <li> Présence d'animaux : <%= @workspace.animals %> </li>
                     </ul>
                   </div>
-                  <%= simple_form_for([@workspace, @booking]) do |f| %>
-                  <div>Date booking</div>
-                  <%= f.input :start_date, label:false,
-                    as: :string,
-                    input_html: { data: { controller: "datepicker" } } %>
-                    <%= f.button :submit, class: "btn yellow-btn" %>
+                    <%= simple_form_for([@workspace, @booking]) do |f| %>
+                      <div>Date souhaitée :</div>
+                      <%= f.input :start_date, label: false,
+                        as: :string,
+                        input_html: { data: { controller: "datepicker" } } %>
+                      <%= f.button :submit, "Envoyer ma demande", class: "btn yellow-btn" %>
                     <% end %>
             </div>
           </div>
