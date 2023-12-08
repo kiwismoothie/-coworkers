@@ -21,6 +21,7 @@ class WorkspacesController < ApplicationController
     @workspaces = Workspace.all
     @workspace = Workspace.find(params[:id])
     @booking = Booking.new
+    @bookmark = Bookmark.new
   end
 
   def new
