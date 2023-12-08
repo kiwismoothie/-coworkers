@@ -5,7 +5,7 @@
         <%= link_to image_tag("#{@current_page == 'home' ? 'svg/Home-icon-orange.svg' : 'svg/Home-icon-gray.svg'}", class: "nav-link", style: "width: 70%;"), root_path %>
       </li>
       <li class="nav-item">
-        <%= image_tag('svg/Heart-icon-gray.svg', class: "nav-link", style: "width: 70%;") %>
+        <%= link_to image_tag(controller_name == "bookmarks" ? 'svg/Heart-icon-orange.svg' : 'svg/Heart-icon-gray.svg', class: "nav-link", style: "width: 70%;"), bookmarks_path %>
       </li>
       <li class="nav-item">
         <%= image_tag('svg/Laptop-icon-gray.svg', class: "nav-link", style: "width: 70%;") %>
