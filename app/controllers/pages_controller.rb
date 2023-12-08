@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @current_page = 'home'
+    @workspaces = Workspace.all
   end
 end

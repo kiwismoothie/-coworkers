@@ -35,16 +35,16 @@
     <div class="col-lg-8 col-md-8 col-12">
       <div class="container">
         <div class="row">
-    <% @workspaces.each do |workspace| %>
+          <% @workspaces.each do |workspace| %>
             <div class="col-lg-4 col-md-4 col-12 mb-5"> <!-- Réduisez la largeur des cartes ici -->
-        <a href="<%= workspace_path(workspace) %>" class="custom-link">
+              <a href="<%= workspace_path(workspace) %>" class="custom-link">
                 <div class="card-trip card-trip-list custom-link">
-        <a href="<%= workspace_path(workspace) %>" class="custom-link">
-          <% workspace.photos.each do |photo| %>
+                <a href="<%= workspace_path(workspace) %>" class="custom-link">
+                <% workspace.photos.each do |photo| %>
             <%= cl_image_tag photo.key, height: 400, width: 500, crop: :fill %>
           <% end %>
-          <div class="card-trip-infos">
-            <%= workspace.name %>
+            <div class="card-trip-infos">
+              <%= workspace.name %>
           </div>
                 </div>
               </a>

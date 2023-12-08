@@ -159,7 +159,7 @@ booking1 = Booking.new(
   rating: 5,
   start_date: "Thu, 30 Nov 2023",
   end_date: "Tue, 12 Dec 2023",
-  status: "accepted"
+  status: "pending"
 )
 booking1.save!
 
@@ -179,7 +179,7 @@ booking3 = Booking.new(
   rating: 5,
   start_date: "Thu, 30 Nov 2023",
   end_date: "Tue, 12 Dec 2023",
-  status: "accepted"
+  status: "pending"
 )
 booking3.save!
 
