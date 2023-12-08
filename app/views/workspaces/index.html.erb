@@ -1,53 +1,115 @@
-
-<!-- Titre -->
+<div class="container">
+  <div class="row">
     <div class="col-lg-8 col-md-8 col-12">
-      <div class="mx-auto mt-2 mb-3">
-        <h1 class="text-center">Workspaces</h1>
+      <div class="mx-auto mt-4">
+        <h1 class="text-center display-4" style="text-shadow: 2px 2px 4px rgba(5, 0, 0, 0.2);">Workspaces</h1>
       </div>
-      <div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: workspaces_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Type a keyword"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
+    </div>
+<div class="container">
+  <div class="row">
+    <div class="col-10 text-center mt-2 mb-3">
+      <form id="search-form" action="<%= workspaces_path %>" method="GET">
+        <div class="search-container">
+          <input type="text" id="search-input" class="search-input" placeholder="Où souhaitez-vous télétravailler ?">
+          <!-- Ajouter un champ caché pour stocker la valeur de recherche -->
+          <input type="hidden" id="search-query" name="query">
+        </div>
+      </form>
+    </div>
   </div>
 </div>
-<div class="container">
-  <!-- cards -->
+<div class="container-fluid">
+  <div class="row">
+    <!-- Pour mobiles, afficher d'abord la carte en haut -->
+    <div class="col-12 d-md-none mb-5">
+      <div style="width: 100%; height: 500px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Cartes à gauche -->
+    <div class="col-lg-8 col-md-8 col-12">
       <div class="container">
         <div class="row">
           <% @workspaces.each do |workspace| %>
             <div class="col-lg-4 col-md-4 col-12 mb-5"> <!-- Réduisez la largeur des cartes ici -->
-              <a href="<%= workspace_path(workspace) %>">
+              <a href="<%= workspace_path(workspace) %>" class="custom-link">
                 <div class="card-trip card-trip-list custom-link">
-                  <% workspace.photos.each do |photo| %>
-                    <%= cl_image_tag photo.key, width: 340, crop: :fill %>
-                  <% end  %>
-                  <div class="card-trip-infos">
-                    <div>
-                      <h2><%= workspace.name %> </h2>  </a>
-              </div>
-        </div>
-      </div>
-    </div>
-    <% end %>
-
-
-
-<!-- map -->
-    <div class="col-lg-4 col-md-4 col-12 d-md-block">
-      <div class="row">
-        <div class="col-12">
-          <div style="square" id="map"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+                <a href="<%= workspace_path(workspace) %>" class="custom-link">
+                <% workspace.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 400, width: 500, crop: :fill %>
+          <% end %>
+            <div class="card-trip-infos">
+              <%= workspace.name %>
           </div>
+                </div>
+              </a>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
+
+    <!-- Carte à droite (sticky) avec une largeur ajustée -->
+    <div class="col-lg-4 col-md-4 d-none d-md-block">
+      <div style="position: sticky; top: 20px; height: 100vh;"> <!-- Réglage de la hauteur à 100% de la hauteur de la fenêtre -->
+        <!-- Pour les tablettes et les écrans plus grands, afficher la carte à droite -->
+        <div style="width: 100%; height: 100%;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('search-input');
+    const searchForm = document.getElementById('search-form');
+    const searchQuery = document.getElementById('search-query');
+    let isSecondClick = false;
+
+    // Ajouter un gestionnaire de clic à l'image de fond
+    searchInput.addEventListener('click', function () {
+      if (!isSecondClick) {
+        isSecondClick = true;
+        return;
+      }
+
+      const inputValue = searchInput.value;
+
+      // Vérifier si le champ n'est pas vide
+      if (inputValue.trim() !== "") {
+        searchQuery.value = inputValue; // Mettre la valeur de recherche dans le champ caché
+        searchForm.submit(); // Envoyer le formulaire lorsque le deuxième clic est détecté et que le champ n'est pas vide
+        searchForm.reset(); // Réinitialiser le formulaire
+        isSecondClick = false; // Réinitialiser le compteur de clics
+      }
+    });
+
+    // Ajouter un gestionnaire d'événements "keydown" sur le champ de recherche
+    searchInput.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        event.preventDefault(); // Empêcher la soumission du formulaire par défaut
+        const inputValue = searchInput.value;
+
+        // Vérifier si le champ n'est pas vide
+        if (inputValue.trim() !== "") {
+          searchQuery.value = inputValue; // Mettre la valeur de recherche dans le champ caché
+          searchForm.submit(); // Envoyer le formulaire lorsque l'utilisateur appuie sur "Enter" et que le champ n'est pas vide
+          searchForm.reset(); // Réinitialiser le formulaire
+          isSecondClick = false; // Réinitialiser le compteur de clics
+        }
+      }
+    });
+
+    searchForm.addEventListener('submit', function (event) {
+      event.preventDefault(); // Empêcher la soumission du formulaire par défaut
+    });
+  });
+</script>

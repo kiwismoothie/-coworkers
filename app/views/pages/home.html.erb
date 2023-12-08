@@ -1,1 +1,136 @@
-<img class="logo-carr" src="https://c.animaapp.com/Evbud771/img/logo-carr-.png" />
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center logo-carr">
+      <img class="img-fluid" src="https://i.ibb.co/CBtyrxS/logo-coworkers-6.png" alt="Coworkers-Logo">
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-10 text-center">
+      <form id="search-form" action="<%= workspaces_path %>" method="GET">
+        <div class="search-container">
+          <input type="text" id="search-input" class="search-input" placeholder="Où souhaitez-vous télétravailler ?">
+          <!-- Ajouter un champ caché pour stocker la valeur de recherche -->
+          <input type="hidden" id="search-query" name="query">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="mt-4">
+    <h2 style="font-size: 20px;">Populaires</h2>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+<div class="col-5 col-md-5 mb-4">
+  <!-- Utilisation de col-12 pour la disposition sur mobile et col-md-6 pour la disposition sur les écrans plus larges -->
+  <a href="<%= workspace_path(@workspaces.third)%>"> <!-- Ajout du lien autour de la carte -->
+    <article class="card">
+      <img
+        class="card__background"
+        src="https://i.ibb.co/p1FWWSP/bureau-de-travail-avec-verriere.jpg"
+        alt="Photo d'un bureau de travail avec verrière"
+        width="1920"
+        height="2193"
+      />
+      <div class="card__content | flow">
+        <div class="card__content--container | flow">
+          <h2 style="font-size: 14px;" class="card__title">Chez Kévin</h2>
+          <p style="font-size: 9px;" class="card__description">
+            Ambiance Cosy - Fumeur accepté - Deux chats gentils
+          </p>
+        </div>
+        <button style="font-size: 9px;" class="card__button">J'aime</button>
+      </div>
+    </article>
+  </a>
+</div>
+
+    <div class="col-5 col-md-5 mb-4"> <!-- Utilisation de col-12 pour la disposition sur mobile et col-md-6 pour la disposition sur les écrans plus larges -->
+    <a href="<%= workspace_path(@workspaces.fifth)%>"> <!-- Ajout du lien autour de la carte -->
+
+      <article class="card">
+        <img
+          class="card__background"
+          src="https://i.ibb.co/Q9Pzk5z/Large-SCH-2021-EPICERIE-mannequin-TELETRAVAIL-070.jpg"
+          alt="Photo d'un bureau en hauteur"
+          width="1920"
+          height="2193"
+        />
+        <div class="card__content | flow">
+          <div class="card__content--container | flow">
+            <h2 style="font-size: 14px;" class="card__title">Chez Déborah</h2>
+            <p style="font-size: 9px;"  class="card__description">
+              Ambiance studieuse - Fumeur refusé - Un chien mignon
+            </p>
+          </div>
+          <button style="font-size: 9px;" class="card__button">J'aime</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+</a>
+<div class="container">
+  <div class="mt-3">
+    <h2 style="font-size: 35px;">Télétravaillez<br />Autrement</h2>
+  </div>
+</div>
+<div class="container">
+    <div class="col-11 text-center">
+          <div class="col-11 text-center">
+            <a class="yellow-btn btn-home" href="<%= new_workspace_path %>">Proposer mon bureau</a>
+      </div>
+    </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('search-input');
+    const searchForm = document.getElementById('search-form');
+    const searchQuery = document.getElementById('search-query');
+    let isSecondClick = false;
+
+    // Ajouter un gestionnaire de clic à l'image de fond
+    searchInput.addEventListener('click', function () {
+      if (!isSecondClick) {
+        isSecondClick = true;
+        return;
+      }
+
+      const inputValue = searchInput.value;
+
+      // Vérifier si le champ n'est pas vide
+      if (inputValue.trim() !== "") {
+        searchQuery.value = inputValue; // Mettre la valeur de recherche dans le champ caché
+        searchForm.submit(); // Envoyer le formulaire lorsque le deuxième clic est détecté et que le champ n'est pas vide
+        searchForm.reset(); // Réinitialiser le formulaire
+        isSecondClick = false; // Réinitialiser le compteur de clics
+      }
+    });
+
+    // Ajouter un gestionnaire d'événements "keydown" sur le champ de recherche
+    searchInput.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        event.preventDefault(); // Empêcher la soumission du formulaire par défaut
+        const inputValue = searchInput.value;
+
+        // Vérifier si le champ n'est pas vide
+        if (inputValue.trim() !== "") {
+          searchQuery.value = inputValue; // Mettre la valeur de recherche dans le champ caché
+          searchForm.submit(); // Envoyer le formulaire lorsque l'utilisateur appuie sur "Enter" et que le champ n'est pas vide
+          searchForm.reset(); // Réinitialiser le formulaire
+          isSecondClick = false; // Réinitialiser le compteur de clics
+        }
+      }
+    });
+
+    searchForm.addEventListener('submit', function (event) {
+      event.preventDefault(); // Empêcher la soumission du formulaire par défaut
+    });
+  });
+</script>
