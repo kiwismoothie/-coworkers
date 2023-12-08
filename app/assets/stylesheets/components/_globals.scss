@@ -7,3 +7,19 @@ body {
 a {
   text-decoration: none;
 }
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Pour les écrans plus grands (comme les ordinateurs de bureau) */
+@media (min-width: 768px) {
+  .centered-container {
+    height: auto;
+    min-height: 100vh;
+    padding: 20px;
+  }
+}
