@@ -37,8 +37,8 @@
         <li> <%= booking.workspace.name %> </li>
         <li> <%= booking.start_date %> au <%= booking.end_date %> </li>
         <li><% if booking.status == "pending" %>
-                <%= link_to "Accept", accept_booking_path(booking), data:{turbo_method: :patch}, class: "btn btn-info" %>
-                <%= link_to "Decline", decline_booking_path(booking), data:{turbo_method: :patch}, class: "btn btn-danger" %>
+                <%= link_to "Accept", accept_booking_path(booking), data:{turbo_method: :patch}, class: "yellow-btn-mini " %>
+                <%= link_to "Decline", decline_booking_path(booking), data:{turbo_method: :patch}, class: "yellow-btn-mini " %>
               <% else %>
                 <%= booking.status %>
               <% end %><li>
