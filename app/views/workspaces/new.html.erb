@@ -1,5 +1,5 @@
 <div class="text-center mx-auto mt-2 mb-3">
-    <h1>Ajouter un Workspace</h1>
+    <h1>Ajouter un bureau</h1>
 </div>
 <div class="container sm-12 m-6">
     <%= simple_form_for [@workspace] do |f| %>
@@ -24,7 +24,7 @@
               </div>
               <div class="workspace-label">Animaux:</div>
             <%= f.input :animals, collection: [ "aucun", "chat", "chien"], label: false %>
-            <%= f.button :submit, class: 'container btn yellow-btn btn-lg btn-block text-white'%>
+            <%= f.button :submit, "Proposer mon bureau", class: 'container btn yellow-btn btn-lg btn-block text-white' %>
             </div>
         <% end %>
 </div>

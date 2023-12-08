@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 Bookmark.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
 Booking.destroy_all
 Workspace.destroy_all
 User.destroy_all
@@ -157,7 +159,7 @@ booking1 = Booking.new(
   rating: 5,
   start_date: "Thu, 30 Nov 2023",
   end_date: "Tue, 12 Dec 2023",
-  status: "accepted"
+  status: "pending"
 )
 booking1.save!
 
@@ -177,7 +179,7 @@ booking3 = Booking.new(
   rating: 5,
   start_date: "Thu, 30 Nov 2023",
   end_date: "Tue, 12 Dec 2023",
-  status: "accepted"
+  status: "pending"
 )
 booking3.save!
 
@@ -190,3 +192,14 @@ booking4 = Booking.new(
   status: "accepted"
 )
 booking4.save!
+
+chatroom1 = Chatroom.create!(user1_id: Kevin.id, user2_id: Deborah.id)
+chatroom2 = Chatroom.create!(user1_id: Laura.id, user2_id: Valerian.id)
+
+# Création de messages fictifs pour la première chatroom
+Message.create!(chatroom_id: chatroom1.id, user_id: Kevin.id, content: "Salut, comment ça va ?")
+Message.create!(chatroom_id: chatroom1.id, user_id: Deborah.id, content: "Ça va bien, merci ! Et toi ?")
+
+# Création de messages fictifs pour la deuxième chatroom
+Message.create!(chatroom_id: chatroom2.id, user_id: Laura.id, content: "Hello ! On se voit demain ?")
+Message.create!(chatroom_id: chatroom2.id, user_id: Valerian.id, content: "Oui, à quelle heure ?")
