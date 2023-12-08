@@ -6,7 +6,7 @@
     </div>
     <% end %>
   <% else %>
-    <%= link_to  [@workspace, @bookmark], data: { turbo_method: :post, action: "click->submit-heart#delay"} do %>
+    <%= link_to  [@workspace, @bookmark], data: { turbo_method: :post} do %>
       <div class="background">
         <i class="fa-regular fa-heart fa-lg" style="color: #f0ad00;"></i>
       </div>

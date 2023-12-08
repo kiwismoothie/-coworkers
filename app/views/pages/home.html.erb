@@ -21,14 +21,14 @@
 </div>
 <div class="container">
   <div class="mt-4">
-    <h2 style="font-size: 20px;">Populaire</h2>
+    <h2 style="font-size: 20px;">Populaires</h2>
   </div>
 </div>
 <div class="container">
   <div class="row">
 <div class="col-5 col-md-5 mb-4">
   <!-- Utilisation de col-12 pour la disposition sur mobile et col-md-6 pour la disposition sur les écrans plus larges -->
-  <a href="<%= workspaces_path%>/26"> <!-- Ajout du lien autour de la carte -->
+  <a href="<%= workspace_path(@workspaces.third)%>"> <!-- Ajout du lien autour de la carte -->
     <article class="card">
       <img
         class="card__background"
@@ -51,7 +51,7 @@
 </div>
 
     <div class="col-5 col-md-5 mb-4"> <!-- Utilisation de col-12 pour la disposition sur mobile et col-md-6 pour la disposition sur les écrans plus larges -->
-    <a href="<%= workspaces_path%>/29"> <!-- Ajout du lien autour de la carte -->
+    <a href="<%= workspace_path(@workspaces.fifth)%>"> <!-- Ajout du lien autour de la carte -->
 
       <article class="card">
         <img
