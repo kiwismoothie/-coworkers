@@ -114,19 +114,11 @@
 /* CARD COMPONENT */
 
 .card {
-  display: grid;
-  place-items: center;
-  width: 45vw;
-  max-width: 9.875rem;
-  height: 14.125rem;
-  overflow: hidden;
-  border-radius: 0.625rem;
+  width: 180px;
+  height: 250px;
+  border-radius: 10px;
   box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
-}
-
-.card > * {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+  overflow: hidden;
 }
 
 .card__background {
@@ -136,121 +128,43 @@
 }
 
 .card__content {
-  --flow-space: 0.9375rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-self: flex-end;
-  height: 65%;
-  padding: 12% 1.25rem 1.875rem;
   background: linear-gradient(
     180deg,
     hsla(0, 0%, 0%, 0) 0%,
-    hsla(0, 0%, 0%, 0.308) 10%,
     hsla(0, 0%, 0%, 0.815) 100%
   );
-}
-
-.card__content--container {
-  --flow-space: 1.25rem;
-}
-
-.card__title {
-  position: relative;
-  width: fit-content;
-  width: -moz-fit-content; /* Prefijo necesario para Firefox  */
-}
-
-.card__title::after {
-  content: "";
   position: absolute;
-  height: 0.4125rem;
-  width: calc(100% + 1.25rem);
-  bottom: calc((1.25rem - 0.55rem) * -1);
-  left: -1.25rem;
-  background-color: var(--brand-color);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 10px 10px 10px;
+  }
+
+h2.card__title {
+  font-size: 16px;
 }
 
-.card__button {
-  padding: 0.15em 0.80em;
-  width: fit-content;
-  width: -moz-fit-content; /* Prefijo necesario para Firefox  */
-  font-variant: small-caps;
-  font-weight: bold;
-  border-radius: 0.45em;
-  border: none;
-  background-color: var(--brand-color);
-  font-family: var(--font-title);
-  font-size: 1.025rem;
-  color: var(--black);
+p.card__description {
+  font-size: 12px;
 }
 
-.card__button:focus {
-  outline: 2px solid black;
-  outline-offset: -5px;
+.divider{
+  height: 4px;
+  width: 50px;
+  background-color: #fb9100;
+  margin-bottom: 10px;
 }
 
-@media (any-hover: hover) and (any-pointer: fine) {
-  .card__content {
-    transform: translateY(62%);
-    transition: transform 400ms ease-out;
-    transition-delay: 400ms;
-  }
+.card-list{
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+  padding: 10px;
+  -webkit-overflow-scrolling: touch;
+}
 
-  .card__title::after {
-    opacity: 0;
-    transform: scaleX(0);
-    transition: opacity 1000ms ease-in, transform 500ms ease-out;
-    transition-delay: 400ms;
-    transform-origin: right;
-  }
-
-  .card__background {
-    transition: transform 400ms ease-in;
-  }
-
-  .card__content--container > :not(.card__title),
-  .card__button {
-    opacity: 0;
-    transition: transform 400ms ease-out, opacity 500ms ease-out;
-  }
-
-  .card:hover,
-  .card:focus-within {
-    transform: scale(1.05);
-    transition: transform 400ms ease-in;
-  }
-
-  .card:hover .card__content,
-  .card:focus-within .card__content {
-    transform: translateY(0);
-    transition: transform 400ms ease-in;
-  }
-
-  .card:focus-within .card__content {
-    transition-duration: 0ms;
-  }
-
-  .card:hover .card__background,
-  .card:focus-within .card__background {
-    transform: scale(1.3);
-  }
-
-  .card:hover .card__content--container > :not(.card__title),
-  .card:hover .card__button,
-  .card:focus-within .card__content--container > :not(.card__title),
-  .card:focus-within .card__button {
-    opacity: 1;
-    transition: opacity 400ms ease-in;
-    transition-delay: 1000ms;
-  }
-
-  .card:hover .card__title::after,
-  .card:focus-within .card__title::after {
-    opacity: 1;
-    transform: scaleX(1);
-    transform-origin: left;
-    transition: opacity 400ms ease-in, transform 400ms ease-in;
-    transition-delay: 400ms;
-  }
+.card-list li{
+  flex: 0 0 auto
 }
