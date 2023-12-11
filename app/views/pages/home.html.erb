@@ -26,33 +26,40 @@
 </div>
 <div class="container">
   <div class="row">
-<div class="col-5 col-md-5 mb-4">
-  <!-- Utilisation de col-12 pour la disposition sur mobile et col-md-6 pour la disposition sur les écrans plus larges -->
-  <a href="<%= workspaces_path%>/1"> <!-- Ajout du lien autour de la carte -->
-    <article class="card">
-      <img
-        class="card__background"
-        src="https://i.ibb.co/p1FWWSP/bureau-de-travail-avec-verriere.jpg"
-        alt="Photo d'un bureau de travail avec verrière"
-        width="1920"
-        height="2193"
-      />
-      <div class="card__content | flow">
-        <div class="card__content--container | flow">
-          <h2 style="font-size: 14px;" class="card__title">Chez Kévin</h2>
-          <p style="font-size: 9px;" class="card__description">
-            Ambiance Cosy - Fumeur accepté - Deux chats gentils
-          </p>
-        </div>
-        <button style="font-size: 9px;" class="card__button">J'aime</button>
+      <ul class="card-list">
+        <% @workspaces.each do |workspace| %>
+          <li><%= link_to workspace_path(workspace) do %>
+            <article class="card">
+              <img
+                class="card__background"
+                src=" <%= cl_image_path workspace.photos.first.key, width: 500, crop: :fill %>"
+                alt="Photo d'un workspace"
+                width="1920"
+                height="2193"
+              />
+              <div class="card__content">
+                <div class="card__content--container">
+                  <h2 class="card__title"> <%= workspace.name %></h2>
+                    <div class="divider">
+                    </div>
+                    <p class="card__description">
+                      <%= workspace.ambiance %> | <%= workspace.smoking %> | <%= workspace.animals %>
+                    </p>
+                  </div>
+                </div>
+              </article>
+            <% end %>
+            </li>
+          <% end %>
+        </ul>
       </div>
-    </article>
-  </a>
-</div>
+    </div>
+  </div>
 
+<%#
     <div class="col-5 col-md-5 mb-4"> <!-- Utilisation de col-12 pour la disposition sur mobile et col-md-6 pour la disposition sur les écrans plus larges -->
-    <a href="<%= workspaces_path%>/5"> <!-- Ajout du lien autour de la carte -->
-
+    <a href="<%= workspaces_path%> <!-- Ajout du lien autour de la carte -->
+<%#
       <article class="card">
         <img
           class="card__background"
@@ -73,17 +80,17 @@
       </article>
     </div>
   </div>
-</div>
-</a>
+</div> %>
+<%# </a> %>
 <div class="container">
   <div class="mt-3">
-    <h2 style="font-size: 35px;">Télétravaillez<br />Autrement</h2>
+    <h2 style="font-size: 35px;">Je souhaite proposer un workspace</h2>
   </div>
 </div>
 <div class="container">
     <div class="col-11 text-center">
           <div class="col-11 text-center">
-            <a class="yellow-btn btn-home" href="<%= new_workspace_path %>">Proposer mon bureau</a>
+            <a class="yellow-btn btn-home" href="<%= new_workspace_path %>">Ajouter un workspace</a>
       </div>
     </div>
 </div>
