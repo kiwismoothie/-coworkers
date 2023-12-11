@@ -57,7 +57,7 @@
                 <div class="decline"><%= link_to "Décliner", decline_booking_path(booking), data:{turbo_method: :patch} %></div>
               </div>
             <% else %>
-              Statut <%= booking.status %>
+              Réservation <%= booking.status %>
             <% end %>
           </div>
 

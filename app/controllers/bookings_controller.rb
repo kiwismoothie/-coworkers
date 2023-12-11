@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     # récupère le booking
     @booking = Booking.find(params[:id])
     # on change le status pour le passer en valider
-    @booking.status = "accepté"
+    @booking.status = "accepted"
     # on sauvegarde
     @booking.save
     # on redirige vers la page de dashboard
@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
     # récupère le booking
     @booking = Booking.find(params[:id])
     # on change le status pour le passer en refuser
-    @booking.status = "décliné"
+    @booking.status = "declined"
     # on sauvegarde
     @booking.save
     # on redirige vers la page de dashboard
