@@ -4,15 +4,16 @@
       </div>
         <div class="col-lg-4 col-md-4 col-12 pb-5 mb-5"> <!-- Réduisez la largeur des cartes ici -->
           <div class="card-trip card-trip-list custom-link">
-            <div class="row heart-position">
-              <% @workspace.photos %>
-                <%= render "heart" %>
+            <div class="row">
+              <div class="heart-position">
+                <% @workspace.photos %>
                 <%= cl_image_tag @workspace.photos.first.key, width: 500, crop: :fill %>
+                <%= render "heart" %>
+              </div>
                   <div class="mx-auto p-4 mt-2 mb-3">
                     <ul>
                       <li> Adresse : <%= @workspace.address %> </li>
                       <li> Nombre de places disponibles : <%= @workspace.capacity %> </li>
-
                       <div class= "d-flex justify-content-between"> Fibre : <% if @workspace.internet_connexion%>
                       <div><i class="fa-solid fa-check fa-beat fa-2xl" style="color: #004792;"></i></div>
                       <% else %>
