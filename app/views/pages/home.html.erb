@@ -8,11 +8,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-10 text-center">
       <form id="search-form" action="<%= workspaces_path %>" method="GET">
         <div class="search-container">
           <input type="text" id="search-input" class="search-input" placeholder="Où souhaitez-vous télétravailler?" type="button">
-          <!-- Ajouter un champ caché pour stocker la valeur de recherche -->
           <input type="hidden" id="search-query" name="query">
         </div>
       </form>

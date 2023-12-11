@@ -1,41 +1,37 @@
 <div class="container-fluid">
-      <div class="mx-auto mt-4">
-        <h1 class="text-center display-4" style="text-shadow: 2px 2px 4px rgba(5, 0, 0, 0.2);"><%= @workspace.name %> <%= image_tag @workspace.user.photos.first, height: 50, width: 50, class: "avatar2", alt: "Photo" %></h1>
-      </div>
-        <div class="col-lg-4 col-md-4 col-12 pb-5 mb-5"> <!-- Réduisez la largeur des cartes ici -->
-          <div class="card-trip card-trip-list custom-link">
-            <div class="row">
-              <div class="heart-position">
-                <% @workspace.photos %>
-                <%= cl_image_tag @workspace.photos.first.key, width: 500, crop: :fill %>
-                <%= render "heart" %>
-              </div>
-                  <div class="mx-auto p-4 mt-2 mb-3">
-                    <ul>
-                      <li> Adresse : <%= @workspace.address %> </li>
-                      <li> Nombre de places disponibles : <%= @workspace.capacity %> </li>
-                      <div class= "d-flex justify-content-between"> Fibre : <% if @workspace.internet_connexion%>
-                      <div><i class="fa-solid fa-check fa-beat fa-2xl" style="color: #004792;"></i></div>
-                      <% else %>
-                      <div><i class="fa-solid fa-xmark fa-beat fa-2xl" style="color: #004792;"></i></div>
-                      <% end %>
-                      Fumeur :
-                      <% if @workspace.smoking%>
-                      <div><i class="fa-solid fa-check fa-beat fa-2xl" style="color: #004792;"></i></div>
-                      <% else %>
-                      <div><i class="fa-solid fa-xmark fa-beat fa-2xl" style="color: #004792;"></i></div>
-                      <% end %></div>
-                      <li> Présence d'animaux : <%= @workspace.animals %> </li>
-                    </ul>
-                  </div>
-                    <%= simple_form_for([@workspace, @booking]) do |f| %>
-                      <div>Date souhaitée :</div>
-                      <%= f.input :start_date, label: false,
-                        as: :string,
-                        input_html: { data: { controller: "datepicker" } } %>
-                      <%= f.button :submit, "Envoyer ma demande", class: "btn yellow-btn" %>
-                    <% end %>
-            </div>
-          </div>
-        </div>
+  <div class="mx-auto mt-4">
+    <h1 class="text-center display-4" style="text-shadow: 2px 2px 4px rgba(5, 0, 0, 0.2);"><%= @workspace.name %> <%= image_tag @workspace.user.photos.first, height: 50, width: 50, class: "avatar2", alt: "Photo" %></h1>
+  </div>
+  <div class="workspace-card">
+    <div class="workspace-image">
+      <% @workspace.photos %>
+      <%= cl_image_tag @workspace.photos.first.key, crop: :fill %>
+      <%= render "heart" %>
     </div>
+    <ul class="workspace-infos">
+      <li> Adresse : <%= @workspace.address %> </li>
+      <li> Nombre de places disponibles : <%= @workspace.capacity %> </li>
+      <li>Fibre : <% if @workspace.internet_connexion %>
+      <i class="fa-solid fa-check fa-2xl" style="color: #004792;"></i>
+      <% else %>
+      <i class="fa-solid fa-xmark fa-2xl" style="color: #004792;"></i>
+      <% end %>
+      <li> Fumeur :
+      <% if @workspace.smoking %>
+      <i class="fa-solid fa-check fa-2xl" style="color: #004792;"></i>
+      <% else %>
+      <i class="fa-solid fa-xmark fa-2xl" style="color: #004792;"></i>
+      <% end %>
+      </li>
+      <li> Présence d'animaux : <%= @workspace.animals %></li>
+      <li class="workspace-info-date"> <%= simple_form_for([@workspace, @booking]) do |f| %>
+      <div>Date souhaitée :</div>
+      <%= f.input :start_date, label: false,
+        as: :string,
+        input_html: { data: { controller: "datepicker" } } %>
+      <%= f.button :submit, "Envoyer ma demande", class: "btn yellow-btn" %>
+    <% end %></li>
+    </ul>
+
+  </div>
+</div>
