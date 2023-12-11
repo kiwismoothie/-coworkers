@@ -94,48 +94,40 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('turbo:load', () => {
   const searchInput = document.getElementById('search-input');
   const searchForm = document.getElementById('search-form');
   const searchQuery = document.getElementById('search-query');
   let isSecondClick = false;
 
-  searchInput.addEventListener('click', function () {
+  searchInput.addEventListener('click', () => {
     if (!isSecondClick) {
       isSecondClick = true;
       return;
     }
 
-    const inputValue = searchInput.value;
-
-    if (inputValue.trim() !== "") {
-      searchQuery.value = inputValue;
-      setTimeout(function () {
-        searchForm.submit();
-        searchForm.reset();
-        isSecondClick = false;
-      }, 500); // Délai de 0,5 seconde (500 millisecondes)
-    }
+    handleSubmit();
   });
 
-  searchInput.addEventListener('keydown', function (event) {
+  searchInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
-      const inputValue = searchInput.value;
-
-      if (inputValue.trim() !== "") {
-        searchQuery.value = inputValue;
-        setTimeout(function () {
-          searchForm.submit();
-          searchForm.reset();
-          isSecondClick = false;
-        }, 500); // Délai de 0,5 seconde (500 millisecondes)
-      }
+      handleSubmit();
     }
   });
 
-  searchForm.addEventListener('submit', function (event) {
+  searchForm.addEventListener('submit', (event) => {
     event.preventDefault();
   });
+
+  function handleSubmit() {
+    const inputValue = searchInput.value.trim();
+    if (inputValue !== "") {
+      searchQuery.value = inputValue;
+      searchForm.submit();
+      searchForm.reset();
+      isSecondClick = false;
+    }
+  }
 });
 </script>

@@ -1,38 +1,43 @@
 <div id="chatrooms" class="d-flex justify-content-center align-items-center">
   <div class="chatroom mt-3">
-    <% if @chatroom.user2.photos.attached? %>
-      <%= cl_image_tag(@chatroom.user2.photos.last.key, height: 70, width: 70, crop: :fill) %>
+    <% other_user = @chatroom.user1 == current_user ? @chatroom.user2 : @chatroom.user1 %>
+    <% if other_user.photos.attached? %>
+      <%= cl_image_tag(other_user.photos.last.key, height: 70, width: 70, crop: :fill) %>
     <% end %>
-    <% if @chatroom.user2.present? %>
-      <strong><h4><%= @chatroom.user2.first_name %></strong></h4>
-    <% end %>
+    <strong><%= other_user.first_name %></strong>
   </div>
 </div>
 
-<div class="container chat-container mt-10" data-controller="scroll">
-  <div id="messages" class="message-list" data-action="turbo:render->scroll#reset">
-    <% @messages.each do |message| %>
-      <div class="message-container <%= 'user1' if message.user == @chatroom.user1 %> <%= 'user2' if message.user == @chatroom.user2 %>">
-        <% if message.user == @chatroom.user1 %>
-          <div class="message-box-user1">
-            <p><strong><%= message.user.first_name %>:</strong> <%= message.content %></p>
-          </div>
-        <% else %>
-          <div class="message-box-user2">
-            <p><strong><%= message.user.first_name %>:</strong> <%= message.content %></p>
-          </div>
-        <% end %>
-      </div>
-
+<div class="container chatroom">
+  <div class="chat-container" data-controller="chatroom-subscription"
+       data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+       data-chatroom-subscription-target="messages">
+    <% @chatroom.messages.each do |message| %>
+      <%= render "messages/message", message: message, current_user: current_user %>
     <% end %>
   </div>
 
   <div class="form-group msg-form">
-    <%= form_with(model: [@chatroom, Message.new], remote: true, class: "d-flex",
+    <%= form_with(model: [@chatroom, @message], remote: true, class: "d-flex",
          data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }) do |f| %>
       <%= f.text_field :content, id: 'chat-text', class: "form-control msg-content", autocomplete: 'off' %>
       <%= f.submit "Envoyer", class: "yellow-btn-mini" %>
     <% end %>
   </div>
 </div>
-</div>
+
+<script>
+  document.addEventListener('turbo:load', () => {
+    const container = document.querySelector('.chat-container');
+
+    container.addEventListener('click', (event) => {
+      const messageContainer = event.target.closest('.message-container');
+      if (!messageContainer) return;
+
+      const dateElement = messageContainer.querySelector('.message-date1, .message-date2');
+      if (dateElement) {
+        dateElement.style.display = dateElement.style.display === 'none' ? 'block' : 'none';
+      }
+    });
+  });
+</script>
