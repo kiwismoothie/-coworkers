@@ -63,6 +63,7 @@ workspace1 = Workspace.new(
   internet_connexion: true,
   smoking: false,
   animals: "chien",
+  description: "Un espace de travail calme et agréable",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
@@ -77,6 +78,7 @@ workspace2 = Workspace.new(
   address: "2 avenue Charles de gaulle, Toulouse",
   user: Kevin,
   internet_connexion: true,
+  description: "Ici on bosse dans un esprit de fiesta ! Venez avec votre bonne humeur !",
   smoking: false,
   animals: "chien",
   air_conditioning: true,
@@ -93,6 +95,7 @@ workspace3 = Workspace.new(
   address: "4 place Carnot, Lyon",
   user: Kevin,
   internet_connexion: true,
+  description: "Une ambiance de travail studieuse, à la maison comme au bureau",
   smoking: false,
   animals: "chien",
   air_conditioning: true,
@@ -108,6 +111,7 @@ workspace3.save!
 workspace4 = Workspace.new(
   ambiance: "Apéro",
   address: "3 Rue de la soif, Nantes",
+  description: "Pas de travail sans apéro !",
   user: Valerian,
   internet_connexion: true,
   smoking: false,
@@ -122,8 +126,9 @@ workspace4.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/j
 workspace4.save!
 
 workspace5 = Workspace.new(
-  ambiance: "Bruyant",
+  ambiance: "Animé",
   address: "4 rue Leconte de Lisle, Paris",
+  description: "Un espace de travail animé. Venez avec votre bonne humeur !",
   user: Deborah,
   internet_connexion: true,
   smoking: false,
@@ -138,7 +143,7 @@ workspace5.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/j
 workspace5.save!
 
 workspace6 = Workspace.new(
-  ambiance: "calme",
+  ambiance: "Calme",
   address: "2 route de la reine, Versailles",
   user: Laura,
   internet_connexion: true,
