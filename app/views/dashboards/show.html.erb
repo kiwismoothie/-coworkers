@@ -51,7 +51,7 @@
           <div class="reservation-details-left">
             <div class="workspace-name"> <%= booking.workspace.name %> </div>
             <div> Le <%= booking.start_date %> </div>
-            <% if booking.status == "pending" %>
+            <% if booking.status == "en cours" %>
               <div class="accept-decline">
                 <div class="accept"><%= link_to "Confirmer", accept_booking_path(booking), data:{turbo_method: :patch} %></div>
                 <div class="decline"><%= link_to "Décliner", decline_booking_path(booking), data:{turbo_method: :patch} %></div>
