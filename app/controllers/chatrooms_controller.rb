@@ -10,7 +10,7 @@ class ChatroomsController < ApplicationController
 
   def show
     @current_page = 'chatrooms'
-    @messages = @chatroom.messages
+    @message = Message.new
   end
 
   private
