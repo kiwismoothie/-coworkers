@@ -149,8 +149,8 @@ workspace5 = Workspace.new(
   animals: "chat",
   air_conditioning: true,
   desired_skill: "fullstack",
-  capacity: 1,
-  name: "La maison des chiens"
+  capacity: 3,
+  name: "La maison des chats"
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785332/Coworkers/paris2.jpg")
 workspace5.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])

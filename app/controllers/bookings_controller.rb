@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     @booking.workspace = @workspace
     @booking.user = current_user
     if @booking.save
-      redirect_to workspaces_path
+      redirect_to dashboard_path
     else
       render "workspaces/show", status: :unprocessable_entity
     end
