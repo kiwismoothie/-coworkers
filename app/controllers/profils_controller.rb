@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+class ProfilsController < ApplicationController
   def show
     @current_page = 'profil'
     @user = current_user
