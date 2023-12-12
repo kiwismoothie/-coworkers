@@ -49,11 +49,15 @@
       <div class="linkedin">
         <div class="linkedin-left"> <h3>Lier mon profil Linkedin</h3></div>
         <div class="linkedin-right"><i class="fa-brands fa-linkedin"></i></div>
+      </div>
+
+        <div>
         <%= simple_form_for(@user) do |f| %>
-        <%= f.input :linkedin_url %>
+        <%= f.input :linkedin_url, input_html: {class: "linkedin-form-1"}%>
         <%= f.submit %>
         <% end %>
-      </div>
+        </div>
+
       <h3>Se déconnecter</h3>
     </div>
 
