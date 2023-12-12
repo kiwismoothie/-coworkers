@@ -6,6 +6,8 @@
 }
 
 .workspace-image img{
+  margin-top: 20px;
+  border-radius: 40px;
   width: 100%;
 }
 
@@ -14,13 +16,20 @@
 }
 
 .workspace-card{
-  background-color: white;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+.font-awesome{
+  margin: 10px;
+}
 
 .workspace-info-date{
+  font-size: larger;
+    margin-top: 20px;
   padding-top: 20px;
+}
+.bouton-show {
+  margin-top: 40px;
 }
 
 // HEART
@@ -47,4 +56,19 @@
 
 .background.unchecked{
   background: rgba(255, 255, 255, 0.65);
+}
+.workspace-date-box{
+  display: flex !important;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.input-left {
+  margin-top: 20px;
+  width: 80%;
+}
+.chat-right {
+  margin-left: 1rem;
+  margin-top: 20px;
+  width: 20%;
 }

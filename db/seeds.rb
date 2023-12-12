@@ -76,7 +76,7 @@ workspace1 = Workspace.new(
   user: Kevin,
   internet_connexion: true,
   smoking: false,
-  animals: "chien",
+  animals: "chat",
   description: "Un espace de travail calme et agréable",
   air_conditioning: true,
   desired_skill: "fullstack",
@@ -88,7 +88,7 @@ workspace1.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/j
 workspace1.save!
 
 workspace2 = Workspace.new(
-  ambiance: "Festive",
+  ambiance: "Animé",
   address: "2 avenue Charles de gaulle, Toulouse",
   user: Kevin,
   internet_connexion: true,
@@ -105,13 +105,13 @@ workspace2.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/j
 workspace2.save!
 
 workspace3 = Workspace.new(
-  ambiance: "Bureau",
+  ambiance: "Calme",
   address: "4 place Carnot, Lyon",
   user: Kevin,
   internet_connexion: true,
   description: "Une ambiance de travail studieuse, à la maison comme au bureau",
   smoking: false,
-  animals: "chien",
+  animals: "tortue",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
@@ -123,7 +123,7 @@ workspace3.save!
 
 
 workspace4 = Workspace.new(
-  ambiance: "Apéro",
+  ambiance: "Animé",
   address: "3 Rue de la soif, Nantes",
   description: "Pas de travail sans apéro !",
   user: Valerian,
@@ -146,7 +146,7 @@ workspace5 = Workspace.new(
   user: Deborah,
   internet_connexion: true,
   smoking: false,
-  animals: "chien",
+  animals: "chat",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
@@ -163,7 +163,6 @@ workspace6 = Workspace.new(
   description: "Un espace de travail calme et agréable",
   internet_connexion: true,
   smoking: true,
-  animals: "chien",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 2,

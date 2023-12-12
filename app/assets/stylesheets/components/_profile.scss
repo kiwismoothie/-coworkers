@@ -1,25 +1,42 @@
 .font-size-description{
-font-size: 12px;
+font-size: 14px;
+font-family: "Montserrat";
 }
 
 .container-profile{
   margin-top: 20px;
   margin-bottom: 20px;
   h2{
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     margin: 0;
     color: #004792;
   }
   H3{
-    font-size: 14px;
+    font-size: 16px;
     margin: 0;
     color: black;
   }
-
-
 }
 
 .profile-title{
   margin-top: 20px;
+}
+
+.profile-content{
+  font-family: "Montserrat";
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.linkedin-left{
+  width: 80%;
+}
+
+.linkedin-right{
+  width: 20%;
+}
+
+.linkedin{
+  display: flex;
 }
