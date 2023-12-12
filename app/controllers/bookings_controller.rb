@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
     @workspace = Workspace.find(params[:workspace_id])
     @booking.workspace = @workspace
     @booking.user = current_user
+    @booking.status = "en cours"
 
     if @booking.save
       redirect_to dashboard_path
