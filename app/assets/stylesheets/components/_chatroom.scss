@@ -1,7 +1,7 @@
 .chat-container {
   margin-top: 5%;
-  max-height: 80vh;
-  overflow-y: auto; /* Utilisez "auto" au lieu de "scroll" */
+  max-height: 70vh; /* 70% de la hauteur de la fenêtre d'affichage */
+  overflow-y: auto; /* Active le défilement vertical si nécessaire */
 }
 
 .chat-container::-webkit-scrollbar {
@@ -9,42 +9,59 @@
 }
 
 .chat-container::-webkit-scrollbar-thumb {
-  background-color: #b3b3b3; /* Couleur de la poignée de défilement */
+  background-color: #66666600;
+  border-radius: 10px;
 }
-
 .msg-form {
   position: fixed;
   bottom: 0;
-  width: 90%;
+  width: 95%;
   margin-bottom: 110px;
 }
 
 .msg-content {
-  width: 80%;
-  margin-right: 5px;
+  width: 100%;
+  margin-right: 6px;
+  border-radius: 20px;
 }
 
 .message-box-user1, .message-box-user2 {
   width: fit-content;
-  max-width: 40%;
-  border-radius: 10px;
+  max-width: 70%;
+  border-radius: 30px;
   margin-bottom: 10px;
   padding: 10px;
-  color: #fff;
+  color: #f0f0f0;
   word-wrap: break-word;
   word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+
+.message-box-user1, .message-box-user2 {
+  width: 80%;
+  box-shadow: 2px 4px 10px rgba(170, 170, 170, 0.2);
+}
+
+.message-box-user1 p, .message-box-user2 p {
+  width: 80%;
+  font-size: 1rem;
 }
 
 .message-box-user1 {
-  background-color: #808080; /* Gris foncé pour user1 */
+  background-color: #f0f0f0d3;
+  color: #616161;
 }
 
 .message-box-user2 {
-  background-color: #3F7CAF; /* Bleu pour user2 */
+  background-color: #3F7CAF;
 }
 
 .message-container {
   display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
 }
 
 .message-container.user1 {
@@ -65,16 +82,58 @@
 .chatroom {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
 }
 
 .chatroom img {
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .chatroom-link {
   text-decoration: none;
   color: #333;
   font-weight: bold;
+}
+
+.message-container .message-date1 {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  color: #4d4d4d;
+}
+
+.message-container .message-date2 {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  color: #ffffff;
+}
+
+.divider {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient( 80deg, #c5c5c527, #ff810bb2);
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.chat_head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
+}
+.chat_head .chat_title{
+  font-size: 24px;
+  font-weight: 700;
+  color: #131313;
+}
+.icon_bubble.msg {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient( 55deg, #dddddd46, #ff810bb2);
+    border-radius: 50%;
 }
