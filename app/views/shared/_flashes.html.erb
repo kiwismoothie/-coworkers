@@ -1,14 +1,36 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
+  <div class="flash flash-success alert alert-dismissible fade show m-1 alert-50" role="alert" id="notice">
     <%= notice %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
+    <a data-bs-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
   </div>
 <% end %>
+
 <% if alert %>
-  <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
+  <div class="flash flash-danger alert alert-dismissible fade show m-1 alert-50" role="alert" id="alert">
     <%= alert %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
+    <a data-bs-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener('turbo:load', () => {
+    const notice = document.getElementById('notice');
+    const alert = document.getElementById('alert');
+
+    if (notice) {
+      setTimeout(() => {
+        notice.style.display = 'none';
+      }, 3000);
+    }
+
+    if (alert) {
+      setTimeout(() => {
+        alert.style.display = 'none';
+      }, 3000);
+    }
+  });
+</script>
