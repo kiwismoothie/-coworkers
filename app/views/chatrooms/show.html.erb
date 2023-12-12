@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div class="container chatroom">
+<div class="container chat-container">
   <div class="chat-container" data-controller="chatroom-subscription"
        data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
        data-chatroom-subscription-target="messages">
@@ -19,12 +19,15 @@
 
   <div class="form-group msg-form">
     <%= form_with(model: [@chatroom, @message], remote: true, class: "d-flex",
-         data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }) do |f| %>
+          id: 'chat-form',
+          data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }) do |f| %>
       <%= f.text_field :content, id: 'chat-text', class: "form-control msg-content", autocomplete: 'off' %>
-      <%= f.submit "Envoyer", class: "yellow-btn-mini" %>
+  <%= button_tag(type: 'submit', class: "yellow-btn-mini") do %>
+    <i class="fa-solid fa-share" style="color: #f7f7f7;"></i>
+    <% end %>
     <% end %>
   </div>
-</div>
+  </div>
 
 <script>
   document.addEventListener('turbo:load', () => {
@@ -40,4 +43,23 @@
       }
     });
   });
+
+  document.addEventListener("turbo:submit-end", (event) => {
+  if (event.target.id === 'chat-form') {
+    event.target.reset();
+  }
+});
+
+// document.addEventListener('turbo:load', () => {
+//   // Écouteur pour le focus sur le champ de texte
+//   document.getElementById('chat-text').addEventListener('focus', function() {
+//     document.querySelector('.navbar').style.display = 'none';
+//   });
+
+//   // Écouteur pour le blur sur le champ de texte
+//   document.getElementById('chat-text').addEventListener('blur', function() {
+//     document.querySelector('.navbar').style.display = 'block';
+//   });
+// });
+
 </script>

@@ -1,5 +1,5 @@
 .chat-container {
-  margin-top: 5%;
+  margin-top: 8px;
   max-height: 70vh; /* 70% de la hauteur de la fenêtre d'affichage */
   overflow-y: auto; /* Active le défilement vertical si nécessaire */
 }
@@ -16,7 +16,7 @@
   position: fixed;
   bottom: 0;
   width: 95%;
-  margin-bottom: 110px;
+  margin-bottom: 90px;
 }
 
 .msg-content {
@@ -26,20 +26,12 @@
 }
 
 .message-box-user1, .message-box-user2 {
-  width: fit-content;
+  min-width: 30%;
   max-width: 70%;
   border-radius: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   padding: 10px;
   color: #f0f0f0;
-  word-wrap: break-word;
-  word-break: break-all;
-  overflow-wrap: break-word;
-}
-
-
-.message-box-user1, .message-box-user2 {
-  width: 80%;
   box-shadow: 2px 4px 10px rgba(170, 170, 170, 0.2);
 }
 
@@ -111,7 +103,7 @@
   color: #ffffff;
 }
 
-.divider {
+.chat-divider {
   height: 2px;
   width: 100%;
   background: linear-gradient( 80deg, #c5c5c527, #ff810bb2);
@@ -119,19 +111,19 @@
   margin-top: 10px;
 }
 
-.chat_head {
+.chat-head {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 45px;
 }
-.chat_head .chat_title{
+.chat-head .chat-title{
   font-size: 24px;
   font-weight: 700;
   color: #131313;
 }
-.icon_bubble.msg {
+.icon-bubble.msg {
     width: 32px;
     height: 32px;
     background: linear-gradient( 55deg, #dddddd46, #ff810bb2);

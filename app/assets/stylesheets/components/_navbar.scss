@@ -5,9 +5,9 @@ body {
 .navbar {
   justify-content: space-around;
   position: fixed;
-  margin-top: auto;
-  bottom: 1%; /* Ajustez cette valeur */
+  bottom: 10px;
   width: 100%;
+  height: 70px;
   z-index: 999;
   background-color: #FFFFFF;
   border-radius: 30px;

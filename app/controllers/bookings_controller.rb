@@ -2,13 +2,18 @@ class BookingsController < ApplicationController
   def create
     string_dates = params[:booking][:start_date].split(" to ")
     start_date = Date.parse(string_dates[0])
-    end_date = Date.parse(string_dates[1])
+
+    # Vérifiez si une date de fin est fournie
+    end_date = string_dates.length > 1 ? Date.parse(string_dates[1]) : start_date
+
     @booking = Booking.new(start_date: start_date, end_date: end_date)
     @workspace = Workspace.find(params[:workspace_id])
     @booking.workspace = @workspace
     @booking.user = current_user
+    @booking.status = "en cours"
+
     if @booking.save
-      redirect_to workspaces_path
+      redirect_to dashboard_path
     else
       render "workspaces/show", status: :unprocessable_entity
     end

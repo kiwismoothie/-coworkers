@@ -14,13 +14,7 @@
         <%= link_to image_tag(@current_page == 'chatrooms' ? 'svg/Chat-icon-orange.svg' : 'svg/Chat-icon-gray.svg', class: "nav-link", style: "width: 70%;"), chatrooms_path %>
       </li>
       <li class="nav-item">
-        <% if devise_controller? %>
-          <%= link_to image_tag('svg/Profil-icon-orange.svg', class: "nav-link", style: "width: 70%;"), user_session_path %>
-        <% elsif user_signed_in? %>
-          <%= link_to image_tag('svg/Profil-icon-gray.svg', class: "nav-link", style: "width: 70%;"), edit_user_registration_path %>
-        <% else %>
-          <%= link_to image_tag('svg/Profil-icon-gray.svg', class: "nav-link", style: "width: 70%;"), user_session_path %>
-        <% end %>
+        <%= link_to image_tag((devise_controller? || @current_page == 'profil') ? 'svg/Profil-icon-orange.svg' : 'svg/Profil-icon-gray.svg', class: "nav-link", style: "width: 70%;"), profile_path %>
       </li>
     </ul>
   </div>
