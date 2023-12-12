@@ -5,7 +5,25 @@ class WorkspacesController < ApplicationController
     if params[:query].present?
       @workspaces = Workspace.global_search(params[:query])
     end
-    # The `geocoded` scope filters only flats with coordinates
+
+    if params[:ambiance].present?
+      @workspaces = @workspaces.where(ambiance: params[:ambiance] ==  "on")
+    end
+
+    if params[:internet_connexion].present?
+      @workspaces = @workspaces.where(internet_connexion: params[:internet_connexion] ==  "on")
+    end
+
+    if params[:smoking].present?
+      @workspaces = @workspaces.where(smoking: params[:smoking] ==  "on")
+    end
+
+    if params[:animals].present?
+      @workspaces = @workspaces.where(animals: params[:animals] ==  "chien" || "chat" || "autre")
+    end
+
+    @workspaces = Workspace.all if @workspaces.empty?
+
     @markers = @workspaces.geocoded.map do |workspace|
       {
         lat: workspace.latitude,
@@ -14,6 +32,7 @@ class WorkspacesController < ApplicationController
         marker_html: render_to_string(partial: "marker", locals: {workspace: workspace})
       }
     end
+
 
   end
 
