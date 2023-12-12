@@ -49,20 +49,21 @@
           <% end %>
         </li>
       </div>
-        <li class="workspace-info-date"> <%= simple_form_for([@workspace, @booking]) do |f| %>
-      <div>Date souhaitée :</div>
-        <div class="workspace-date-box">
-          <div class="input-left">
-              <%= f.input :start_date, label: false,
-                as: :string,
-                input_html: { data: { controller: "datepicker" } } %>
-          </div>
-            <div class="chat-right">
-              <i class="fa-regular fa-comment fa-2xl" style="color: #ffb116;"></i>
+        <li class="workspace-info-date">
+          <%= simple_form_for([@workspace, @booking]) do |f| %>
+            <div>Date souhaitée :</div>
+            <div class="workspace-date-box">
+              <div class="input-left">
+                <%= f.input :start_date, label: false, as: :string, input_html: { data: { controller: "datepicker" } } %>
+              </div>
+              <div class="chat-right">
+                <%= link_to workspace_create_chatroom_path(@workspace), method: :post do %>
+                  <i class="fa-regular fa-comment fa-2xl" style="color: #ffb116;"></i>
+                <% end %>
+              </div>
             </div>
-          </div>
             <%= f.button :submit, "Envoyer ma demande", class: "bouton-show btn yellow-btn" %>
-            <% end %>
+          <% end %>
         </li>
       </ul>
     </div>

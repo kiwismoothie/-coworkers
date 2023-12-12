@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "intro", to: "pages#intro"
   get "dashboard", to: "dashboards#show"
+  get 'workspaces/:workspace_id/create_chatroom', to: 'chatrooms#create_chatroom', as: 'workspace_create_chatroom'
   patch "users/:id", to: "users#update", as: :user
 
   resource :profile, only: [:show]
