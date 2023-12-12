@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   get 'profiles/show'
+  patch 'profiles/update'
   devise_for :users
   root to: "pages#home"
   get "intro", to: "pages#intro"
   get "dashboard", to: "dashboards#show"
   patch "users/:id", to: "users#update", as: :user
 
-  resource :profile, only: [:show]
+  resource :profile, only: [:show, :update]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
     resources :bookmarks, only: [:create]
   end
-
 
   resources :chatrooms, only: [:index, :show, :create] do
     resources :messages, only: [:create]
