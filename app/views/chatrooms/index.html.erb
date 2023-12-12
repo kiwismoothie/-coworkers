@@ -1,10 +1,10 @@
 <div class="container text-center mt-4">
       <div class="mx-auto mt-4">
-          <div class="chat_head">
-            <div class="chat_title">Mes discussions</div>
-            <div class="icon_bubble msg"> </div>
+          <div class="chat-head">
+            <div class="chat-title">Mes discussions</div>
+            <div class="icon-bubble msg"> </div>
           </div>
-      <div class="divider"> </div>
+      <div class="chat-divider"> </div>
 <% @user1_chatrooms.each do |chatroom| %>
   <div class="chatroom mt-3">
     <%= link_to chatroom_path(chatroom) do %>
