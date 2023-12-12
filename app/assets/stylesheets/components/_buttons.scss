@@ -27,11 +27,11 @@
   border-radius: 10px;
   display: block;
   border: 0px;
-  font-weight: 700;
+  font-weight: 600;
   box-shadow: 0px 0px 14px -7px #FFB116;
   background-image: linear-gradient(45deg, #FC9100 0%, #FFB116 51%, #FC9100 100%);
   cursor: pointer;
-  opacity: 0.9;
+  opacity: 0.8;
   max-width: 150px; /* Réduisez la largeur maximale du bouton */
   white-space: normal;
 }
@@ -56,6 +56,16 @@
   white-space: normal;
 }
 
+.yellow-btn-mini:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.yellow-btn:active {
+  transform: scale(0.95);
+}
 .btn-home {
 margin-top: 10%;
 margin-left: 10%;

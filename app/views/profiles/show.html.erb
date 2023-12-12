@@ -1,0 +1,62 @@
+<h1>Mon profil</h1>
+<p>Find me in app/views/profiles/show.html.erb</p>
+
+
+<i class="fa-solid fa-pencil" style="color: #3F7CAF;"></i>
+
+
+<div class="container-profile">
+
+  <div class="card-product-dashboard-3">
+
+
+
+    <div class="profile-details">
+      <div class ="profile-details-left">
+        <%= image_tag @my_workspaces.first.user.photos.first, class: "avatar-profile-details-dashboard", alt: "Photo" %>
+        <li > <%= link_to "Modifier ma photo", edit_user_registration_path%></li>
+      </div>
+
+      <div class ="profile-details-right">
+          <ul>
+            <li class="font-size-description"> <%=  @user.description %> </li>
+            <li > <%= link_to "Editer mon profil", edit_user_registration_path%></li>
+          </ul>
+      </div>
+    </div>
+
+<br>
+
+    <h2 class="profile-title">Mes informations</h2>
+
+      <h3>Profession</h3>
+
+      <h3>Mes skills</h3>
+      <% if %>
+        <% @user.skills.each do |skill| %>
+          <%= skill.nil? %>
+        <% end %>
+     <%= "Vous n'avez pas encore renseigné vos skills" %>
+     <% else %>
+     <% @user.skills.each do |skill| %>
+        <%= skill %>
+        <% end %>
+      <% end %>
+
+
+      <h3>Skills recherchées</h3>
+      <% @user.desired_skills.each do |skill| %>
+        <%= skill %>
+      <% end %>
+
+    <h2 class = "profile-title">Paramètres</h2>
+      <h3>Informations personnelles</h3>
+      <h3>Notifications</h3>
+      <h3>Lier mon profil Linkedin</h3>
+      <h3>Se déconnecter</h3>
+
+      <div class = "yellow-btn btn-home">
+      <%= link_to "Ajouter un workspace", new_workspace_path %>
+      </div>
+
+</div>

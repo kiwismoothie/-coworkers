@@ -7,7 +7,7 @@ class BookmarksController < ApplicationController
 
   def show
     @current_page = 'bookmarks'
-    @bookmark = Bookmark.find_by(id: params[:id])
+    @bookmark = Bookmark.find(params[:id])
   end
 
   def create

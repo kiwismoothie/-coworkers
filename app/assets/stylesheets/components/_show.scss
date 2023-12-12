@@ -1,0 +1,50 @@
+.workspace-image{
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.workspace-image img{
+  width: 100%;
+}
+
+.workspace-infos{
+  padding: 10px;
+}
+
+.workspace-card{
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.workspace-info-date{
+  padding-top: 20px;
+}
+
+// HEART
+
+.heart{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+}
+
+.background{
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background.checked{
+  background: white;
+}
+
+.background.unchecked{
+  background: rgba(255, 255, 255, 0.65);
+}

@@ -1,57 +1,74 @@
-    <div class="col-lg-8 col-md-8 col-12">
-      <div class="mx-auto mt-4">
-        <h1 class="text-center display-4" style="text-shadow: 2px 2px 4px rgba(5, 0, 0, 0.2);">Dashboard</h1>
+<div class ="titre-dashboard">
+<h1>Mon dashboard</h1>
+</div>
+
+<div class="container">
+
+    <div class="card-product-dashboard-3">
+
+          <h2>Mon profil</h2>
+
+      <div class="profile-details">
+        <div class ="profile-details-left">
+        <%= image_tag @my_workspaces.first.user.photos.first, class: "avatar-profile-details-dashboard", alt: "Photo" %>
+        </div>
+
+        <div class ="profile-details-right">
+          <ul>
+            <li> <%=  pluralize(@my_workspaces.count, 'workspace', plural:'workspaces') %> </li>
+            <li>  <%= pluralize(@my_bookings.count, 'réservation', plural:'réservations')  %>  </li>
+
+            <li> <%=  @bookings_of_my_workspaces.count %>  coworkers accueillis </li>
+            <li > <%= link_to "Editer mon profil", edit_user_registration_path%></li>
+          </ul>
+        </div>
       </div>
     </div>
 
-<div class="card-product">
 
-  <%= image_tag @my_workspaces.first.user.photos.first, height: 30, width: 30, class: "avatar2", alt: "Photo" %>
-  <div class="card-product-infos">
-    <div class="row">
-    <h2>Mon profil</h2>
-    <ul>
-      <li> <%=  pluralize(@my_workspaces.count, 'workspace', plural:'workspaces') %> </li>
-      <li>  <%= pluralize(@my_bookings.count, 'réservation', plural:'réservations')  %>  </li>
+    <div class="card-product-dashboard-3">
+          <h2>Mes réservations</h2>
+          <ul> <% current_user.bookings.each do |booking| %>
+          <div class="reservation-details">
+            <div class="reservation-details-left">
+              <li>  <div class="workspace-name"><%= booking.workspace.name %> </div></li>
+              <li> Le <%= booking.start_date %> </li>
+              <li>Statut <%= booking.status %> </li>
+            </div>
+            <div class="reservation-details-right">
+              <%= image_tag booking.workspace.photos.first, class: "photo-reservation", alt: "Photo" %>
+            </div>
+          </div>
+          <hr>
+          <% end %></ul>
+          </div>
 
-      <li> <%=  @bookings_of_my_workspaces.count %>  coworkers accueillis </li>
-<li > <%= link_to "Editer mon profil", edit_user_registration_path %></li>
-  </div>
-</div>
-</div>
 
-<div class="card-product">
-  <div class="card-product-infos">
-    <div class="row">
-      <h2>Mes réservations</h2>
-       <br>
-      <ul> <% current_user.bookings.each do |booking| %>
-        <li> <%= booking.workspace.name %> </li>
-        <li> <%= booking.start_date %> au <%= booking.end_date %> </li>
-        <li>Statut : <%= booking.status %> </li>
-      <% end %></ul>
-  </div>
-</div>
-</div>
-
-<div class="card-product3">
-  <div class="card-product-infos">
-    <div class="row">
-
+    <div class="card-product-dashboard-3">
       <h2>Mes workspaces</h2>
-      <ul><% current_user.bookings_workspaces.each do |booking| %>
-        <li> <%= booking.workspace.name %> </li>
-        <li> <%= booking.start_date %> au <%= booking.end_date %> </li>
-        <li><% if booking.status == "pending" %>
-                <%= link_to "Accept", accept_booking_path(booking), data:{turbo_method: :patch}, class: "yellow-btn-mini " %>
-                <%= link_to "Decline", decline_booking_path(booking), data:{turbo_method: :patch}, class: "yellow-btn-mini-clair" %>
-              <% else %>
-                Statut : <%= booking.status %>
-              <% end %><li>
-                 <br>
-      <% end %></ul>
-  </div>
-</div>
-</div>
+        <% current_user.bookings_workspaces.each do |booking| %>
+        <div class="reservation-details">
+          <div class="reservation-details-left">
+            <div class="workspace-name"> <%= booking.workspace.name %> </div>
+            <div> Le <%= booking.start_date %> </div>
+            <% if booking.status == "en cours" %>
+              <div class="accept-decline">
+                <div class="accept"><%= link_to "Confirmer", accept_booking_path(booking), data:{turbo_method: :patch} %></div>
+                <div class="decline"><%= link_to "Décliner", decline_booking_path(booking), data:{turbo_method: :patch} %></div>
+              </div>
+            <% else %>
+              Réservation <%= booking.status %>
+            <% end %>
+          </div>
 
-s
+          <div class="reservation-details-right">
+            <div class="reservation-photo">
+              <%= image_tag booking.workspace.photos.first, class: "photo-reservation", alt: "Photo" %>
+            </div></li>
+
+            </div>
+      </div>
+        <hr>
+        <% end %>
+    </div>
+</div>

@@ -68,48 +68,29 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const searchInput = document.getElementById('search-input');
-    const searchForm = document.getElementById('search-form');
-    const searchQuery = document.getElementById('search-query');
-    let isSecondClick = false;
+document.addEventListener('turbo:load', function () {
+  const searchInput = document.getElementById('search-input');
+  const searchForm = document.getElementById('search-form');
+  const searchQuery = document.getElementById('search-query');
 
-    // Ajouter un gestionnaire de clic à l'image de fond
-    searchInput.addEventListener('click', function () {
-      if (!isSecondClick) {
-        isSecondClick = true;
-        return;
-      }
+  function handleSubmit() {
+    const inputValue = searchInput.value.trim();
+    if (inputValue !== "") {
+      searchQuery.value = inputValue;
+      searchInput.value = ""; // Réinitialise le champ de texte
+      searchForm.submit();
+    }
+  }
 
-      const inputValue = searchInput.value;
-
-      // Vérifier si le champ n'est pas vide
-      if (inputValue.trim() !== "") {
-        searchQuery.value = inputValue; // Mettre la valeur de recherche dans le champ caché
-        searchForm.submit(); // Envoyer le formulaire lorsque le deuxième clic est détecté et que le champ n'est pas vide
-        searchForm.reset(); // Réinitialiser le formulaire
-        isSecondClick = false; // Réinitialiser le compteur de clics
-      }
-    });
-
-    // Ajouter un gestionnaire d'événements "keydown" sur le champ de recherche
-    searchInput.addEventListener('keydown', function (event) {
-      if (event.key === 'Enter') {
-        event.preventDefault(); // Empêcher la soumission du formulaire par défaut
-        const inputValue = searchInput.value;
-
-        // Vérifier si le champ n'est pas vide
-        if (inputValue.trim() !== "") {
-          searchQuery.value = inputValue; // Mettre la valeur de recherche dans le champ caché
-          searchForm.submit(); // Envoyer le formulaire lorsque l'utilisateur appuie sur "Enter" et que le champ n'est pas vide
-          searchForm.reset(); // Réinitialiser le formulaire
-          isSecondClick = false; // Réinitialiser le compteur de clics
-        }
-      }
-    });
-
-    searchForm.addEventListener('submit', function (event) {
-      event.preventDefault(); // Empêcher la soumission du formulaire par défaut
-    });
+  searchInput.addEventListener('click', function () {
+    handleSubmit(); // Gérer le clic directement
   });
+
+  searchInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      handleSubmit();
+    }
+  });
+});
 </script>

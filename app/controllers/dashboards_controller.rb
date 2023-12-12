@@ -1,5 +1,4 @@
 class DashboardsController < ApplicationController
-
   def show
     @current_page = 'dashboard'
     @my_workspaces = Workspace.where(user: current_user)

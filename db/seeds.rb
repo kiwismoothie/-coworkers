@@ -17,7 +17,10 @@ User.destroy_all
 Kevin = User.new(
   first_name: "Kevin",
   last_name: "Falck",
+  desired_skills: ["entrepreneuriat", "react"],
+  description: "Je suis un développeur web fullstack, j'ai 32 ans et je suis passionné par le code et les nouvelles technologies. Je voudrais rencontrer d'autres développeurs apprendre de nouveaux langages et partager mes connaissances.",
   email: "test1@test.com",
+  linkedin_url: "https://www.linkedin.com/in/k%C3%A9vin-falck-b03672296/",
   password: "test123456"
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701953711/Kevin_nlbsrz.jpg")
@@ -27,6 +30,9 @@ Kevin.save!
 Deborah = User.new(
   first_name: "Deborah",
   last_name: "Morchipont",
+  desired_skills: ["management","recrutement","paie"],
+  skills: ["ressources humaines","recrutement","paie"],
+  description: "Je suis responsable des ressources humaines, passionnée par le recrutement et la paie. Je souhaite rencontrer d'autres professionnels RH pour échanger sur nos pratiques et nos expériences.",
   email: "test2@test.com",
   password: "test123456"
 )
@@ -38,6 +44,10 @@ Deborah.save!
 Laura = User.new(
   first_name: "Laura",
   last_name: "Berretta",
+  skills: ["e-commerce","marketing","entrepreneuriat"],
+  desired_skills: ["e-commerce","marketing","communication"],
+  linkedin_url: "https://www.linkedin.com/in/laura-berretta/",
+  description: "Je suis directrice commerciale en e-commerce, j'ai 38 ans et je suis passionnée par l'écriture, le théatre... et la création d'entreprise. Je souhaite rencontrer d'autres professionnels du e-commerce pour échanger sur nos pratiques et nos expériences.",
   email: "test3@test.com",
   password: "test123456"
 )
@@ -49,6 +59,10 @@ Laura.save!
 Valerian = User.new(
   first_name: "Valérian",
   last_name: "Barreau",
+  skills: ["qualité","agroalimentaire","cuisine"],
+  desired_skills: ["nucléaire","qualité"],
+  linkedin_url: "https://www.linkedin.com/in/val%C3%A9rian-barreau-abb9a4250/",
+  description: "Je suis responsable qualité dans le secteur de l'agroalimentaire, j'ai 28 ans et je suis passionné par la cuisine et la gastronomie. Je souhaite rencontrer des professionels dans le secteur du nucléaire afin de valider une idée de projet.",
   email: "test4@test.com",
   password: "test123456"
 )
@@ -63,6 +77,7 @@ workspace1 = Workspace.new(
   internet_connexion: true,
   smoking: false,
   animals: "chien",
+  description: "Un espace de travail calme et agréable",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
@@ -77,6 +92,7 @@ workspace2 = Workspace.new(
   address: "2 avenue Charles de gaulle, Toulouse",
   user: Kevin,
   internet_connexion: true,
+  description: "Ici on bosse dans un esprit de fiesta ! Venez avec votre bonne humeur !",
   smoking: false,
   animals: "chien",
   air_conditioning: true,
@@ -93,6 +109,7 @@ workspace3 = Workspace.new(
   address: "4 place Carnot, Lyon",
   user: Kevin,
   internet_connexion: true,
+  description: "Une ambiance de travail studieuse, à la maison comme au bureau",
   smoking: false,
   animals: "chien",
   air_conditioning: true,
@@ -108,6 +125,7 @@ workspace3.save!
 workspace4 = Workspace.new(
   ambiance: "Apéro",
   address: "3 Rue de la soif, Nantes",
+  description: "Pas de travail sans apéro !",
   user: Valerian,
   internet_connexion: true,
   smoking: false,
@@ -122,8 +140,9 @@ workspace4.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/j
 workspace4.save!
 
 workspace5 = Workspace.new(
-  ambiance: "Bruyant",
+  ambiance: "Animé",
   address: "4 rue Leconte de Lisle, Paris",
+  description: "Un espace de travail animé. Venez avec votre bonne humeur !",
   user: Deborah,
   internet_connexion: true,
   smoking: false,
@@ -138,9 +157,10 @@ workspace5.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/j
 workspace5.save!
 
 workspace6 = Workspace.new(
-  ambiance: "calme",
+  ambiance: "Calme",
   address: "2 route de la reine, Versailles",
   user: Laura,
+  description: "Un espace de travail calme et agréable",
   internet_connexion: true,
   smoking: true,
   animals: "chien",
@@ -159,7 +179,7 @@ booking1 = Booking.new(
   rating: 5,
   start_date: "Thu, 30 Nov 2023",
   end_date: "Tue, 12 Dec 2023",
-  status: "pending"
+  status: "en cours"
 )
 booking1.save!
 
@@ -169,7 +189,7 @@ booking2 = Booking.new(
   rating: 5,
   start_date: "Thu, 30 Nov 2023",
   end_date: "Tue, 12 Dec 2023",
-  status: "accepted"
+  status: "acceptée"
 )
 booking2.save!
 
@@ -179,7 +199,7 @@ booking3 = Booking.new(
   rating: 5,
   start_date: "Thu, 30 Nov 2023",
   end_date: "Tue, 12 Dec 2023",
-  status: "pending"
+  status: "en cours"
 )
 booking3.save!
 
@@ -189,7 +209,7 @@ booking4 = Booking.new(
   rating: 5,
   start_date: "Thu, 30 Nov 2023",
   end_date: "Tue, 12 Dec 2023",
-  status: "accepted"
+  status: "acceptée"
 )
 booking4.save!
 

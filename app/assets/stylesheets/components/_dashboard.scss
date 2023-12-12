@@ -1,47 +1,68 @@
-.card-product {
-  overflow: hidden;
-  height: 200px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  border-radius: 10%;
-  margin: 20px;
-  padding-left: 10px;
+.titre-dashboard {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-top: 20px;
 }
 
-.card-product3 {
+.card-product-dashboard-3 {
+  h2{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    color: #004792;
+  }
   overflow: hidden;
-  height: 400px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
   align-items: center;
-  border-radius: 10%;
+  border-radius: 15px;
   margin: 20px;
-  padding-left: 30px;
-  padding-top: 30px;
+  padding: 20px;
+  ul {
+    margin: 0;
+    padding: 0;
+  }
 }
 
-.card-product3 h2 {
+.profile-details {
+  display: flex;
+}
+
+.profile-details-left {
+  margin-top: 20px;
+  width: 35%;
+}
+
+.avatar-profile-details-dashboard {
+  width: 90%;
+  border-radius: 50%;
+}
+
+
+.profile-details-right {
+  a {
+    color: orange;
+    text-decoration: none;
+  }
+  margin-left: 10px;
+  margin-top: 20px;
+  width: 65%;
+}
+
+.card-product-dashboard-3 h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product img {
-  height: 80%;
-  width: 120px;
-  object-fit: cover;
-}
-
-.card-product h2 {
+.card-product-dashboard-3 h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product p {
+.card-product-dashboard-3 p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -49,7 +70,7 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-product-dashboard-3 .card-product-infos {
   padding: 20px;
 }
 
@@ -59,8 +80,47 @@
   /* default is flex-direction: row; */
 }
 
+.accept-decline {
+  display: flex;
+  justify-items: stretch;
+  }
 
-.text-orange
-{
-  color : orangered
+.decline{
+  a {
+    color: #FCA634;
+    text-decoration: none;
+  }
+}
+
+.accept{
+  a {
+    text-decoration: none;
+    color: black;
+    margin-right: 5px;
+  }
+}
+
+.reservation-details {
+  display: flex;
+}
+
+.reservation-details-left {
+  margin-top: 20px;
+  width: 60%;
+}
+
+.reservation-details-right {
+  margin-top: 20px;
+  width: 40%;
+}
+
+.photo-reservation {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.workspace-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
 }
