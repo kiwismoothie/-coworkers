@@ -29,9 +29,14 @@
           <ul> <% current_user.bookings.each do |booking| %>
           <div class="reservation-details">
             <div class="reservation-details-left">
-              <li>  <div class="workspace-name"><%= booking.workspace.name %> </div></li>
-              <li> Le <%= booking.start_date %> </li>
-              <li>Statut <%= booking.status %> </li>
+              <div class="workspace-name"><%= booking.workspace.name %> </div>
+              <div>
+                <%=l booking.start_date, format: :long %>
+                <% if booking.end_date.present? && booking.end_date != booking.start_date %>
+                  au <%=l booking.end_date, format: :long %>
+                <% end %>
+              </div>
+              Statut <%= booking.status %>
             </div>
             <div class="reservation-details-right">
               <%= image_tag booking.workspace.photos.first, class: "photo-reservation", alt: "Photo" %>
@@ -43,12 +48,17 @@
 
 
     <div class="card-product-dashboard-3">
-      <h2>Mes workspaces</h2>
+      <h2>Demandes reçues</h2>
         <% current_user.bookings_workspaces.each do |booking| %>
         <div class="reservation-details">
           <div class="reservation-details-left">
             <div class="workspace-name"> <%= booking.workspace.name %> </div>
-            <div> Le <%= booking.start_date %> </div>
+              <div>
+                <%=l booking.start_date, format: :long %>
+                <% if booking.end_date.present? && booking.end_date != booking.start_date %>
+                  au <%=l booking.end_date, format: :long %>
+                <% end %>
+              </div>
             <% if booking.status == "en cours" %>
               <div class="accept-decline">
                 <div class="accept"><%= link_to "Confirmer", accept_booking_path(booking), data:{turbo_method: :patch} %></div>
