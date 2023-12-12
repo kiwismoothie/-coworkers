@@ -1,6 +1,6 @@
-<div class ="titre-dashboard">
+<div class="titre-dashboard">
   <h1>Mon profil</h1>
-  </div>
+</div>
 
 <div class="container-profile">
   <div class="card-product-dashboard-3">
@@ -14,8 +14,8 @@
         <ul>
           <li class="font-size-description"><%= @user.description %></li>
           <%= link_to(edit_user_registration_path) do %>
-  <i class="fa-solid fa-pencil" style="color: #3F7CAF;"></i>
-  <% end %>
+            <i class="fa-solid fa-pencil" style="color: #3F7CAF;"></i>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -24,36 +24,43 @@
 
     <h2 class="profile-title">Mes skills</h2>
     <div class="profile-content">
-    <% if @user.skills.empty? %>
-      <%= "Vous n'avez pas encore renseigné vos skills" %>
-    <% else %>
-      <% @user.skills.each do |skill| %>
-        <%= skill %>
+      <% if @user.skills.empty? %>
+        <%= "Vous n'avez pas encore renseigné vos skills" %>
+      <% else %>
+        <% @user.skills.each do |skill| %>
+          <%= skill %>
+        <% end %>
       <% end %>
-    <% end %>
-   <div>
+    </div>
 
     <div class="profile-content">
-    <h3>Skills recherchées</h3>
-    <% @user.desired_skills.each do |skill| %>
-      <%= skill %>
-    <% end %>
+      <h3>Skills recherchées</h3>
+      <% @user.desired_skills.each do |skill| %>
+        <%= skill %>
+      <% end %>
     </div>
-      <br>
+
+    <br>
 
     <h2 class="profile-title">Paramètres</h2>
-     <div class="profile-content">
-    <h3>Informations personnelles</h3>
-    <h3>Notifications</h3>
-    <h3>Lier mon profil Linkedin</h3>
-    <h3>Se déconnecter</h3>
-     </div>
+    <div class="profile-content">
+      <h3>Informations personnelles</h3>
+      <h3>Notifications</h3>
+      <div class="linkedin">
+        <div class="linkedin-left"> <h3>Lier mon profil Linkedin</h3></div>
+        <div class="linkedin-right"><i class="fa-brands fa-linkedin"></i></div>
+        <%= simple_form_for(@user) do |f| %>
+        <%= f.input :linkedin_url %>
+        <%= f.submit %>
+        <% end %>
+      </div>
+      <h3>Se déconnecter</h3>
+    </div>
 
-      <br>
-<div>
-    <a class="yellow-btn" href="<%= new_workspace_path %>">Ajouter un workspace</a>
+    <br>
+
+    <div>
+      <a class="yellow-btn" href="<%= new_workspace_path %>">Ajouter un workspace</a>
+    </div>
   </div>
-</div>
-</div>
-</div>
 </div>
