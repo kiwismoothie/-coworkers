@@ -5,7 +5,7 @@
               <%= cl_image_tag(message.user.photos.last.key, height: 40, width: 40, crop: :fill, class: "avatar-chat") %>
             <% end %>
             <%= message.content %>
-            <p class="message-date1" style="display: none;"><%= message.created_at.strftime('%A %e %B, %H:%M') %></p>
+            <p class="message-date1" style="display: none;"><%= l message.created_at, format: :long %></p>
           </div>
         <% else %>
           <div class="message-box-user2">
@@ -13,7 +13,7 @@
               <%= cl_image_tag(message.user.photos.last.key, height: 40, width: 40, crop: :fill, class: "avatar-chat") %>
             <% end %>
             <%= message.content %>
-            <p class="message-date2" style="display: none;"><%= message.created_at.strftime('%A %e %B, %H:%M') %></p>
+            <p class="message-date2" style="display: none;"><%= l message.created_at, format: :long %></p>
           </div>
         <% end %>
       </div>
