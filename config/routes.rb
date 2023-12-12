@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   get 'profiles/show'
   patch 'profiles/update'
-=======
->>>>>>> 260090d67f048e6ea72a1818d813408915cbd021
   devise_for :users
   root to: "pages#home"
   get "intro", to: "pages#intro"
@@ -12,11 +9,8 @@ Rails.application.routes.draw do
   get 'profils/show'
   patch "users/:id", to: "users#update", as: :user
 
-<<<<<<< HEAD
-  resource :profile, only: [:show, :update]
-=======
-  resource :profil, only: [:show]
->>>>>>> 260090d67f048e6ea72a1818d813408915cbd021
+  resource :profil, only: [:show, :update]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
