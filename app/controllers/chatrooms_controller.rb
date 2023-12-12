@@ -13,6 +13,22 @@ class ChatroomsController < ApplicationController
     @message = Message.new
   end
 
+  def create_chatroom
+    @workspace = Workspace.find(params[:workspace_id])
+
+    if current_user != @workspace.user
+      @chatroom = Chatroom.find_or_create_by(user1: current_user, user2: @workspace.user)
+
+      if @chatroom.persisted?
+        redirect_to chatroom_path(@chatroom)
+      else
+        redirect_to workspace_path(@workspace), alert: "Impossible de créer la chatroom."
+      end
+    else
+      redirect_to workspaces_path, alert: "Vous ne pouvez pas créer une chatroom avec vous-même."
+    end
+  end
+
   private
 
   def set_chatroom

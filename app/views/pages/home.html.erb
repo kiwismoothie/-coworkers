@@ -10,16 +10,27 @@
   <div class="row">
       <form id="search-form" action="<%= workspaces_path %>" method="GET">
         <div class="search-container">
-          <input type="text" id="search-input" class="search-input" placeholder="Où souhaitez-vous télétravailler?" type="button">
-          <input type="hidden" id="search-query" name="query">
+          <input type="text" id="search-input" class="search-input" placeholder="Où souhaitez-vous télétravailler?" name="query">
         </div>
+        <div class="form-group col-sm-8">
+          <input type="checkbox" id="ambiance" name="ambiance" class="tag-selector" />
+          <label for="ambiance"> <i class="fa-solid fa-volume-high fa-2xl" style="color: #CDCBD2;"> </i> </label>
+          <input type="checkbox" id="internet_connexion" name="internet_connexion" class="tag-selector" />
+          <label for="internet_connexion"> <i class="fa-solid fa-wifi fa-2xl" style="color: #004792;"></i> </label>
+          <input type="checkbox" id="smoking" name="smoking" class="tag-selector" />
+          <label for="smoking"> <i class="fa-solid fa-smoking fa-2xl" style="color: #004792;"></i> </label>
+          <input type="checkbox" id="animals" name="animals" class="tag-selector" />
+          <label for="animals"> <i class="fa-solid fa-dog fa-2xl" style="color: #004792;"></i> </label>
+          <input type="checkbox" id="skills" name="skills" class="tag-selector"/>
+          <label for="skills"> <i class="fa-solid fa-wrench fa-2xl" style="color: #004792;"></i> </label>
+        </div>
+        <button type="submit"> filtrer </button>
       </form>
     </div>
   </div>
-</div>
 <div class="container">
   <div class="mt-4">
-    <h2 style="font-size: 20px;">Populaires</h2>
+    <h2 style="font-size: 25px;">Populaires</h2>
   </div>
 </div>
 <div class="container">
@@ -54,35 +65,9 @@
     </div>
   </div>
 
-<%#
-    <div class="col-5 col-md-5 mb-4"> <!-- Utilisation de col-12 pour la disposition sur mobile et col-md-6 pour la disposition sur les écrans plus larges -->
-    <a href="<%= workspaces_path%> <!-- Ajout du lien autour de la carte -->
-<%#
-      <article class="card">
-        <img
-          class="card__background"
-          src="https://i.ibb.co/Q9Pzk5z/Large-SCH-2021-EPICERIE-mannequin-TELETRAVAIL-070.jpg"
-          alt="Photo d'un bureau en hauteur"
-          width="1920"
-          height="2193"
-        />
-        <div class="card__content | flow">
-          <div class="card__content--container | flow">
-            <h2 style="font-size: 14px;" class="card__title">Chez Déborah</h2>
-            <p style="font-size: 9px;"  class="card__description">
-              Ambiance studieuse - Fumeur refusé - Un chien mignon
-            </p>
-          </div>
-          <button style="font-size: 9px;" class="card__button">J'aime</button>
-        </div>
-      </article>
-    </div>
-  </div>
-</div> %>
-<%# </a> %>
 <div class="container">
   <div class="mt-3">
-    <h2 style="font-size: 35px;">Je souhaite proposer un workspace</h2>
+    <h2 style="font-size: 25px;">Je souhaite proposer un workspace</h2>
   </div>
 </div>
 <div class="container">
@@ -92,42 +77,3 @@
       </div>
     </div>
 </div>
-
-<script>
-document.addEventListener('turbo:load', () => {
-  const searchInput = document.getElementById('search-input');
-  const searchForm = document.getElementById('search-form');
-  const searchQuery = document.getElementById('search-query');
-  let isSecondClick = false;
-
-  searchInput.addEventListener('click', () => {
-    if (!isSecondClick) {
-      isSecondClick = true;
-      return;
-    }
-
-    handleSubmit();
-  });
-
-  searchInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      handleSubmit();
-    }
-  });
-
-  searchForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-  });
-
-  function handleSubmit() {
-    const inputValue = searchInput.value.trim();
-    if (inputValue !== "") {
-      searchQuery.value = inputValue;
-      searchForm.submit();
-      searchForm.reset();
-      isSecondClick = false;
-    }
-  }
-});
-</script>
