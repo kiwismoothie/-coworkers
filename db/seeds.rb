@@ -111,7 +111,7 @@ workspace3 = Workspace.new(
   internet_connexion: true,
   description: "Une ambiance de travail studieuse, à la maison comme au bureau",
   smoking: false,
-  animals: "tortue",
+  animals: "autre",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
