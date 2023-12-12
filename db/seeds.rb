@@ -17,8 +17,9 @@ User.destroy_all
 Kevin = User.new(
   first_name: "Kevin",
   last_name: "Falck",
-  desired_skills: ["entrepreneuriat", "react"],
-  description: "Je suis un développeur web fullstack, j'ai 32 ans et je suis passionné par le code et les nouvelles technologies. Je voudrais rencontrer d'autres développeurs apprendre de nouveaux langages et partager mes connaissances.",
+  desired_skills: ["Entrepreneuriat", "Développement", "Marketing"],
+  skills: ["Développement", "Entrepreneuriat"],
+  description: "Je suis un développeur web fullstack, j'ai 28 ans et je suis passionné par le code et les nouvelles technologies. Je voudrais rencontrer d'autres développeurs apprendre de nouveaux langages et partager mes connaissances.",
   email: "test1@test.com",
   linkedin_url: "https://www.linkedin.com/in/k%C3%A9vin-falck-b03672296/",
   password: "test123456"
@@ -30,8 +31,8 @@ Kevin.save!
 Deborah = User.new(
   first_name: "Deborah",
   last_name: "Morchipont",
-  desired_skills: ["management","recrutement","paie"],
-  skills: ["ressources humaines","recrutement","paie"],
+  desired_skills: ["Management","Comptabilité"],
+  skills: ["Développement", "Recrutement", "Comptabilité"],
   description: "Je suis responsable des ressources humaines, passionnée par le recrutement et la paie. Je souhaite rencontrer d'autres professionnels RH pour échanger sur nos pratiques et nos expériences.",
   email: "test2@test.com",
   password: "test123456"
@@ -44,8 +45,8 @@ Deborah.save!
 Laura = User.new(
   first_name: "Laura",
   last_name: "Berretta",
-  skills: ["e-commerce","marketing","entrepreneuriat"],
-  desired_skills: ["e-commerce","marketing","communication"],
+  skills: ["Marketing","Développement","Entrepreneuriat"],
+  desired_skills: ["Consultant","Marketing","Entrepreneuriat"],
   linkedin_url: "https://www.linkedin.com/in/laura-berretta/",
   description: "Je suis directrice commerciale en e-commerce, j'ai 38 ans et je suis passionnée par l'écriture, le théatre... et la création d'entreprise. Je souhaite rencontrer d'autres professionnels du e-commerce pour échanger sur nos pratiques et nos expériences.",
   email: "test3@test.com",
@@ -59,10 +60,10 @@ Laura.save!
 Valerian = User.new(
   first_name: "Valérian",
   last_name: "Barreau",
-  skills: ["qualité","agroalimentaire","cuisine"],
-  desired_skills: ["nucléaire","qualité"],
+  skills: ["Développement","Entrepreneuriat","Marketing"],
+  desired_skills: ["Rédacteur","Graphiste", "Entrepreneuriat"],
   linkedin_url: "https://www.linkedin.com/in/val%C3%A9rian-barreau-abb9a4250/",
-  description: "Je suis responsable qualité dans le secteur de l'agroalimentaire, j'ai 28 ans et je suis passionné par la cuisine et la gastronomie. Je souhaite rencontrer des professionels dans le secteur du nucléaire afin de valider une idée de projet.",
+  description: "Je suis responsable qualité dans le secteur de l'agroalimentaire, j'ai 28 ans et je suis passionné par la cuisine et la gastronomie. Je souhaite rencontrer des professionels de l'entreprenariat afin de valider une idée de projet.",
   email: "test4@test.com",
   password: "test123456"
 )
