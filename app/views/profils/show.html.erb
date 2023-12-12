@@ -11,21 +11,31 @@
       </div>
 
       <div class="profile-details-right">
-        <ul>
-          <li class="font-size-description"><%= @user.description %></li>
-          <%= link_to(edit_user_registration_path) do %>
-            <i class="fa-solid fa-pencil" style="color: #3F7CAF;"></i>
-          <% end %>
-        </ul>
+        <div data-controller="read-more">
+          <p data-read-more-target="truncate">
+            <%= truncate(@user.description, length: 100) %>
+            <a href="#" data-action="click->read-more#toggle" data-read-more-target="fullText">Lire plus</a>
+          </p>
+          <p data-read-more-target="fullText" style="display: none;">
+            <%= @user.description %>
+          </p>
+        </div>
+
+        <%= link_to(edit_user_registration_path) do %>
+        <i class="fa-solid fa-pencil" style="color: #3F7CAF;"></i>
+        <% end %>
       </div>
     </div>
 
     <br>
 
-    <h2 class="profile-title">Mes skills</h2>
+    <h2 class="profile-title">Partage de skills</h2>
+    <h3>Mes skills à partager</h3>
     <div class="profile-content">
       <% if @user.skills.empty? %>
-        <%= "Vous n'avez pas encore renseigné vos skills" %>
+        <%= simple_form_for(@user, url: user_path(@user), method: :patch) do |f| %>
+          <%= f.input :skills, input_html: {class: "linkedin-form-1"}, label: 'Entrez un skill pour une meilleure expérience'%>
+        <% end %>
       <% else %>
         <% @user.skills.each do |skill| %>
           <%= skill %>
@@ -46,25 +56,22 @@
     <div class="profile-content">
       <h3>Informations personnelles</h3>
       <h3>Notifications</h3>
-      <div class="linkedin">
-        <div class="linkedin-left"> <h3>Lier mon profil Linkedin</h3></div>
-        <div class="linkedin-right"><i class="fa-brands fa-linkedin"></i></div>
+      <div class="linkedin-left">
+        <h3>Lier mon profil <i class="fa-brands fa-linkedin"></i></h3>
       </div>
-
-        <div>
-        <%= simple_form_for(@user) do |f| %>
-        <%= f.input :linkedin_url, input_html: {class: "linkedin-form-1"}%>
-        <%= f.submit %>
+      <div class="button-linkedin-row">
+        <%= simple_form_for(@user, url: user_path(@user), method: :patch) do |f| %>
+          <%= f.input :linkedin_url, input_html: {class: "linkedin-form-1"}, label: false %>
         <% end %>
-        </div>
-
-      <h3>Se déconnecter</h3>
+      </div>
     </div>
 
-    <br>
+    <h3>Se déconnecter</h3>
+  </div>
 
-    <div>
-      <a class="yellow-btn" href="<%= new_workspace_path %>">Ajouter un workspace</a>
-    </div>
+  <br>
+
+  <div class="yellow-btn">
+    <%= link_to "Ajouter un workspace", new_workspace_path %>
   </div>
 </div>

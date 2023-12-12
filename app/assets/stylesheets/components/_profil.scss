@@ -4,8 +4,7 @@ font-family: "Montserrat";
 }
 
 .container-profile{
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
   h2{
     font-size: 20px;
     font-weight: bold;
@@ -26,31 +25,19 @@ font-family: "Montserrat";
 .profile-content{
   font-family: "Montserrat";
   font-size: 16px;
-  line-height: 1.4;
 }
 
-.linkedin-left{
-  width: 80%;
-}
-
-.linkedin-right{
-  width: 20%;
-}
-
-.linkedin{
+.button-linkedin-row {
   display: flex;
+  align-items: stretch;
+  align-items: center;
 }
-
 
 .linkedin-form-1{
-  background-color: E6E9EB;
-    border-radius: 15px;
-    font-size: xx-small;
+  background-color: #E6E9EB;
+  border-radius: 15px;
+  border-color: #004792;
+  height: 20px;
+  font-size: xx-small;
+  width: 250px;
   }
-
-.linkedin-form-2{
-    background-color: E6E9EB;
-      border-radius: 15px;
-      font-size: xx-small;
-      color: red
-    }
