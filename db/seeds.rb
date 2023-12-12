@@ -88,7 +88,7 @@ workspace1.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/j
 workspace1.save!
 
 workspace2 = Workspace.new(
-  ambiance: "Festive",
+  ambiance: "Animé",
   address: "2 avenue Charles de gaulle, Toulouse",
   user: Kevin,
   internet_connexion: true,
@@ -105,7 +105,7 @@ workspace2.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/j
 workspace2.save!
 
 workspace3 = Workspace.new(
-  ambiance: "Bureau",
+  ambiance: "Calme",
   address: "4 place Carnot, Lyon",
   user: Kevin,
   internet_connexion: true,
@@ -123,7 +123,7 @@ workspace3.save!
 
 
 workspace4 = Workspace.new(
-  ambiance: "Apéro",
+  ambiance: "Animé",
   address: "3 Rue de la soif, Nantes",
   description: "Pas de travail sans apéro !",
   user: Valerian,
