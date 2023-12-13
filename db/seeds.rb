@@ -101,7 +101,7 @@ workspace2 = Workspace.new(
   capacity: 1,
   name: "Tout pour la fete"
 )
-file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785333/Coworkers/toulouse.jpg")
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481471/bureau-a_v4u4ec.jpg")
 workspace2.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace2.save!
 
@@ -169,9 +169,63 @@ workspace6 = Workspace.new(
   capacity: 2,
   name: "La maison du bonheur"
 )
-file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785332/Coworkers/paris2.jpg")
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481471/bureau-b_hgd6fv.jpg")
 workspace6.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace6.save!
+
+
+
+workspace7 = Workspace.new(
+  ambiance: "Calme",
+  address: "5 rue de belleville, Paris",
+  user: Laura,
+  description: "Dans le coeur du quartier de Belleville, un espace de travail calme et agréable",
+  internet_connexion: true,
+  smoking: true,
+  air_conditioning: true,
+  desired_skill: "fullstack",
+  capacity: 2,
+  name: "A Belleville"
+)
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481472/bureau-d_bbissx.png")
+workspace7.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
+workspace7.save!
+
+
+
+workspace8 = Workspace.new(
+  ambiance: "Calme",
+  address: "6 rue de vaugirard, Paris",
+  user: Valerian,
+  description: "Dans le coeur du quartier de Vaugirard, un espace de travail calme et agréable",
+  internet_connexion: true,
+  smoking: true,
+  air_conditioning: true,
+  desired_skill: "marketing",
+  capacity: 1,
+  name: "Joli espace dans le 15ème"
+)
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481483/bureau-f_jxqrjb.jpg")
+workspace8.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
+workspace8.save!
+
+
+workspace9 = Workspace.new(
+  ambiance: "Animé",
+  address: "5 rue des petits carreaux, Paris",
+  user: Valerian,
+  description: "En plein coeur de Paris, un espace de travail animé. Venez avec votre bonne humeur !",
+  internet_connexion: true,
+  smoking: true,
+  air_conditioning: true,
+  desired_skill: "marketing",
+  capacity: 3,
+  name: "Espace de travail dans le 2ème"
+)
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481471/bureau-c_q8fyxd.jpg")
+workspace9.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
+workspace9.save!
+
 
 booking1 = Booking.new(
   workspace: workspace3,
