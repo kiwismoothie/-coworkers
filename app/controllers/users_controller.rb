@@ -16,7 +16,8 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :address, :linkedin_url, :description, :photo, :skills => [], :desired_skills => []).tap do |whitelisted|
-      whitelisted[:skills] = params[:user][:skills].split(',')
+      whitelisted[:skills] = params[:user][:skills].split(',') if params[:user][:skills].present?
+      whitelisted[:desired_skills] = params[:user][:desired_skills].split(',') if params[:user][:desired_skills].present?
     end
   end
 end
