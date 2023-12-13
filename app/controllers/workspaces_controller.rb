@@ -22,7 +22,10 @@ class WorkspacesController < ApplicationController
       @workspaces = @workspaces.where(animals: params[:animals] ==  "chien" || "chat" || "autre")
     end
 
-    @workspaces = Workspace.all if @workspaces.empty?
+    if @workspaces.empty?
+      @workspaces = Workspace.all
+      @no_result = true
+    end
 
     @markers = @workspaces.geocoded.map do |workspace|
       {
@@ -32,8 +35,6 @@ class WorkspacesController < ApplicationController
         marker_html: render_to_string(partial: "marker", locals: {workspace: workspace})
       }
     end
-
-
   end
 
   def show
