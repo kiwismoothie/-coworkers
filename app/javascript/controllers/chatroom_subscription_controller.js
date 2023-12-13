@@ -10,8 +10,10 @@ export default class extends Controller {
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
+    this.element.addEventListener('lastMessageClicked', () => this.scrollToBottomOnClick());
     this.#scrollToBottom();
     console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
+
   }
 
   #insertMessageAndScrollDown(data) {
@@ -21,6 +23,10 @@ export default class extends Controller {
 
   #scrollToBottom() {
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight);
+  }
+
+  scrollToBottomOnClick() {
+    this.#scrollToBottom();
   }
 
   resetForm(event) {

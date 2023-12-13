@@ -1,19 +1,25 @@
-<div class="message-container <%= 'user1' if message.user == @chatroom.user1 %> <%= 'user2' if message.user == @chatroom.user2 %>" id="message-<%= message.id %>">
+<div class="message-container <%= 'user1' if message.user == @chatroom.user1 %> <%= 'user2' if message.user == @chatroom.user2 %>"
+     <% if defined?(is_last) && is_last %>
+       id="last-message-container" data-action="click->chatroom-subscription#scrollToBottomOnClick"
+     <% else %>
+       id="message-<%= message.id %>"
+     <% end %>
+>
   <% if message.user == @chatroom.user1 %>
-          <div class="message-box-user1">
-            <% if message.user.photos.attached? %>
-              <%= cl_image_tag(message.user.photos.last.key, height: 40, width: 40, crop: :fill, class: "avatar-chat") %>
-            <% end %>
-            <%= message.content %>
-            <p class="message-date1" style="display: none;"><%= l message.created_at, format: :long %></p>
-          </div>
-        <% else %>
-          <div class="message-box-user2">
-            <% if message.user.photos.attached? %>
-              <%= cl_image_tag(message.user.photos.last.key, height: 40, width: 40, crop: :fill, class: "avatar-chat") %>
-            <% end %>
-            <%= message.content %>
-            <p class="message-date2" style="display: none;"><%= l message.created_at, format: :long %></p>
-          </div>
-        <% end %>
+    <div class="message-box-user1">
+      <% if message.user.photos.attached? %>
+        <%= cl_image_tag(message.user.photos.last.key, height: 40, width: 40, crop: :fill, class: "avatar-chat") %>
+      <% end %>
+      <%= message.content %>
+      <p class="message-date1" style="display: none;"><%= l message.created_at, format: :long %></p>
+    </div>
+  <% else %>
+    <div class="message-box-user2">
+      <% if message.user.photos.attached? %>
+        <%= cl_image_tag(message.user.photos.last.key, height: 40, width: 40, crop: :fill, class: "avatar-chat") %>
+      <% end %>
+      <%= message.content %>
+      <p class="message-date2" style="display: none;"><%= l message.created_at, format: :long %></p>
+    </div>
+  <% end %>
 </div>

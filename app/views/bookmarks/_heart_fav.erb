@@ -1,0 +1,15 @@
+<div class="heart-index">
+    <% if workspace.bookmarks.any? %>
+      <%= link_to bookmark_path(workspace.bookmarks.first), data: { turbo_method: :delete } do %>
+        <div class="background checked">
+          <i class="fa-solid fa-heart fa-xl" style="color: #f0ad00;"></i>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to workspace_bookmarks_path(workspace), data: { turbo_method: :post } do %>
+        <div class="background unchecked">
+          <i class="fa-regular fa-heart fa-xl" style="color: #f0ad00;"></i>
+        </div>
+      <% end %>
+    <% end %>
+</div>

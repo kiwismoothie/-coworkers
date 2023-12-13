@@ -1,0 +1,48 @@
+.workspace-image-index  {
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.image-container-index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.workspace-image-index img {
+  border-radius: 30px;
+  box-shadow: 0px 0px 5px rgba(173, 173, 173, 0.3);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 95%;
+}
+
+.workspace-infos{
+  padding: 10px;
+}
+
+.workspace-card-index {
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  border-radius: 40px;
+}
+
+.workspace-name {
+  font-size: 17px;
+}
+
+.card-content-index {
+  padding-bottom: 10px;
+  margin-left: 15px;
+}
+
+.heart-index{
+  position: absolute;
+  bottom: 20px;
+  right: 16px;
+  z-index: 2;
+}
