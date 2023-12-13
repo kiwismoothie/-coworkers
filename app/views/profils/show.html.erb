@@ -1,7 +1,7 @@
-<div class="container text-center mt-4">
+<div class="container mt-4">
       <div class="mx-auto mt-4">
           <div class="chat-head">
-            <div class="chat-title">Mon dashboard</div>
+            <div class="chat-title">Mon Profil</div>
             <div class="icon-bubble msg"> </div>
           </div>
       <div class="top-divider"> </div>
@@ -9,9 +9,6 @@
 
 <div class="container-profile">
   <div class="card-product-dashboard-3">
-        <%= link_to(edit_user_registration_path) do %>
-        <i class="fa-solid fa-pencil position-absolute top-20 end-40" style="color: #3F7CAF;"></i>
-        <% end %>
 
     <div class="profile-details">
       <div class="profile-details-left">
@@ -26,7 +23,7 @@
           <p data-read-more-target="fullText" class="d-none">
             <%= @user.description %>
           </p>
-          <a href="#" data-action="click->read-more#toggle">Lire plus</a>
+          <a href="#" data-action="click->read-more#toggle">Editer</a>
         </div>
 
 
@@ -42,8 +39,8 @@
           <%= skill %>
           <% end %>
           <%= simple_form_for(@user, url: user_path(@user), method: :patch) do |f| %>
-          <%= f.input :skills, input_html: {value: current_user.skills.join(", "), class: "linkedin-form-1"}, label: 'Entrez un skill supplémentaire'%>
-          <%= f.submit "Valider"%>
+            <%= f.input :skills, input_html: {value: current_user.skills.join(", "), class: "linkedin-form-1"}, label: 'Entrez un skill supplémentaire'%>
+            <%= f.submit "Valider", class: "btn yellow-btn-mini" %>
           <% end %>
     </div>
 
@@ -54,7 +51,7 @@
         <% end %>
       <%= simple_form_for(@user, url: user_path(@user), method: :patch) do |f| %>
           <%= f.input :desired_skills, input_html: {value: current_user.desired_skills.join(", "), class: "linkedin-form-1"}, label: 'Entrez un skill supplémentaire'%>
-          <%= f.submit "Valider"%>
+            <%= f.submit "Valider", class: "btn yellow-btn-mini" %>
           <% end %>
     </div>
 
@@ -62,7 +59,10 @@
 
     <h2 class="profile-title">Paramètres</h2>
     <div class="profile-content">
-      <h3>Informations personnelles</h3>
+<h3 style="display: inline-block; margin-right: 10px;">Mes informations</h3>
+<%= link_to(edit_user_registration_path, style: "display: inline-block; vertical-align: middle;") do %>
+  <i class="fa-solid fa-pencil" style="color: #3F7CAF;"></i>
+<% end %>
       <h3>Notifications</h3>
       <div class="linkedin-left">
         <h3>Lier mon profil <i class="fa-brands fa-linkedin"></i></h3>
@@ -77,11 +77,13 @@
     <h3>Se déconnecter</h3>
   </div>
 
-  <br>
-
-  <div class="yellow-btn">
-    <%= link_to "Ajouter un workspace", new_workspace_path %>
-  </div>
+</div>
+<div class="container">
+    <div class="col-11">
+          <div class="col-11 ">
+            <a class="yellow-btn btn-home" href="<%= new_workspace_path %>">Ajouter un workspace</a>
+      </div>
+    </div>
 </div>
 </div>
 </div>
