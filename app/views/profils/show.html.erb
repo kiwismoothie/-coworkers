@@ -14,11 +14,11 @@
         <div data-controller="read-more">
           <p data-read-more-target="truncate">
             <%= truncate(@user.description, length: 100) %>
-            <a href="#" data-action="click->read-more#toggle" data-read-more-target="fullText">Lire plus</a>
           </p>
-          <p data-read-more-target="fullText" style="display: none;">
+          <p data-read-more-target="fullText" class="d-none">
             <%= @user.description %>
           </p>
+          <a href="#" data-action="click->read-more#toggle">Lire plus</a>
         </div>
 
         <%= link_to(edit_user_registration_path) do %>
@@ -32,10 +32,12 @@
     <h2 class="profile-title">Partage de skills</h2>
     <h3>Mes skills à partager</h3>
     <div class="profile-content">
+              <%= simple_form_for(@user, url: user_path(@user), method: :patch) do |f| %>
+          <%= f.input :skills, input_html: {value: current_user.skills.join(", "), class: "linkedin-form-1"}, label: 'Entrez un skill pour une meilleure expérience'%>
+          <%= f.submit "Valider"%>
+          <% end %>
       <% if @user.skills.empty? %>
-        <%= simple_form_for(@user, url: user_path(@user), method: :patch) do |f| %>
-          <%= f.input :skills, input_html: {class: "linkedin-form-1"}, label: 'Entrez un skill pour une meilleure expérience'%>
-        <% end %>
+    <p>vide</p>
       <% else %>
         <% @user.skills.each do |skill| %>
           <%= skill %>
