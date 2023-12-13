@@ -201,7 +201,7 @@ workspace8 = Workspace.new(
   internet_connexion: true,
   smoking: true,
   air_conditioning: true,
-  desired_skill: "marketing",
+  desired_skill: "Marketing",
   capacity: 1,
   name: "Joli espace dans le 15ème"
 )
@@ -218,7 +218,7 @@ workspace9 = Workspace.new(
   internet_connexion: true,
   smoking: true,
   air_conditioning: true,
-  desired_skill: "marketing",
+  desired_skill: "Marketing",
   capacity: 3,
   name: "Espace de travail dans le 2ème"
 )
