@@ -18,5 +18,5 @@ class User < ApplicationRecord
   validates :last_name, presence: true
 
   SKILLS = ['Développement', 'Marketing', 'Data', 'Consultant', 'Rédacteur', 'Comptabilité', 'Traduction', 'Vidéo', 'Graphiste', 'Webmaster', 'Photographe', 'Entrepreneuriat', 'Coaching', 'Formateur', 'Recrutement', 'Autre' ]
-  validates :skills, inclusion: { in: SKILLS }
+  # validates :skills, inclusion: { in: SKILLS }
 end

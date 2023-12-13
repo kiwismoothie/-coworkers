@@ -13,6 +13,9 @@
   </div>
 
   <!-- Carte -->
+  <% if @no_result %>
+      <p> Pas de résultat correspondant à votre recherche</p>
+    <% end %>
   <div style="width: 100%; height: 400px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
