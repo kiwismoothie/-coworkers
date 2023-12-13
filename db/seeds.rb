@@ -101,7 +101,7 @@ workspace2 = Workspace.new(
   capacity: 1,
   name: "Tout pour la fete"
 )
-file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481471/bureau-a_v4u4ec.jpg")
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481482/bureau-e_pzjbmg.jpg")
 workspace2.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace2.save!
 
