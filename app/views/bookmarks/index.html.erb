@@ -1,29 +1,25 @@
     <div class="col-lg-8 col-md-8 col-12">
       <div class="mx-auto mt-4">
-        <h1 class="text-center display-4" style="text-shadow: 2px 2px 4px rgba(5, 0, 0, 0.2);">Favoris</h1>
+        <h1 class="text-center display-4" style="text-shadow: 2px 2px 4px rgba(5, 0, 0, 0.2);">Mes favoris</h1>
       </div>
     </div>
-<div class="container-fluid">
-  <div class="row">
-    <!-- Cartes à gauche -->
-    <div class="col-lg-8 col-md-8 col-12">
-      <div class="container">
-        <div class="row">
-          <% @bookmarks.each do |bookmark| %>
-            <div class="col-lg-4 col-md-4 col-12 mb-5"> <!-- Réduisez la largeur des cartes ici -->
-              <a href="<%= workspace_path(bookmark.workspace) %>" class="custom-link">
-                <div class="card-trip card-trip-list custom-link">
-                <a href="<%= workspace_path(bookmark.workspace) %>" class="custom-link">
-                <% bookmark.workspace.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, height: 400, width: 500, crop: :fill %>
-          <% end %>
-            <div class="card-trip-infos">
-              <%= bookmark.workspace.name %>
+
+
+<div class="container">
+  <% @bookmarks.each do |bookmark| %>
+    <a href="<%= workspace_path(bookmark.workspace) %>" class="custom-link">
+      <div class="workspace-card-index">
+        <div class="workspace-image-index">
+          <div class="image-container-index">
+            <%= cl_image_tag bookmark.workspace.photos.first.key, crop: :fill %>
           </div>
-                </div>
-              </a>
-            </div>
-          <% end %>
+            <%= render 'heart_fav', workspace: bookmark.workspace %>
+        </div>
+        <div class="card-content-index">
+          <%= image_tag bookmark.workspace.user.photos.first, height: 50, width: 50, class: "avatar2", alt: "Photo" %>
+          <span class="workspace-name"><%= bookmark.workspace.name %></span>
         </div>
       </div>
-    </div>
+    </a>
+  <% end %>
+</div>

@@ -1,5 +1,5 @@
 <div class="text-center mx-auto mt-2 mb-3">
-    <h1>Ajouter un bureau</h1>
+    <h1>Ajouter un workspace</h1>
 </div>
 <div class="container sm-12 m-6">
     <%= simple_form_for [@workspace] do |f| %>
@@ -8,7 +8,7 @@
         <div class="workspace-label">Description:</div>
           <%= f.input :description, label: false%>
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-        <div class="workspace-label">Adress:</div>
+        <div class="workspace-label">Adresse:</div>
         <%= f.input :address, label: false,
           input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
           wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
@@ -24,7 +24,7 @@
               </div>
               <div class="workspace-label">Animaux:</div>
             <%= f.input :animals, collection: [ "aucun", "chat", "chien"], label: false %>
-            <%= f.button :submit, "Proposer mon bureau", class: 'container btn yellow-btn btn-lg btn-block text-white' %>
+            <%= f.button :submit, "Proposer mon workspace", class: 'container btn yellow-btn btn-lg btn-block text-white' %>
             </div>
         <% end %>
 </div>
