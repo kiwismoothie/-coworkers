@@ -19,7 +19,7 @@ Kevin = User.new(
   last_name: "Falck",
   desired_skills: ["Entrepreneuriat", "Développement", "Marketing"],
   skills: ["Développement", "Entrepreneuriat"],
-  description: "Je suis un développeur web fullstack, j'ai 28 ans et je suis passionné par le code et les nouvelles technologies. Je voudrais rencontrer d'autres développeurs apprendre de nouveaux langages et partager mes connaissances.",
+  description: "Je suis un développeur web fullstack, j'ai 28 ans et je suis passionné par le code et les nouvelles technologies. Je voudrais rencontrer d'autres développeurs apprendre de nouveaux langages ou partager mes connaissances.",
   email: "test1@test.com",
   linkedin_url: "https://www.linkedin.com/in/k%C3%A9vin-falck-b03672296/",
   password: "test123456"
