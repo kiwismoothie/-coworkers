@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  get 'profiles/show'
-  patch 'profiles/update'
   devise_for :users
   root to: "pages#home"
   get "intro", to: "pages#intro"
   get "dashboard", to: "dashboards#show"
   get 'workspaces/:workspace_id/create_chatroom', to: 'chatrooms#create_chatroom', as: 'workspace_create_chatroom'
-  get 'profils/show'
   patch "users/:id", to: "users#update", as: :user
 
   resource :profil, only: [:show, :update]
