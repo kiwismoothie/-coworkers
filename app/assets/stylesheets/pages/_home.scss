@@ -3,6 +3,16 @@
   width: 45%;
 }
 
+.icones{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icone{
+  display: inline-block;
+}
+
 /* Sur les tablettes */
 @media (min-width: 908px) {
   .logo-carr {
@@ -91,7 +101,6 @@
 
 .tag-selector + label {
   cursor: pointer;
-  display: inline-block;
   font-size: 0.7rem;
   border-radius: 50rem;
   padding: 0.1rem 0.5rem;
@@ -101,6 +110,29 @@
 }
 
 .tag-selector:checked + label {
+  color: #004792;
+}
+
+
+
+/* PAS TOUCHER */
+
+.icon-item {
+  display: inline-block;
+}
+
+.icon-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  color: #CAE4FF;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.icon-selector:checked + label {
   color: #004792;
 }
 
