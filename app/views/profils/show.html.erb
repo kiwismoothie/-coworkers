@@ -20,16 +20,17 @@
       </div>
 
       <div class="profile-details-right">
+      <div class="profile-content">
         <div data-controller="read-more">
           <p data-read-more-target="truncate">
-            <%= truncate(@user.description, length: 140) %>
+            <%= truncate(@user.description, length: 150) %>
           </p>
           <p data-read-more-target="fullText" class="d-none">
             <%= @user.description %>
           </p>
           <a href="#" data-action="click->read-more#toggle">Lire plus</a>
         </div>
-
+</div>
 
       </div>
     </div>
@@ -86,6 +87,9 @@
         <%= simple_form_for(@user, url: user_path(@user), method: :patch) do |f| %>
           <%= f.input :linkedin_url, input_html: {class: "linkedin-form-1"}, label: false %>
         <% end %>
+                        <%= button_tag class:"btn-no-style2" do %>
+              <i class="fa-regular fa-square-check fa-xs" style="color: #3F7CAF;"></i>
+                <% end %>
       </div>
     </div>
     </div>
