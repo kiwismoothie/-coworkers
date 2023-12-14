@@ -2,29 +2,35 @@
     <h1>Ajouter un workspace</h1>
 </div>
 <div class="container sm-12 m-6">
-    <%= simple_form_for [@workspace] do |f| %>
-        <div class="workspace-label">Nom:</div>
-          <%= f.input :name, label: false %>
-        <div class="workspace-label">Description:</div>
-          <%= f.input :description, label: false%>
-          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-        <div class="workspace-label">Adresse:</div>
-        <%= f.input :address, label: false,
-          input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
-          <div class="workspace-label">Capacité:</div>
-            <%= f.input :capacity , collection: [ "1", "2", "3"], label: false%>
-              <div class="d-flex justify-content-between align-items-center">
-                <div><i class="fa-solid fa-smoking fa-beat fa-xl" style="color: #004792;"></i></i></div>
-                  <%=f.input :smoking, as: :boolean, boolean_style: :inline, label: false%>
-                <div><i class="fa-regular fa-snowflake fa-beat fa-xl" style="color: #004792;"></i></i></div>
-                  <%=f.input :air_conditioning, as: :boolean, boolean_style: :inline , label:false%>
-                <div><i class="fa-solid fa-wifi fa-beat fa-xl" style="color: #004792;"></i></div>
-                  <%=f.input :internet_connexion, as: :boolean, boolean_style: :inline, label:false%>
-              </div>
-              <div class="workspace-label">Animaux:</div>
-            <%= f.input :animals, collection: [ "aucun", "chat", "chien"], label: false %>
-            <%= f.button :submit, "Proposer mon workspace", class: 'container btn yellow-btn btn-lg btn-block text-white' %>
+  <%= simple_form_for [@workspace] do |f| %>
+      <div class="workspace-label">Nom:</div>
+        <%= f.input :name, label: false %>
+      <div class="workspace-label">Description:</div>
+        <%= f.input :description, label: false%>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <div class="workspace-label">Adresse:</div>
+      <%= f.input :address, label: false,
+        input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
+        <div class="workspace-label">Capacité:</div>
+          <%= f.input :capacity , collection: [ "1", "2", "3"], label: false%>
+            <div class="d-flex justify-content-between align-items-center">
+              <%= f.check_box :smoking, label: false, class:"d-none icon-selector" %>
+              <%= f.label :smoking  do %>
+                <div><i class="fa-solid fa-smoking fa-2xl"></i></div>
+              <% end %>
+              <%= f.check_box :internet_connexion, label: false, class:"d-none icon-selector" %>
+              <%= f.label :internet_connexion  do %>
+                <div><i class="fa-solid fa-wifi fa-2xl"></i></i></div>
+              <% end %>
+              <%= f.check_box :air_conditioning, label: false, class:"d-none icon-selector" %>
+              <%= f.label :air_conditioning  do %>
+                <div><i class="fa-solid fa-snowflake fa-2xl"></i></div>
+              <% end %>
             </div>
-        <% end %>
+            <div class="workspace-label">Animaux:</div>
+              <%= f.input :animals, collection: [ "aucun", "chat", "chien"], label: false %>
+              <%= f.button :submit, "Proposer mon workspace", class: 'container btn yellow-btn btn-lg btn-block text-white' %>
+          </div>
+      <% end %>
 </div>
