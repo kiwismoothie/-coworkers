@@ -375,15 +375,12 @@ booking3 = Booking.new(
 booking3.save!
 
 booking4 = Booking.new(
-  workspace: workspace1,
-  user: Laura,
-  description: "Dans le coeur du quartier de Belleville, un espace de travail calme et agréable",
-  internet_connexion: true,
-  smoking: true,
-  air_conditioning: true,
-  desired_skill: "fullstack",
-  capacity: 2,
-  name: "A Belleville"
+  workspace: workspace_cid,
+  user: Isabelle,
+  rating: 5,
+  start_date: "Thu, 30 Nov 2023",
+  end_date: "Tue, 12 Dec 2023",
+  status: "refusée"
 )
 booking4.save!
 
