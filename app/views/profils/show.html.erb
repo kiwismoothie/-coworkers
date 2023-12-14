@@ -46,9 +46,18 @@
         <% @user.skills.each do |skill| %>
           <%= skill %>
           <% end %>
+
+    <div>
+      <p>Entrez un skill supplémentaire</p>
+    </div>
           <%= simple_form_for(@user, url: user_path(@user), method: :patch) do |f| %>
-          <%= f.input :skills, input_html: {value: current_user.skills.join(", "), class: "linkedin-form-1"}, label: 'Entrez un skill supplémentaire'%>
-          <%= f.submit "Valider"%>
+             <div class="d-flex end">
+          <%= f.input :skills, input_html: {value: current_user.skills.join(", "), class: "linkedin-form-1"}, label: false%>
+          <div class ="row">
+                <%= button_tag class:"btn-no-style2" do %>
+              <i class="fa-regular fa-square-check fa-xs" style="color: #004792;"></i>
+                <% end %>
+            </div>
           <% end %>
     </div>
 
@@ -67,11 +76,9 @@
               <%= f.input :desired_skills, input_html: {value: current_user.desired_skills.join(", "), class: "linkedin-form-1"}, label: false%>
             </div>
             <div class ="row">
-
                 <%= button_tag class:"btn-no-style2" do %>
               <i class="fa-regular fa-square-check fa-xs" style="color: #004792;"></i>
                 <% end %>
-
             </div>
           </div>
           <% end %>

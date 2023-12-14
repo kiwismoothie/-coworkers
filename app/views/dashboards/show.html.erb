@@ -29,15 +29,15 @@
 
     <div class="card-product-dashboard-3">
           <h2>Mes réservations</h2>
-          <% if @booking.present? %>
+
           <ul> <% current_user.bookings.each do |booking| %>
           <div class="reservation-details">
             <div class="reservation-details-left">
               <div class="workspace-name"><%= booking.workspace.name %> </div>
               <div>
-                <%=l booking.start_date, format: :long %>
+                <%=booking.start_date.strftime('%d/%m/%y') %>
                 <% if booking.end_date.present? && booking.end_date != booking.start_date %>
-                  au <%=l booking.end_date, format: :long %>
+                  au <%=booking.end_date.strftime('%d/%m/%y') %>
                 <% end %>
               </div>
               Statut <%= booking.status %>
@@ -46,12 +46,9 @@
               <%= image_tag booking.workspace.photos.first, class: "photo-reservation", alt: "Photo" %>
             </div>
           </div>
-
           <hr>
           <% end %></ul>
-      <% else %>
-          <div class="profile-content">Vous n'avez pas encore reçu de réservation</div>
-          <% end %>
+
           </div>
 
 
@@ -62,9 +59,9 @@
           <div class="reservation-details-left">
             <div class="workspace-name"> <%= booking.workspace.name %> </div>
               <div>
-                <%=l booking.start_date, format: :long %>
+               <%= booking.start_date.strftime('%d/%m/%y') %>
                 <% if booking.end_date.present? && booking.end_date != booking.start_date %>
-                  au <%=l booking.end_date, format: :long %>
+                  au  <%= booking.end_date.strftime('%d/%m/%y') %>
                 <% end %>
               </div>
             <% if booking.status == "en cours" %>
