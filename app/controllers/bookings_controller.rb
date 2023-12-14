@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking.status = "en cours"
 
     if @booking.save
-      redirect_to dashboard_path
+      redirect_to dashboard_path, notice: 'Demande envoyée ! 🕒 Attendez maintenant la réponse. '
     else
       render "workspaces/show", status: :unprocessable_entity
     end
