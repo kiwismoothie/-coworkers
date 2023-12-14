@@ -16,12 +16,10 @@
     </div>
     <ul class="workspace-infos">
       <div class="description-adress-show">
-        <%= @workspace.description %>
-
-
-        <li><i class="fa-solid fa-location-dot fa-xl" style="color: #004792;"></i>   <%= @workspace.address %> </li>
+        <li><i class="fa-solid fa-circle-info fa-xl me-2" style="color: #004792;"></i><%= @workspace.description %></li>
+        <li><i class="fa-solid fa-location-dot fa-xl me-2" style="color: #004792;"></i><%= @workspace.address %></li>
       </div>
-       <div class="font-awesome d-flex justify-content-around">
+       <div class="font-awesome d-flex justify-content-between">
         <li><% if @workspace.capacity == 1 %>
           <i class="fa-solid fa-user fa-2xl" style="color: #004792;"></i>
         <% elsif @workspace.capacity == 2 %>
@@ -36,7 +34,7 @@
           <% else %>
             <i class="fa-solid fa-wifi fa-2xl" style="color: #CDCBD2;"></i>
           <% end %>
-        <li>
+        </li>
         <li>
           <% if @workspace.smoking %>
             <i class="fa-solid fa-smoking fa-2xl" style="color: #004792;"></i>
@@ -45,11 +43,18 @@
           <% end %>
         </li>
         <li>
-          <% if @workspace.animals == "chien"%>
+          <% if @workspace.ambiance == "Calme" %>
+            <i class="fa-solid fa-volume-xmark fa-2xl" style="color: #004792;"></i>
+          <% elsif @workspace.ambiance == "Animé" %>
+            <i class="fa-solid fa-volume-xmark fa-2xl" style="color: #CBCDD2;"></i>
+          <% end %>
+        </li>
+        <li>
+          <% if @workspace.animals == "Chien"%>
             <i class="fa-solid fa-dog fa-2xl" style="color: #004792;"></i>
-          <% elsif @workspace.animals == "chat" %>
+          <% elsif @workspace.animals == "Chat" %>
             <i class="fa-solid fa-cat fa-2xl" style="color: #004792;"></i>
-          <% elsif @workspace.animals == "autre" %>
+          <% elsif @workspace.animals == "Autre" %>
             <i class="fa-solid fa-paw fa-2xl" style="color: #004792;"></i>
           <% else  %>
             <i class="fa-solid fa-paw fa-2xl" style="color: #cdcbd2;"></i>
@@ -58,7 +63,7 @@
       </div>
         <li class="workspace-info-date">
           <%= simple_form_for([@workspace, @booking]) do |f| %>
-            <div>Date souhaitée :</div>
+          <div>Date souhaitée :</div>
             <div class="workspace-date-box">
               <div class="input-left">
                 <%= f.input :start_date, label: false, as: :string, input_html: { data: { controller: "datepicker" } } %>
