@@ -1,6 +1,12 @@
-<div class="text-center mx-auto mt-2 mb-3">
-    <h1>Ajouter un workspace</h1>
-</div>
+<div class="container mt-4">
+      <div class="mx-auto mt-4">
+          <div class="chat-head">
+            <div class="chat-title">Proposer un workspace</div>
+            <%= link_to :back, class: 'btn btn-default' do %>
+            <i class="fa fa-arrow-left" style="font-size: 1.3em; color: #FFB116;"></i>
+            <% end %>
+          </div>
+      <div class="top-divider"> </div>
 <div class="container sm-12 m-6">
   <%= simple_form_for [@workspace] do |f| %>
       <div class="workspace-label">Nom:</div>
