@@ -35,6 +35,13 @@
             <i class="fa-solid fa-wifi fa-2xl" style="color: #CDCBD2;"></i>
           <% end %>
         </li>
+         <li>
+          <% if @workspace.parking %>
+            <i class="fa-solid fa-square-parking fa-2xl" style="color: #004792;"></i>
+          <% else %>
+            <i class="fa-solid fa-square-parking fa-2xl" style="color: #CDCBD2;"></i>
+          <% end %>
+        </li>
         <li>
           <% if @workspace.smoking %>
             <i class="fa-solid fa-smoking fa-2xl" style="color: #004792;"></i>
