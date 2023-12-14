@@ -113,6 +113,29 @@
   color: #004792;
 }
 
+
+
+/* PAS TOUCHER */
+
+.icon-item {
+  display: inline-block;
+}
+
+.icon-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  color: #CAE4FF;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.icon-selector:checked + label {
+  color: #004792;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap");
 
 :root {
