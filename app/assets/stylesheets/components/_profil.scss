@@ -1,45 +1,65 @@
 .font-size-description{
-font-size: 14px;
-font-family: "Montserrat";
-}
+  font-size: 14px;
+  font-family: "Montserrat";
+  }
 
-.container-profile{
-  margin: 20px;
-  h2{
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0;
+  .container-profile{
+    margin: 20px;
+    h2{
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0;
+      color: #004792;
+    }
+    H3{
+      font-family: "Montserrat";
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: black;
+    }
+  }
+
+  #profile-content-button{
+    background-color: none;
+    border: none;
     color: #004792;
   }
-  H3{
+
+  .profile-title{
+    margin-top: 20px;
+  }
+
+  .profile-content{
     font-family: "Montserrat";
     font-size: 16px;
-    font-weight: bold;
-    margin-top: 20px;
-    color: black;
   }
-}
 
-.profile-title{
-  margin-top: 20px;
-}
-
-.profile-content{
-  font-family: "Montserrat";
-  font-size: 16px;
-}
-
-.button-linkedin-row {
-  display: flex;
-  align-items: stretch;
-  align-items: center;
-}
-
-.linkedin-form-1{
-  background-color: #E6E9EB;
-  border-radius: 15px;
-  border-color: #004792;
-  height: 20px;
-  font-size: xx-small;
-  width: 250px;
+  .button-linkedin-row {
+    display: flex;
+    align-items: stretch;
+    align-items: flex-end;
   }
+
+  .linkedin-form-1{
+    background-color: #E6E9EB;
+    border-radius: 15px;
+    border-color: #004792;
+    height: 20px;
+    font-size: xx-small;
+    width: 250px;
+    }
+
+  .btn-no-style2 {
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      outline: inherit;
+      margin-left: 1rem;
+      i{
+        font-size: 2rem;
+      }
+  }
+
