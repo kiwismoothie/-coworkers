@@ -17,8 +17,9 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   align-items: center;
   border-radius: 15px;
-  margin: 20px;
-  padding: 20px;
+  margin: 10px;
+  margin-top: 20px;
+  padding: 10px;
   ul {
     margin: 0;
     padding: 0;
@@ -52,9 +53,8 @@
     color: orange;
     text-decoration: none;
   }
-  margin-left: 10px;
-  margin-top: 20px;
   width: 65%;
+  display: flex;
 }
 
 
@@ -94,7 +94,12 @@
 
 .reservation-details-left {
   margin-top: 20px;
+  margin-right: 10px;
   width: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 .reservation-details-right {
@@ -104,6 +109,7 @@
 
 .photo-reservation {
   width: 100%;
+  max-height: 85px;
   border-radius: 15px;
 }
 
