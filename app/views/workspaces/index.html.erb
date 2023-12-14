@@ -63,7 +63,7 @@
   <!-- Workspaces -->
   <% @workspaces.each do |workspace| %>
     <a href="<%= workspace_path(workspace) %>" class="custom-link">
-      <div class="workspace-card-index">
+      <div class="workspace-card-index mt-4">
         <div class="workspace-image-index">
           <div class="image-container-index">
             <%= cl_image_tag workspace.photos.first.key, crop: :fill %>

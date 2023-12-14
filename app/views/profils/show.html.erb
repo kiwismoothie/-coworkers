@@ -22,7 +22,7 @@
     <div class="profile-details">
 
       <div class="profile-details-left">
-        <%= image_tag @my_workspaces.first.user.photos.first, class: "avatar-profile-details-dashboard", alt: "Photo" %>
+        <%= image_tag @user.photos.first, class: "avatar-profile-details-dashboard", alt: "Photo" %>
       </div>
 
       <div class="profile-details-right">
@@ -42,19 +42,16 @@
 
     <br>
 
-    <h2 class="profile-title">Partage de skills</h2>
-    <h3>Mes skills à partager <i class="fa-solid fa-wrench"></i></h3>
+    <h2 class="profile-title">Partage de compétences</h2>
+    <h3>Mes compétences <i class="fa-solid fa-wrench"></i></h3>
       <div class="profile-content">
         <% @user.skills.each do |skill| %>
           <%= skill %>
           <% end %>
 
-    <div>
-      <p>Entrez un skill supplémentaire</p>
-    </div>
           <%= simple_form_for(@user, url: user_path(@user), method: :patch) do |f| %>
              <div class="d-flex end">
-          <%= f.input :skills, input_html: {value: current_user.skills.join(", "), class: "linkedin-form-1"}, label: false%>
+          <%= f.input :skills, input_html: {value: current_user.skills.join(" "), class: "linkedin-form-1"}, label: false%>
           <div class ="row">
                 <%= button_tag class:"btn-no-style2" do %>
               <i class="fa-regular fa-square-check fa-xs" style="color: #004792;"></i>
@@ -64,14 +61,10 @@
     </div>
 
     <div class="profile-content">
-      <h3>Skills recherchées</h3>
+      <h3>Compétences recherchées</h3>
         <% @user.desired_skills.each do |skill| %>
         <%=  skill %>
         <% end %>
-
-    <div>
-      <p>Entrez un skill supplémentaire</p>
-    </div>
           <%= simple_form_for(@user, url: user_path(@user), method: :patch) do |f| %>
           <div class="d-flex end">
             <div class ="row">
@@ -101,11 +94,10 @@
       </div>
     </div>
 
-    <h3>Se déconnecter</h3>
-  </div>
-
   <br>
-
+</div>
+</div>
+</div>
 <div class="container">
     <div class="col-11 text-center">
           <div class="col-11 text-center">
