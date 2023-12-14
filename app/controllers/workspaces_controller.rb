@@ -1,6 +1,7 @@
 class WorkspacesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   def index
+    @current_page = 'home'
     @workspaces = Workspace.all
     if params[:query].present?
       @workspaces = Workspace.global_search(params[:query])
@@ -42,6 +43,7 @@ class WorkspacesController < ApplicationController
   end
 
   def show
+    @current_page = 'home'
     @workspaces = Workspace.all
     @workspace = Workspace.find(params[:id])
     @booking = Booking.new
@@ -49,6 +51,7 @@ class WorkspacesController < ApplicationController
   end
 
   def new
+    @current_page = 'home'
     @workspace = Workspace.new
   end
 

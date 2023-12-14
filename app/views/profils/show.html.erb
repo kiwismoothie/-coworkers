@@ -1,7 +1,7 @@
 <div class="container mt-4">
       <div class="mx-auto mt-4">
           <div class="chat-head">
-            <div class="chat-title">Mon Profil</div>
+            <div class="chat-title">Mon profil</div>
             <%= link_to :back, class: 'btn btn-default' do %>
             <i class="fa fa-arrow-left" style="font-size: 1.3em; color: #FFB116;"></i>
             <% end %>
@@ -11,13 +11,7 @@
 
 <div class="container-profile">
   <div class="card-product-dashboard-3">
-        <%= link_to(edit_user_registration_path) do %>
-        <i class="fa-solid fa-pencil position-absolute top-20 end-40" style="color: #3F7CAF;"></i>
-        <% end %>
-
-        <div class="profile-name">
-        <%= @user.first_name %> <%= @user.last_name %>
-        </div>
+        <h2 class="profile-title"><%= @user.first_name %> <%= @user.last_name %></h2>
 
     <div class="profile-details">
 
@@ -28,7 +22,7 @@
       <div class="profile-details-right">
         <div data-controller="read-more">
           <p data-read-more-target="truncate">
-            <%= truncate(@user.description, length: 100) %>
+            <%= truncate(@user.description, length: 140) %>
           </p>
           <p data-read-more-target="fullText" class="d-none">
             <%= @user.description %>
@@ -39,10 +33,9 @@
 
       </div>
     </div>
-
-    <br>
-
-    <h2 class="profile-title">Partage de compétences</h2>
+    </div>
+  <div class="card-product-dashboard-3">
+    <h2 class="profile-title mt-2">Partage de compétences</h2>
     <h3>Mes compétences <i class="fa-solid fa-wrench"></i></h3>
       <div class="profile-content">
         <% @user.skills.each do |skill| %>
@@ -54,12 +47,11 @@
           <%= f.input :skills, input_html: {value: current_user.skills.join(" "), class: "linkedin-form-1"}, label: false%>
           <div class ="row">
                 <%= button_tag class:"btn-no-style2" do %>
-              <i class="fa-regular fa-square-check fa-xs" style="color: #004792;"></i>
+              <i class="fa-regular fa-square-check fa-xs" style="color: #3F7CAF;"></i>
                 <% end %>
             </div>
           <% end %>
     </div>
-
     <div class="profile-content">
       <h3>Compétences recherchées</h3>
         <% @user.desired_skills.each do |skill| %>
@@ -72,18 +64,21 @@
             </div>
             <div class ="row">
                 <%= button_tag class:"btn-no-style2" do %>
-              <i class="fa-regular fa-square-check fa-xs" style="color: #004792;"></i>
+              <i class="fa-regular fa-square-check fa-xs" style="color: #3F7CAF;"></i>
                 <% end %>
             </div>
           </div>
           <% end %>
 
-    <br>
-
-    <h2 class="profile-title">Paramètres</h2>
+    </div>
+        </div>
+            </div>
+              <div class="card-product-dashboard-3">
+    <h2 class="profile-title mt-2">Paramètres</h2>
     <div class="profile-content">
-      <h3>Informations personnelles</h3>
-      <h3>Notifications</h3>
+      <h3>Informations personnelles        <%= link_to(edit_user_registration_path) do %>
+        <i class="fa-solid fa-pencil position-absolute top-20 end-40" style="color: #3F7CAF;"></i>
+        <% end %></h3>
       <div class="linkedin-left">
         <h3>Lier mon profil <i class="fa-brands fa-linkedin"></i></h3>
       </div>
@@ -93,18 +88,15 @@
         <% end %>
       </div>
     </div>
-
-  <br>
-</div>
-</div>
-</div>
-<div class="container">
-    <div class="col-11 text-center">
+    </div>
+    </div>
+    <div class="col-11 text-center mt-4">
           <div class="col-11 text-center">
             <a class="yellow-btn btn-home" href="<%= new_workspace_path %>">Ajouter un workspace</a>
-      </div>
-    </div>
 </div>
+</div>
+</div>
+
 
 </div>
 </div>
