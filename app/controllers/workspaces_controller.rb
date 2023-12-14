@@ -7,23 +7,23 @@ class WorkspacesController < ApplicationController
     end
 
     if params[:parking].present?
-      @workspaces = @workspaces.where(parking: params[:parking] ==  "on")
+      @workspaces = @workspaces.where(parking: true)
     end
 
     if params[:ambiance].present?
-      @workspaces = @workspaces.where(ambiance: params[:ambiance] ==  "on")
+      @workspaces = @workspaces.where(ambiance: "Calme")
     end
 
     if params[:internet_connexion].present?
-      @workspaces = @workspaces.where(internet_connexion: params[:internet_connexion] ==  "on")
+      @workspaces = @workspaces.where(internet_connexion: true)
     end
 
     if params[:smoking].present?
-      @workspaces = @workspaces.where(smoking: params[:smoking] ==  "on")
+      @workspaces = @workspaces.where(smoking: false)
     end
 
     if params[:animals].present?
-      @workspaces = @workspaces.where(animals: params[:animals] ==  "chien" || "chat" || "autre")
+      @workspaces = @workspaces.where(animals: "non")
     end
 
     if @workspaces.empty?
