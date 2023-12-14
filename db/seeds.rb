@@ -101,7 +101,7 @@ Murielle = User.new(
   first_name: "Murielle",
   last_name: "Noel",
   skills: ["Assistante"],
-  description: "Je suis assistante de direction",
+  description: "Je suis assistante de direction.",
   email: "test7@test.com",
   password: "test123456"
 )
@@ -114,7 +114,7 @@ Justin = User.new(
   first_name: "Justin",
   last_name: "Bridou",
   skills: ["Réparateur"],
-  description: "Je répare chez moi, j'ai un bureau de libre au calme",
+  description: "Je répare chez moi, j'ai un bureau de libre au calme.",
   email: "test8@test.com",
   password: "test123456"
 )
@@ -125,13 +125,13 @@ Justin.save!
 
 workspace_cid = Workspace.new(
   parking: true,
-  ambiance: "calme",
+  ambiance: "Calme",
   address: "23 rue du sentier, Paris",
   user: Cid,
   internet_connexion: true,
   smoking: true,
-  animals: "chat",
-  description: "Un espace de travail calme et agréable au centre de Paris",
+  animals: "hat",
+  description: "Un espace de travail calme et agréable au centre de Paris.",
   capacity: 3,
   name: "Chez Cid"
 )
@@ -141,13 +141,13 @@ workspace_cid.save!
 
 workspace_isabelle = Workspace.new(
   parking: false,
-  ambiance: "animé",
+  ambiance: "Animé",
   address: "8 rue du Niger, Paris",
   user: Isabelle,
   internet_connexion: true,
   smoking: true,
   animals: "non",
-  description: "Bureau dans une petite cité au dernier étage d'un immeuble",
+  description: "Bureau dans une petite cité au dernier étage d'un immeuble.",
   air_conditioning: true,
   desired_skill: "comptabilité",
   capacity: 1,
@@ -159,12 +159,12 @@ workspace_isabelle.save!
 
 workspace_justin = Workspace.new(
   parking: false,
-  ambiance: "calme",
+  ambiance: "Calme",
   address: "2 boulevard Delessert, Paris",
   user: Justin,
   internet_connexion: false,
   smoking: false,
-  animals: "chien",
+  animals: "Chien",
   description: "Vue sur la tour Eiffel",
   capacity: 2,
   name: "Belle vue"
@@ -175,12 +175,12 @@ workspace_justin.save!
 
 workspace_murielle = Workspace.new(
   parking: true,
-  ambiance: "animé",
+  ambiance: "Animé",
   address: "9 avenue Montaigne, Paris",
   user: Murielle,
   internet_connexion: true,
   smoking: false,
-  animals: "chien",
+  animals: "Chien",
   description: "Sur les champs Elysées",
   capacity: 1,
   name: "Très bien situé"
@@ -196,7 +196,7 @@ workspace1 = Workspace.new(
   user: Kevin,
   internet_connexion: true,
   smoking: false,
-  animals: "chat",
+  animals: "Chat",
   description: "Un espace de travail calme et agréable",
   air_conditioning: true,
   desired_skill: "fullstack",
@@ -215,7 +215,7 @@ workspace2 = Workspace.new(
   internet_connexion: true,
   description: "Ici on bosse dans un esprit de fiesta ! Venez avec votre bonne humeur !",
   smoking: false,
-  animals: "chien",
+  animals: "Chien",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
@@ -231,9 +231,9 @@ workspace3 = Workspace.new(
   address: "4 place Carnot, Lyon",
   user: Kevin,
   internet_connexion: true,
-  description: "Une ambiance de travail studieuse, à la maison comme au bureau",
+  description: "Une ambiance de travail studieuse, à la maison comme au bureau.",
   smoking: false,
-  animals: "autre",
+  animals: "Autre",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
@@ -251,7 +251,7 @@ workspace4 = Workspace.new(
   user: Valerian,
   internet_connexion: true,
   smoking: false,
-  animals: "chien",
+  animals: "Chien",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
@@ -269,7 +269,7 @@ workspace5 = Workspace.new(
   user: Deborah,
   internet_connexion: true,
   smoking: false,
-  animals: "chat",
+  animals: "Chat",
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 3,
@@ -300,7 +300,7 @@ workspace7 = Workspace.new(
   ambiance: "Calme",
   address: "5 rue de belleville, Paris",
   user: Laura,
-  description: "Dans le coeur du quartier de Belleville, un espace de travail calme et agréable",
+  description: "Dans le coeur du quartier de Belleville, un espace de travail calme et agréable.",
   internet_connexion: true,
   smoking: true,
   air_conditioning: true,
@@ -316,7 +316,7 @@ workspace8 = Workspace.new(
   ambiance: "Calme",
   address: "6 rue de vaugirard, Paris",
   user: Valerian,
-  description: "Dans le coeur du quartier de Vaugirard, un espace de travail calme et agréable",
+  description: "Dans le coeur du quartier de Vaugirard, un espace de travail calme et agréable.",
   internet_connexion: true,
   smoking: true,
   air_conditioning: true,
