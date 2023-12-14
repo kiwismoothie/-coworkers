@@ -6,6 +6,10 @@ class WorkspacesController < ApplicationController
       @workspaces = Workspace.global_search(params[:query])
     end
 
+    if params[:parking].present?
+      @workspaces = @workspaces.where(parking: params[:parking] ==  "on")
+    end
+
     if params[:ambiance].present?
       @workspaces = @workspaces.where(ambiance: params[:ambiance] ==  "on")
     end
