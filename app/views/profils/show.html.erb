@@ -1,7 +1,7 @@
-<div class="container text-center mt-4">
+<div class="container mt-4">
       <div class="mx-auto mt-4">
           <div class="chat-head">
-            <div class="chat-title">Mon dashboard</div>
+            <div class="chat-title">Mon profil</div>
             <div class="icon-bubble msg"> </div>
           </div>
       <div class="top-divider"> </div>
@@ -13,7 +13,12 @@
         <i class="fa-solid fa-pencil position-absolute top-20 end-40" style="color: #3F7CAF;"></i>
         <% end %>
 
+        <div class="profile-name">
+        <%= @user.first_name %> <%= @user.last_name %>
+        </div>
+
     <div class="profile-details">
+
       <div class="profile-details-left">
         <%= image_tag @my_workspaces.first.user.photos.first, class: "avatar-profile-details-dashboard", alt: "Photo" %>
       </div>
@@ -103,4 +108,3 @@
 </div>
 </div>
 </div>
-

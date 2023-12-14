@@ -6,8 +6,7 @@
           </div>
       <div class="top-divider"> </div>
 
-<div class="container">
-
+<div class="container-profile">
     <div class="card-product-dashboard-3">
           <h2>Mon profil</h2>
       <div class="profile-details">
@@ -18,9 +17,9 @@
         <div class ="profile-details-right">
           <ul>
             <li> <%=  pluralize(@my_workspaces.count, 'workspace', plural:'workspaces') %> </li>
-            <li>  <%= pluralize(@my_bookings.count, 'réservation', plural:'réservations')  %>  </li>
+            <li>  <%= pluralize(@my_bookings.count, 'réservation effectuée', plural:'réservations effectuées')  %>  </li>
 
-            <li> <%=  @bookings_of_my_workspaces.count %>  coworkers accueillis </li>
+            <li> <%=  pluralize(@bookings_of_my_workspaces.count, 'réservation reçue', plural:'réservations reçues') %> </li>
             <li > <%= link_to "Editer mon profil", edit_user_registration_path%></li>
           </ul>
         </div>
@@ -30,6 +29,7 @@
 
     <div class="card-product-dashboard-3">
           <h2>Mes réservations</h2>
+          <% if @booking.present? %>
           <ul> <% current_user.bookings.each do |booking| %>
           <div class="reservation-details">
             <div class="reservation-details-left">
@@ -46,14 +46,18 @@
               <%= image_tag booking.workspace.photos.first, class: "photo-reservation", alt: "Photo" %>
             </div>
           </div>
+
           <hr>
           <% end %></ul>
+      <% else %>
+          <div class="profile-content">Vous n'avez pas encore reçu de réservation</div>
+          <% end %>
           </div>
 
 
     <div class="card-product-dashboard-3">
       <h2>Demandes reçues</h2>
-        <% current_user.bookings_workspaces.each do |booking| %>
+                <% current_user.bookings_workspaces.each do |booking| %>
         <div class="reservation-details">
           <div class="reservation-details-left">
             <div class="workspace-name"> <%= booking.workspace.name %> </div>
