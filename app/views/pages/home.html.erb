@@ -14,27 +14,27 @@
             <div class="text-center icone">
               <input type="checkbox" id="parking" name="parking" class="tag-selector" />
               <label for="parking"> <i class="fa-solid fa-square-parking fa-2xl"> </i> </label>
-              <p>Parking</p>
+              <p class="filtres-home mt-2">Parking</p>
             </div>
             <div class="text-center icone">
               <input type="checkbox" id="ambiance" name="ambiance" class="tag-selector" />
               <label for="ambiance"> <i class="fa-solid fa-volume-xmark fa-2xl"> </i> </label>
-              <p>Calme</p>
+              <p class="filtres-home mt-2">Calme</p>
             </div>
             <div class="text-center icone">
               <input type="checkbox" id="internet_connexion" name="internet_connexion" class="tag-selector" />
               <label for="internet_connexion"> <i class="fa-solid fa-wifi fa-2xl"></i> </label>
-              <p>Fibre</p>
+              <p class="filtres-home mt-2">Fibre</p>
             </div>
             <div class="text-center icone">
               <input type="checkbox" id="smoking" name="smoking" class="tag-selector" />
               <label for="smoking"> <i class="fa-solid fa-ban-smoking fa-2xl"></i> </label>
-              <p>Fumeur</p>
+              <p class="filtres-home">Non fumeur</p>
             </div>
             <div class="text-center icone">
               <input type="checkbox" id="animals" name="animals" class="tag-selector" />
               <label for="animals"> <i class="fa-solid fa-ban fa-2xl"></i> </label>
-              <p>Animaux</p>
+              <p class="filtres-home">Pas d'animaux</p>
             </div>
           </div>
           <div class="search-container align-items-center">
@@ -69,7 +69,7 @@
                     <div class="divider">
                     </div>
                     <p class="card__description">
-                      <%= workspace.ambiance %> | <%= workspace.smoking ? "Fumeur" : "Non fumeur" %> | <%= workspace.animals %>
+                      <%= workspace.ambiance %> | <%= workspace.smoking ? "Fumeur" : "Non fumeur" %> | <%= workspace.animals == "non" ? "Pas d'animaux" : "#{workspace.animals}" %>
                     </p>
                   </div>
                 </div>
