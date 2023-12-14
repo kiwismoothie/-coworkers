@@ -121,3 +121,24 @@
     background: linear-gradient( 55deg, #dddddd46, #ff810bb2);
     border-radius: 50%;
 }
+
+.description-text {
+  border-radius: 30px;
+  margin-bottom: 8px;
+  padding: 10px;
+  color: #2b2b2b;
+  box-shadow: 2px 4px 10px rgba(170, 170, 170, 0.2);
+}
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  margin-right: 10px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}

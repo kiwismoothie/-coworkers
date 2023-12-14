@@ -1,10 +1,30 @@
-<div id="chatrooms" class="d-flex justify-content-center align-items-center">
-  <div class="chatroom mt-3">
+<div class="container text-center mt-4">
+      <div class="mx-auto mt-4">
+          <div class="chat-head">
+            <div class="chat-title">Chatroom</div>
+            <%= link_to :back, class: 'btn btn-default' do %>
+            <i class="fa fa-arrow-left" style="font-size: 1.3em; color: #FFB116;"></i>
+            <% end %>
+          </div>
+      <div class="top-divider">
+      </div>
+      </div>
+</div>
+<div id="chatrooms" class="d-flex justify-content-center">
+  <div class="chatroom">
     <% other_user = @chatroom.user1 == current_user ? @chatroom.user2 : @chatroom.user1 %>
-    <% if other_user.photos.attached? %>
-      <%= cl_image_tag(other_user.photos.last.key, height: 70, width: 70, crop: :fill) %>
-    <% end %>
-    <strong><%= other_user.first_name %></strong>
+
+    <div class="user-info">
+      <strong class="user-name"><%= other_user.first_name %> </strong>
+      <details class="user-details">
+        <summary>
+          <%= cl_image_tag(other_user.photos.last.key, width: 90, crop: :fill) %>
+          <i class="fa-solid fa-circle-chevron-down fa-ls" style="color: #004792;"></i>
+        </summary>
+        <p class="description-text"><%= other_user.description %></p>
+      </details>
+    </div>
+
   </div>
 </div>
 

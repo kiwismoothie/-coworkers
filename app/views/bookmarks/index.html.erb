@@ -1,28 +1,35 @@
 <div class="container text-center mt-4">
-      <div class="mx-auto mt-4">
-          <div class="chat-head">
-            <div class="chat-title">Mes favoris</div>
-            <div class="icon-bubble msg"> </div>
-          </div>
-      <div class="top-divider"> </div>
+  <div class="mx-auto mt-4">
+    <div class="chat-head">
+      <div class="chat-title">Mes favoris</div>
+      <%= link_to :back, class: 'btn btn-default' do %>
+        <i class="fa fa-arrow-left" style="font-size: 1.3em; color: #FFB116;"></i>
+      <% end %>
+    </div>
+    <div class="top-divider"> </div>
 
-<div class="container">
-  <% @bookmarks.each do |bookmark| %>
-    <a href="<%= workspace_path(bookmark.workspace) %>" class="custom-link">
-      <div class="workspace-card-index">
-        <div class="workspace-image-index">
-          <div class="image-container-index">
-            <%= cl_image_tag bookmark.workspace.photos.first.key, crop: :fill %>
-          </div>
-            <%= render 'heart_fav', workspace: bookmark.workspace %>
-        </div>
-        <div class="card-content-index">
-          <%= image_tag bookmark.workspace.user.photos.first, height: 50, width: 50, class: "avatar2", alt: "Photo" %>
-          <span class="workspace-name"><%= bookmark.workspace.name %></span>
-        </div>
-      </div>
-    </a>
-  <% end %>
-</div>
-</div>
+    <div class="container">
+      <% if @bookmarks.empty? %>
+        <br>
+        <p>Aucun favoris pour le moment !</p>
+      <% else %>
+        <% @bookmarks.each do |bookmark| %>
+          <a href="<%= workspace_path(bookmark.workspace) %>" class="custom-link">
+            <div class="workspace-card-index">
+              <div class="workspace-image-index">
+                <div class="image-container-index">
+                  <%= cl_image_tag bookmark.workspace.photos.first.key, crop: :fill %>
+                </div>
+                <%= render 'heart_fav', workspace: bookmark.workspace %>
+              </div>
+              <div class="card-content-index">
+                <%= image_tag bookmark.workspace.user.photos.first, height: 50, width: 50, class: "avatar2", alt: "Photo" %>
+                <span class="workspace-name"><%= bookmark.workspace.name %></span>
+              </div>
+            </div>
+          </a>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
