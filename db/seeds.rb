@@ -79,7 +79,7 @@ Cid = User.new(
   email: "test5@test.com",
   password: "test123456"
 )
-file = URI.open("PHOTO A METTRE ICI")
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702548952/seed_1_vrbahq.jpg")
 Cid.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 Cid.save!
 
@@ -91,21 +91,11 @@ Isabelle = User.new(
   email: "test6@test.com",
   password: "test123456"
 )
-file = URI.open("PHOTO A METTRE ICI")
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702548965/seed2_1_fj3bez.jpg")
 Isabelle.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 Isabelle.save!
 
-Justin = User.new(
-  first_name: "Justin",
-  last_name: "Bridou",
-  skills: ["Réparateur"],
-  description: "Je répare chez moi, j'ai un bureau de libre au calme",
-  email: "test6@test.com",
-  password: "test123456"
-)
-file = URI.open("PHOTO A METTRE ICI")
-Justin.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
-Justin.save!
+
 
 Murielle = User.new(
   first_name: "Murielle",
@@ -115,9 +105,23 @@ Murielle = User.new(
   email: "test7@test.com",
   password: "test123456"
 )
-file = URI.open("PHOTO A METTRE ICI")
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702548958/seed_4_1_yzqoeu.jpg")
 Murielle.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 Murielle.save!
+
+
+Justin = User.new(
+  first_name: "Justin",
+  last_name: "Bridou",
+  skills: ["Réparateur"],
+  description: "Je répare chez moi, j'ai un bureau de libre au calme",
+  email: "test8@test.com",
+  password: "test123456"
+)
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702548952/seed_3_1_d2haiy.jpg")
+Justin.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
+Justin.save!
+
 
 workspace_cid = Workspace.new(
   parking: true,
@@ -131,7 +135,7 @@ workspace_cid = Workspace.new(
   capacity: 3,
   name: "Chez Cid"
 )
-file = URI.open("PHOTO DE BUREAU A METTRE ICI")
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702549176/bureau-new_yovkow.png")
 workspace_cid.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace_cid.save!
 
@@ -149,7 +153,7 @@ workspace_isabelle = Workspace.new(
   capacity: 1,
   name: "Grand immeuble, petit bureau, grande vue"
 )
-file = URI.open("PHOTO DE BUREAU A METTRE ICI")
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702549803/image_2_ka0iek.png")
 workspace_isabelle.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace_isabelle.save!
 
@@ -165,7 +169,7 @@ workspace_justin = Workspace.new(
   capacity: 2,
   name: "Belle vue"
 )
-file = URI.open("PHOTO DE BUREAU A METTRE ICI")
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702549803/image_1_lf6rbu.png")
 workspace_justin.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace_justin.save!
 
@@ -181,7 +185,7 @@ workspace_murielle = Workspace.new(
   capacity: 1,
   name: "Très bien situé"
 )
-file = URI.open("PHOTO DE BUREAU A METTRE ICI")
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702549796/image_byzjuw.png")
 workspace_murielle.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace_murielle.save!
 
@@ -202,6 +206,7 @@ workspace1 = Workspace.new(
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785333/Coworkers/toulouse.jpg")
 workspace1.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace1.save!
+
 workspace2 = Workspace.new(
   parking: true,
   ambiance: "Animé",
@@ -219,6 +224,7 @@ workspace2 = Workspace.new(
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481482/bureau-e_pzjbmg.jpg")
 workspace2.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace2.save!
+
 workspace3 = Workspace.new(
   parking: false,
   ambiance: "Calme",
@@ -236,6 +242,7 @@ workspace3 = Workspace.new(
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785332/Coworkers/paris2.jpg")
 workspace3.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace3.save!
+
 workspace4 = Workspace.new(
   parking: true,
   ambiance: "Animé",
@@ -253,6 +260,7 @@ workspace4 = Workspace.new(
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785332/Coworkers/nantes.jpg")
 workspace4.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace4.save!
+
 workspace5 = Workspace.new(
   parking: false,
   ambiance: "Animé",
@@ -270,6 +278,7 @@ workspace5 = Workspace.new(
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785332/Coworkers/paris2.jpg")
 workspace5.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace5.save!
+
 workspace6 = Workspace.new(
   parking: true,
   ambiance: "Calme",
@@ -286,9 +295,6 @@ workspace6 = Workspace.new(
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481471/bureau-b_hgd6fv.jpg")
 workspace6.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace6.save!
-<<<<<<< HEAD
-
-
 
 workspace7 = Workspace.new(
   ambiance: "Calme",
@@ -306,8 +312,6 @@ file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481472/b
 workspace7.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace7.save!
 
-
-
 workspace8 = Workspace.new(
   ambiance: "Calme",
   address: "6 rue de vaugirard, Paris",
@@ -324,7 +328,6 @@ file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481483/b
 workspace8.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace8.save!
 
-
 workspace9 = Workspace.new(
   ambiance: "Animé",
   address: "5 rue des petits carreaux, Paris",
@@ -340,7 +343,6 @@ workspace9 = Workspace.new(
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481471/bureau-c_q8fyxd.jpg")
 workspace9.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace9.save!
-
 
 booking1 = Booking.new(
   workspace: workspace3,
@@ -374,11 +376,6 @@ booking3.save!
 
 booking4 = Booking.new(
   workspace: workspace1,
-=======
-workspace7 = Workspace.new(
-  ambiance: "Calme",
-  address: "5 rue de belleville, Paris",
->>>>>>> f0faea48352b18f37ffb8b302688596fa3053752
   user: Laura,
   description: "Dans le coeur du quartier de Belleville, un espace de travail calme et agréable",
   internet_connexion: true,
@@ -388,39 +385,7 @@ workspace7 = Workspace.new(
   capacity: 2,
   name: "A Belleville"
 )
-file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481472/bureau-d_bbissx.png")
-workspace7.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
-workspace7.save!
-workspace8 = Workspace.new(
-  ambiance: "Calme",
-  address: "6 rue de vaugirard, Paris",
-  user: Valerian,
-  description: "Dans le coeur du quartier de Vaugirard, un espace de travail calme et agréable",
-  internet_connexion: true,
-  smoking: true,
-  air_conditioning: true,
-  desired_skill: "Marketing",
-  capacity: 1,
-  name: "Joli espace dans le 15ème"
-)
-file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481483/bureau-f_jxqrjb.jpg")
-workspace8.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
-workspace8.save!
-workspace9 = Workspace.new(
-  ambiance: "Animé",
-  address: "5 rue des petits carreaux, Paris",
-  user: Valerian,
-  description: "En plein coeur de Paris, un espace de travail animé. Venez avec votre bonne humeur !",
-  internet_connexion: true,
-  smoking: true,
-  air_conditioning: true,
-  desired_skill: "Marketing",
-  capacity: 3,
-  name: "Espace de travail dans le 2ème"
-)
-file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481471/bureau-c_q8fyxd.jpg")
-workspace9.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
-workspace9.save!
+booking4.save!
 
 chatroom1 = Chatroom.create!(user1_id: Kevin.id, user2_id: Deborah.id)
 chatroom2 = Chatroom.create!(user1_id: Laura.id, user2_id: Valerian.id)
