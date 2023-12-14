@@ -7,18 +7,50 @@
             <% end %>
           </div>
       <div class="top-divider"> </div>
-
-
-  <div class="text-center mt-2 mb-3">
+</div>
+</div>
+<div class="container">
+  <div class="row">
     <form id="search-form" action="<%= workspaces_path %>" method="GET">
-      <div class="search-container">
-        <input type="text" id="search-input" class="search-input" placeholder="Où souhaitez-vous télétravailler ?">
-        <input type="hidden" id="search-query" name="query">
+      <div class="d-flex justify-content-between w-100 mt-0 form-group col-sm-8 icones">
+        <div class="text-center icone">
+          <input type="checkbox" id="parking" name="parking" class="tag-selector" />
+          <label for="parking"> <i class="fa-solid fa-square-parking fa-2xl"> </i> </label>
+          <p>Parking</p>
+        </div>
+        <div class="text-center icone">
+          <input type="checkbox" id="ambiance" name="ambiance" class="tag-selector" />
+          <label for="ambiance"> <i class="fa-solid fa-volume-xmark fa-2xl"> </i> </label>
+          <p>Calme</p>
+        </div>
+        <div class="text-center icone">
+          <input type="checkbox" id="internet_connexion" name="internet_connexion" class="tag-selector" />
+          <label for="internet_connexion"> <i class="fa-solid fa-wifi fa-2xl"></i> </label>
+          <p>Fibre</p>
+        </div>
+        <div class="text-center icone">
+          <input type="checkbox" id="smoking" name="smoking" class="tag-selector" />
+          <label for="smoking"> <i class="fa-solid fa-ban-smoking fa-2xl"></i> </label>
+          <p>Fumeur</p>
+        </div>
+        <div class="text-center icone">
+          <input type="checkbox" id="animals" name="animals" class="tag-selector" />
+          <label for="animals"> <i class="fa-solid fa-ban fa-2xl"></i> </label>
+          <p>Animaux</p>
+        </div>
+      </div>
+      <div class="search-container align-items-center d-flex">
+        <input type="text" id="search-input" class="search-input" placeholder="Où souhaitez-vous télétravailler ?" name="query">
+        <button type="submit" class="yellow-btn-mini-home">
+          <i class="fa-solid fa-magnifying-glass fa-2sl" style="color: #f7f7f7;"></i>
+        </button>
       </div>
     </form>
   </div>
+</div>
 
   <!-- Carte -->
+  <div class="container mt-3">
   <% if @no_result %>
       <p> Pas de résultat correspondant à votre recherche</p>
     <% end %>
@@ -27,7 +59,7 @@
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-
+  </div>
   <!-- Workspaces -->
   <% @workspaces.each do |workspace| %>
     <a href="<%= workspace_path(workspace) %>" class="custom-link">
@@ -47,30 +79,3 @@
   <% end %>
 </div>
 </div>
-<script>
-document.addEventListener('turbo:load', function () {
-  const searchInput = document.getElementById('search-input');
-  const searchForm = document.getElementById('search-form');
-  const searchQuery = document.getElementById('search-query');
-
-  function handleSubmit() {
-    const inputValue = searchInput.value.trim();
-    if (inputValue !== "") {
-      searchQuery.value = inputValue;
-      searchInput.value = ""; // Réinitialise le champ de texte
-      searchForm.submit();
-    }
-  }
-
-  searchInput.addEventListener('click', function () {
-    handleSubmit(); // Gérer le clic directement
-  });
-
-  searchInput.addEventListener('keydown', function (event) {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      handleSubmit();
-    }
-  });
-});
-</script>
