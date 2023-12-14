@@ -1,7 +1,8 @@
+<% other_user = @chatroom.user1 == current_user ? @chatroom.user2 : @chatroom.user1 %>
 <div class="container text-center mt-4">
       <div class="mx-auto mt-4">
           <div class="chat-head">
-            <div class="chat-title">Chatroom</div>
+            <div class="chat-title">Chat avec <%= other_user.first_name %></div>
             <%= link_to :back, class: 'btn btn-default' do %>
             <i class="fa fa-arrow-left" style="font-size: 1.3em; color: #FFB116;"></i>
             <% end %>
@@ -9,23 +10,6 @@
       <div class="top-divider">
       </div>
       </div>
-</div>
-<div id="chatrooms" class="d-flex justify-content-center">
-  <div class="chatroom">
-    <% other_user = @chatroom.user1 == current_user ? @chatroom.user2 : @chatroom.user1 %>
-
-    <div class="user-info">
-      <strong class="user-name"><%= other_user.first_name %> </strong>
-      <details class="user-details">
-        <summary>
-          <%= cl_image_tag(other_user.photos.last.key, width: 90, crop: :fill) %>
-          <i class="fa-solid fa-circle-chevron-down fa-ls" style="color: #004792;"></i>
-        </summary>
-        <p class="description-text"><%= other_user.description %></p>
-      </details>
-    </div>
-
-  </div>
 </div>
 
 <div class="container chat-container">
@@ -44,7 +28,7 @@
     <%= form_with(model: [@chatroom, @message], remote: true, class: "d-flex",
           id: 'chat-form',
           data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }) do |f| %>
-      <%= f.text_field :content, id: 'chat-text', class: "form-control msg-content", autocomplete: 'off' %>
+        <%= f.text_field :content, id: 'chat-text', class: "form-control msg-content", autocomplete: 'off', placeholder: "Ecrivez votre message." %>
   <%= button_tag(type: 'submit', class: "yellow-btn-mini") do %>
     <i class="fa-solid fa-share" style="color: #f7f7f7;"></i>
     <% end %>

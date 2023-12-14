@@ -16,27 +16,27 @@
         <div class="text-center icone">
           <input type="checkbox" id="parking" name="parking" class="tag-selector" />
           <label for="parking"> <i class="fa-solid fa-square-parking fa-2xl"> </i> </label>
-          <p>Parking</p>
+          <p class="small-text">Parking</p>
         </div>
         <div class="text-center icone">
           <input type="checkbox" id="ambiance" name="ambiance" class="tag-selector" />
           <label for="ambiance"> <i class="fa-solid fa-volume-xmark fa-2xl"> </i> </label>
-          <p>Calme</p>
+          <p class="small-text">Calme</p>
         </div>
         <div class="text-center icone">
           <input type="checkbox" id="internet_connexion" name="internet_connexion" class="tag-selector" />
           <label for="internet_connexion"> <i class="fa-solid fa-wifi fa-2xl"></i> </label>
-          <p>Fibre</p>
+          <p class="small-text">Fibre</p>
         </div>
         <div class="text-center icone">
           <input type="checkbox" id="smoking" name="smoking" class="tag-selector" />
           <label for="smoking"> <i class="fa-solid fa-ban-smoking fa-2xl"></i> </label>
-          <p>Fumeur</p>
+          <p class="small-text">Fumeur</p>
         </div>
         <div class="text-center icone">
           <input type="checkbox" id="animals" name="animals" class="tag-selector" />
           <label for="animals"> <i class="fa-solid fa-ban fa-2xl"></i> </label>
-          <p>Animaux</p>
+          <p class="small-text">Animaux</p>
         </div>
       </div>
       <div class="search-container align-items-center d-flex">
@@ -52,7 +52,7 @@
   <!-- Carte -->
   <div class="container mt-3">
   <% if @no_result %>
-      <p> Pas de résultat correspondant à votre recherche</p>
+      <p> Pas de résultat correspondant avec vos filtres.</p>
     <% end %>
   <div style="width: 100%; height: 400px;"
     data-controller="map"
@@ -66,7 +66,7 @@
       <div class="workspace-card-index mt-4">
         <div class="workspace-image-index">
           <div class="image-container-index">
-            <%= cl_image_tag workspace.photos.first.key, crop: :fill %>
+            <%= cl_image_tag workspace.photos.first.key, height: 220 %>
           </div>
           <%= render 'heart_index', workspace: workspace %>
         </div>

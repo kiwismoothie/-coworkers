@@ -1,6 +1,6 @@
 .logo-carr {
-  margin: 1% auto;
-  width: 45%;
+  margin: 12px auto;
+  width: 50%;
 }
 
 .icones{
@@ -11,6 +11,10 @@
 
 .icone{
   display: inline-block;
+}
+
+.small-text {
+  font-size: 12px; /* Vous pouvez ajuster la taille selon vos préférences */
 }
 
 /* Sur les tablettes */
@@ -36,7 +40,7 @@
 .search-input {
   width: 90%;
   max-width: 500px;
-  padding: 9px 20px;
+  padding: 10px 20px;
   background-color: transparent;
   transition: transform 250ms ease-in-out;
   font-size: 15px;
