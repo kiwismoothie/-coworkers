@@ -10,7 +10,6 @@ module MetaTagsHelper
   end
 
   def meta_image
-    meta_image = (content_for?(:meta_image) ? content_for(:meta_image) : DEFAULT_META["meta_image"])
-    meta_image.starts_with?("http") ? meta_image : image_url(meta_image)
+    content_for?(:meta_image) ? content_for(:meta_image) : "https://i.ibb.co/HCTdVzD/coworkers-partage-bureau-workspaces.png"
   end
 end
