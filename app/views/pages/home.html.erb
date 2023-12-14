@@ -9,40 +9,40 @@
 <div class="container">
   <div class="row">
       <h3 class="mt-4" style="font-size: 25px;">Je cherche un workspace</h3>
-        <div class="d-flex justify-content-between w-100 mt-0 form-group col-sm-8 icones ">
-          <div class="text-center icone">
-            <input type="checkbox" id="parking" name="parking" class="tag-selector" />
-            <label for="parking"> <i class="fa-solid fa-square-parking fa-2xl"> </i> </label>
-            <p>Parking</p>
+        <form id="search-form" action="<%= workspaces_path %>" method="GET">
+          <div class="d-flex justify-content-between w-100 mt-0 form-group col-sm-8 icones ">
+            <div class="text-center icone">
+              <input type="checkbox" id="parking" name="parking" class="tag-selector" />
+              <label for="parking"> <i class="fa-solid fa-square-parking fa-2xl"> </i> </label>
+              <p>Parking</p>
+            </div>
+            <div class="text-center icone">
+              <input type="checkbox" id="ambiance" name="ambiance" class="tag-selector" />
+              <label for="ambiance"> <i class="fa-solid fa-volume-xmark fa-2xl"> </i> </label>
+              <p>Calme</p>
+            </div>
+            <div class="text-center icone">
+              <input type="checkbox" id="internet_connexion" name="internet_connexion" class="tag-selector" />
+              <label for="internet_connexion"> <i class="fa-solid fa-wifi fa-2xl"></i> </label>
+              <p>Fibre</p>
+            </div>
+            <div class="text-center icone">
+              <input type="checkbox" id="smoking" name="smoking" class="tag-selector" />
+              <label for="smoking"> <i class="fa-solid fa-ban-smoking fa-2xl"></i> </label>
+              <p>Fumeur</p>
+            </div>
+            <div class="text-center icone">
+              <input type="checkbox" id="animals" name="animals" class="tag-selector" />
+              <label for="animals"> <i class="fa-solid fa-ban fa-2xl"></i> </label>
+              <p>Animaux</p>
+            </div>
           </div>
-          <div class="text-center icone">
-            <input type="checkbox" id="ambiance" name="ambiance" class="tag-selector" />
-            <label for="ambiance"> <i class="fa-solid fa-volume-xmark fa-2xl"> </i> </label>
-            <p>Calme</p>
+          <div class="search-container align-items-center">
+            <input type="text" id="search-form" class="search-input" placeholder="Où souhaitez-vous télétravailler?" name="query">
+            <button class="btn-no-style" type="submit"><i class="fa-solid fa-magnifying-glass fa-2xl" style="color: #004792;"></i> </button>
           </div>
-          <div class="text-center icone">
-            <input type="checkbox" id="internet_connexion" name="internet_connexion" class="tag-selector" />
-            <label for="internet_connexion"> <i class="fa-solid fa-wifi fa-2xl"></i> </label>
-            <p>Fibre</p>
-          </div>
-          <div class="text-center icone">
-            <input type="checkbox" id="smoking" name="smoking" class="tag-selector" />
-            <label for="smoking"> <i class="fa-solid fa-ban-smoking fa-2xl"></i> </label>
-            <p>Fumeur</p>
-          </div>
-          <div class="text-center icone">
-            <input type="checkbox" id="animals" name="animals" class="tag-selector" />
-            <label for="animals"> <i class="fa-solid fa-dog fa-2xl"></i> </label>
-            <p>Animaux</p>
-          </div>
-        </div>
-              <form id="search-form" action="<%= workspaces_path %>" method="GET">
-        <div class="search-container align-items-center">
-          <input type="text" id="search-form" class="search-input" placeholder="Où souhaitez-vous télétravailler?" name="query">
-          <button class="btn-no-style" type="submit"><i class="fa-solid fa-magnifying-glass fa-2xl" style="color: #004792;"></i> </button>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
   </div>
 
 <div class="container">
