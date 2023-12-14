@@ -1,60 +1,61 @@
 <div class="container mt-10">
   <div class="row">
-    <div class="col-12 text-center logo-carr ">
+    <div class="col-12 text-center logo-carr mb-10">
       <img class="img-fluid" src="https://i.ibb.co/CBtyrxS/logo-coworkers-6.png" alt="Coworkers-Logo">
     </div>
   </div>
 </div>
 
-<div class="container">
+<div class="container mt-4">
   <div class="row">
-      <h3 class="mt-4" style="font-size: 25px;">Je cherche un workspace</h3>
-        <form id="search-form" action="<%= workspaces_path %>" method="GET">
-          <div class="d-flex justify-content-between w-100 mt-0 form-group col-sm-8 icones ">
-            <div class="text-center icone">
-              <input type="checkbox" id="parking" name="parking" class="tag-selector" />
-              <label for="parking"> <i class="fa-solid fa-square-parking fa-2xl"> </i> </label>
-              <p class="filtres-home mt-2">Parking</p>
-            </div>
-            <div class="text-center icone">
-              <input type="checkbox" id="ambiance" name="ambiance" class="tag-selector" />
-              <label for="ambiance"> <i class="fa-solid fa-volume-xmark fa-2xl"> </i> </label>
-              <p class="filtres-home mt-2">Calme</p>
-            </div>
-            <div class="text-center icone">
-              <input type="checkbox" id="internet_connexion" name="internet_connexion" class="tag-selector" />
-              <label for="internet_connexion"> <i class="fa-solid fa-wifi fa-2xl"></i> </label>
-              <p class="filtres-home mt-2">Fibre</p>
-            </div>
-            <div class="text-center icone">
-              <input type="checkbox" id="smoking" name="smoking" class="tag-selector" />
-              <label for="smoking"> <i class="fa-solid fa-ban-smoking fa-2xl"></i> </label>
-              <p class="filtres-home">Non fumeur</p>
-            </div>
-            <div class="text-center icone">
-              <input type="checkbox" id="animals" name="animals" class="tag-selector" />
-              <label for="animals"> <i class="fa-solid fa-ban fa-2xl"></i> </label>
-              <p class="filtres-home">Pas d'animaux</p>
-            </div>
-          </div>
-          <div class="search-container align-items-center">
-            <input type="text" id="search-form" class="search-input" placeholder="Où souhaitez-vous télétravailler?" name="query">
-            <button class="btn-no-style" type="submit"><i class="fa-solid fa-magnifying-glass fa-2xl" style="color: #004792;"></i> </button>
-          </div>
-        </form>
+    <form id="search-form" action="<%= workspaces_path %>" method="GET">
+      <div class="d-flex justify-content-between w-100 mt-0 form-group col-sm-8 icones">
+        <div class="text-center icone">
+          <input type="checkbox" id="parking" name="parking" class="tag-selector" />
+          <label for="parking"> <i class="fa-solid fa-square-parking fa-2xl"> </i> </label>
+          <p>Parking</p>
+        </div>
+        <div class="text-center icone">
+          <input type="checkbox" id="ambiance" name="ambiance" class="tag-selector" />
+          <label for="ambiance"> <i class="fa-solid fa-volume-xmark fa-2xl"> </i> </label>
+          <p>Calme</p>
+        </div>
+        <div class="text-center icone">
+          <input type="checkbox" id="internet_connexion" name="internet_connexion" class="tag-selector" />
+          <label for="internet_connexion"> <i class="fa-solid fa-wifi fa-2xl"></i> </label>
+          <p>Fibre</p>
+        </div>
+        <div class="text-center icone">
+          <input type="checkbox" id="smoking" name="smoking" class="tag-selector" />
+          <label for="smoking"> <i class="fa-solid fa-ban-smoking fa-2xl"></i> </label>
+          <p>Fumeur</p>
+        </div>
+        <div class="text-center icone">
+          <input type="checkbox" id="animals" name="animals" class="tag-selector" />
+          <label for="animals"> <i class="fa-solid fa-ban fa-2xl"></i> </label>
+          <p>Animaux</p>
+        </div>
       </div>
+      <div class="search-container align-items-center d-flex">
+        <input type="text" id="search-input" class="search-input" placeholder="Où souhaitez-vous télétravailler ?" name="query">
+        <button type="submit" class="yellow-btn-mini-home">
+          <i class="fa-solid fa-magnifying-glass fa-2sl" style="color: #f7f7f7;"></i>
+        </button>
+      </div>
+    </form>
   </div>
+</div>
 
-<div class="container">
+<div class="container mt-2">
   <div class="mt-4">
-    <h3 style="font-size: 25px;">Workspaces autour de moi</h3>
+    <h3 style="font-size: 22px;">Workspaces populaires</h3>
   </div>
 </div>
 <div class="container">
   <div class="row">
       <ul class="card-list">
         <% @workspaces.each do |workspace| %>
-          <li><%= link_to workspace_path(workspace) do %>
+<%= link_to workspace_path(workspace) do %>
             <article class="card">
               <img
                 class="card__background"
@@ -69,29 +70,19 @@
                     <div class="divider">
                     </div>
                     <p class="card__description">
-                      <%= workspace.ambiance %> | <%= workspace.smoking ? "Fumeur" : "Non fumeur" %> | <%= workspace.animals == "non" ? "Pas d'animaux" : "#{workspace.animals}" %>
+                      <%= workspace.ambiance %> | <%= workspace.smoking ? "Fumeur" : "Non fumeur" %> | <%= workspace.animals %>
                     </p>
                   </div>
                 </div>
               </article>
             <% end %>
-            </li>
           <% end %>
         </ul>
       </div>
     </div>
   </div>
-
-
-<div class="container">
-  <div class="mt-3">
-    <h3 style="font-size: 25px;">Je propose un workspace</h3>
-  </div>
-</div>
-<div class="container">
-    <div class="col-11 text-center">
+    <div class="col-11 text-center mt-2">
           <div class="col-11 text-center">
-            <a class="yellow-btn btn-home" href="<%= new_workspace_path %>">Ajouter un workspace</a>
+            <a class="yellow-btn btn-home" href="<%= new_workspace_path %>">Je propose un workspace</a>
       </div>
     </div>
-</div>
