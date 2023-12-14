@@ -2,10 +2,10 @@
 
 meta_product_name: "Coworkers"
 
-meta_title: "Coworkers – Partagez votre workspace"
+meta_title: "Coworkers – Partage de bureaux et d'espaces de travail."
 
-meta_description: "Coworkers est une platforme de partage d'espace de travail."
+meta_description: "Coworkers permet de partager son espace de travail avec d'autres télétravailleurs afin de rompre l'isolement et d'élargir son réseau professionnel."
 
 meta_image: "logo.png" # should exist in `app/assets/images/`
 
-twitter_account: "@product_twitter_account" # required for Twitter Cards
+twitter_account: "@coworkers-app" # required for Twitter Cards
