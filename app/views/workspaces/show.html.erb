@@ -1,19 +1,32 @@
-<div class="container-fluid">
-  <div class="mx-auto mt-4">
-    <h1 class="text-center display-4" style="text-shadow: 2px 2px 4px rgba(5, 0, 0, 0.2);"><%= @workspace.name %></h1>
+<div class="container text-center mt-4">
+      <div class="mx-auto mt-4">
+          <div class="chat-head">
+            <div class="chat-title"><%= @workspace.name %></div>
+            <%= link_to :back, class: 'btn btn-default' do %>
+            <i class="fa fa-arrow-left" style="font-size: 1.3em; color: #FFB116;"></i>
+            <% end %>
+          </div>
+      <div class="top-divider"> </div>
+</div>
+</div><div class="container-fluid">
+  <div class="mx-auto mt-2">
       <div>
         <details>
-          <summary><%= image_tag @workspace.user.photos.first, height: 70, width: 70, class: "avatar2", alt: "Photo" %><i class="fa-solid fa-circle-chevron-left fa-xl" style="color: #004792;"></i></summary>
-          <p><%= @workspace.user.description %></p>
+          <summary><%= image_tag @workspace.user.photos.first, height: 70, width: 70, class: "avatar2", alt: "Photo" %><i class="fa-solid fa-circle-chevron-down fa-sl" style="color: #004792;"></i></summary>
+          <p class="description-text"><%= @workspace.user.description %></p>
         </details>
+
       </div>
   </div>
+
+
   <div class="workspace-card">
     <div class="workspace-image">
       <% @workspace.photos %>
       <%= cl_image_tag @workspace.photos.first.key, crop: :fill %>
       <%= render "heart" %>
     </div>
+
     <ul class="workspace-infos">
       <div class="description-adress-show">
         <li><i class="fa-solid fa-circle-info fa-xl me-2" style="color: #004792;"></i><%= @workspace.description %></li>

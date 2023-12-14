@@ -133,7 +133,7 @@ workspace_cid = Workspace.new(
   animals: "Chat",
   description: "Un espace de travail calme et agréable au centre de Paris.",
   capacity: 3,
-  name: "Grand bureaux chez Cid !"
+  name: "Grand bureaux chez Cid"
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702549176/bureau-new_yovkow.png")
 workspace_cid.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -151,7 +151,7 @@ workspace_isabelle = Workspace.new(
   air_conditioning: true,
   desired_skill: "comptabilité",
   capacity: 1,
-  name: "Grand immeuble et jolie vue !"
+  name: "Grand immeuble et jolie vue"
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702549803/image_2_ka0iek.png")
 workspace_isabelle.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -342,7 +342,7 @@ workspace9 = Workspace.new(
   air_conditioning: true,
   desired_skill: "Marketing",
   capacity: 3,
-  name: "Espace de travail dans le 2ème"
+  name: "Ambiance chaleureuse chez moi"
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481471/bureau-c_q8fyxd.jpg")
 workspace9.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
