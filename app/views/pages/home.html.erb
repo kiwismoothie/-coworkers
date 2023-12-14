@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<div class="container mt-4">
+<div class="container mt-3">
   <div class="row">
     <form id="search-form" action="<%= workspaces_path %>" method="GET">
       <div class="d-flex justify-content-between w-100 mt-0 form-group col-sm-8 icones">
@@ -46,7 +46,7 @@
   </div>
 </div>
 
-<div class="container mt-2">
+<div class="container mt-4">
   <div class="mt-4">
     <h3 style="font-size: 22px;">Workspaces populaires</h3>
   </div>
@@ -70,7 +70,7 @@
                     <div class="divider">
                     </div>
                     <p class="card__description">
-                      <%= workspace.ambiance %> | <%= workspace.smoking ? "Fumeur" : "Non fumeur" %> | <%= workspace.animals %>
+                      <%= workspace.ambiance %> | <%= workspace.smoking ? "Fumeur" : "Non fumeur" %> | <%= workspace.parking ? "Parking" : "Aucun parking" %>
                     </p>
                   </div>
                 </div>
@@ -81,7 +81,7 @@
       </div>
     </div>
   </div>
-    <div class="col-11 text-center mt-2">
+    <div class="col-11 text-center mt-3">
           <div class="col-11 text-center">
             <a class="yellow-btn btn-home" href="<%= new_workspace_path %>">Je propose un workspace</a>
       </div>

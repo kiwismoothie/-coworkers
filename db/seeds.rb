@@ -31,8 +31,8 @@ Kevin.save!
 Deborah = User.new(
   first_name: "Déborah",
   last_name: "Morchipont",
-  desired_skills: ["Management","Comptabilité"],
-  skills: ["Développement", "Recrutement", "Comptabilité"],
+  desired_skills: ["Comptabilité"],
+  skills: ["Recrutement"],
   description: "Je suis responsable des ressources humaines, passionnée par le recrutement et la paie. Je souhaite rencontrer d'autres professionnels RH pour échanger sur nos pratiques et nos expériences.",
   email: "test2@test.com",
   password: "test123456"
@@ -52,7 +52,7 @@ Laura = User.new(
   email: "test3@test.com",
   password: "test123456"
 )
-file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701953712/Laura_okhnel.jpg")
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702568528/photo_xg3soz.jpg")
 Laura.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 Laura.save!
 
@@ -86,7 +86,7 @@ Cid.save!
 Isabelle = User.new(
   first_name: "Isabelle",
   last_name: "Jouanneau",
-  skills: ["Coomptable"],
+  skills: ["Comptabilité"],
   description: "Comptable, j'aime travailler avec des gens et partager mon expérience.",
   email: "test6@test.com",
   password: "test123456"
@@ -133,7 +133,7 @@ workspace_cid = Workspace.new(
   animals: "Chat",
   description: "Un espace de travail calme et agréable au centre de Paris.",
   capacity: 3,
-  name: "Chez Cid"
+  name: "Grand bureaux chez Cid !"
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702549176/bureau-new_yovkow.png")
 workspace_cid.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -151,7 +151,7 @@ workspace_isabelle = Workspace.new(
   air_conditioning: true,
   desired_skill: "comptabilité",
   capacity: 1,
-  name: "Grand immeuble, petit bureau, grande vue"
+  name: "Grand immeuble et jolie vue !"
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702549803/image_2_ka0iek.png")
 workspace_isabelle.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -237,9 +237,9 @@ workspace3 = Workspace.new(
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
-  name: "Ici on travaille"
+  name: "Ici ça boss !"
 )
-file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785332/Coworkers/paris2.jpg")
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702568817/bureau2_f7i2yk.jpg")
 workspace3.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace3.save!
 
@@ -275,7 +275,7 @@ workspace5 = Workspace.new(
   capacity: 3,
   name: "La maison des chats"
 )
-file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785332/Coworkers/paris2.jpg")
+file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702568744/bureau_1_gil6ia.jpg")
 workspace5.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
 workspace5.save!
 
