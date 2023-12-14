@@ -11,7 +11,7 @@
     <div class="container">
       <% if @bookmarks.empty? %>
         <br>
-        <p>Aucun favoris pour le moment !</p>
+        <p>Aucun favori pour le moment !</p>
       <% else %>
         <% @bookmarks.each do |bookmark| %>
           <a href="<%= workspace_path(bookmark.workspace) %>" class="custom-link">

@@ -130,7 +130,7 @@ workspace_cid = Workspace.new(
   user: Cid,
   internet_connexion: true,
   smoking: true,
-  animals: "hat",
+  animals: "Chat",
   description: "Un espace de travail calme et agréable au centre de Paris.",
   capacity: 3,
   name: "Chez Cid"
@@ -255,7 +255,7 @@ workspace4 = Workspace.new(
   air_conditioning: true,
   desired_skill: "fullstack",
   capacity: 1,
-  name: "La maison de la biere"
+  name: "Maison de la bière"
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785332/Coworkers/nantes.jpg")
 workspace4.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
