@@ -48,7 +48,6 @@
   border-radius: 50px;
   border: 1px solid #686868;
   transition: all 250ms ease-in-out;
-  backface-visibility: hidden;
 
   &::placeholder {
     color: rgb(32, 32, 32);
