@@ -29,7 +29,7 @@ Kevin.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}]
 Kevin.save!
 
 Deborah = User.new(
-  first_name: "Deborah",
+  first_name: "Déborah",
   last_name: "Morchipont",
   desired_skills: ["Management","Comptabilité"],
   skills: ["Développement", "Recrutement", "Comptabilité"],
@@ -266,7 +266,7 @@ workspace5 = Workspace.new(
   ambiance: "Animé",
   address: "4 rue Leconte de Lisle, Paris",
   description: "Un espace de travail animé. Venez avec votre bonne humeur !",
-  user: Deborah,
+  user: Valerian,
   internet_connexion: true,
   smoking: false,
   animals: "Chat",
@@ -370,7 +370,7 @@ booking2.save!
 
 booking3 = Booking.new(
   workspace: workspace2,
-  user: Deborah,
+  user: Laura,
   rating: 5,
   start_date: "Thu, 30 Nov 2023",
   end_date: "Tue, 12 Dec 2023",
@@ -388,12 +388,12 @@ booking4 = Booking.new(
 )
 booking4.save!
 
-chatroom1 = Chatroom.create!(user1_id: Kevin.id, user2_id: Deborah.id)
+chatroom1 = Chatroom.create!(user1_id: Kevin.id, user2_id: Isabelle.id)
 chatroom2 = Chatroom.create!(user1_id: Laura.id, user2_id: Valerian.id)
 
 # Création de messages fictifs pour la première chatroom
 Message.create!(chatroom_id: chatroom1.id, user_id: Kevin.id, content: "Salut, comment ça va ?")
-Message.create!(chatroom_id: chatroom1.id, user_id: Deborah.id, content: "Ça va bien, merci ! Et toi ?")
+Message.create!(chatroom_id: chatroom1.id, user_id: Isabelle.id, content: "Ça va bien, merci ! Et toi ?")
 
 # Création de messages fictifs pour la deuxième chatroom
 Message.create!(chatroom_id: chatroom2.id, user_id: Laura.id, content: "Hello ! On se voit demain ?")
