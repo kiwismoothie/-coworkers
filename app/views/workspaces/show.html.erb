@@ -9,7 +9,8 @@
       <div class="top-divider"> </div>
 </div>
 </div><div class="container-fluid">
-<div class="mx-auto mt-2">
+
+<div class="m-4">
     <div>
       <details>
         <summary><%= image_tag @workspace.user.photos.first, height: 60, width: 60, class: "avatar2", alt: "Photo" %><i class="fa-solid fa-circle-chevron-down fa-sl" style="color: #3E567E;"></i></summary>
@@ -29,9 +30,9 @@
 </div>
 
   <div class="workspace-card">
-    <div class="workspace-image">
+    <div class="workspace-image .img-fluid">
       <% @workspace.photos %>
-      <%= cl_image_tag @workspace.photos.first.key, height:250 %>
+      <%= cl_image_tag @workspace.photos.first.key %>
       <%= render "heart" %>
     </div>
 
@@ -40,7 +41,7 @@
         <li><i class="fa-solid fa-circle-info fa-xl me-2" style="color: #3E567E;"></i><%= @workspace.description %></li>
         <li><i class="fa-solid fa-location-dot fa-xl me-2" style="color: #3E567E;"></i><%= @workspace.address %></li>
       </div>
-       <div class="font-awesome d-flex justify-content-between">
+      <div class="font-awesome d-flex justify-content-between">
         <li><% if @workspace.capacity == 1 %>
           <i class="fa-solid fa-user fa-2xl" style="color: #3E567E;"></i>
         <% elsif @workspace.capacity == 2 %>
@@ -56,7 +57,7 @@
             <i class="fa-solid fa-wifi fa-2xl" style="color: #CDCBD2;"></i>
           <% end %>
         </li>
-         <li>
+        <li>
           <% if @workspace.parking %>
             <i class="fa-solid fa-square-parking fa-2xl" style="color: #3E567E;"></i>
           <% else %>
