@@ -24,11 +24,3 @@ a {
   margin-top: 10px;
 }
 
-/* Pour les écrans plus grands (comme les ordinateurs de bureau) */
-@media (min-width: 768px) {
-  .centered-container {
-    height: auto;
-    min-height: 100vh;
-    padding: 20px;
-  }
-}
