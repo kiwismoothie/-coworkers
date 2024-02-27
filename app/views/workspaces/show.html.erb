@@ -14,27 +14,29 @@
     <div>
       <details>
         <summary><%= image_tag @workspace.user.photos.first, height: 60, width: 60, class: "avatar2", alt: "Photo" %><i class="fa-solid fa-circle-chevron-down fa-sl" style="color: #3E567E;"></i></summary>
+        <div class ="container">
         <p class="description-text">Je m'appelle <%= @workspace.user.first_name %>. <%= @workspace.user.description %>
 
         <% if @workspace.user.skills.any? %>
           <br><br>
-          J'aime le <%= @workspace.user.skills.join(", ") %>
+          Je possède les compétences suivantes : <%= @workspace.user.skills.join(", ") %>
           <% if @workspace.user.desired_skills.any? %>
-          et je suis interessé par
+          et j'aimerais rencontrer des personnes qui ont les compétences suivantes :
         <% end %>
 
-          <%= @workspace.user.desired_skills.join(", ") %>
-        <% end %>.</p>
+          <%= @workspace.user.desired_skills.join(", ") %>.
+        <% end %></p>
       </details>
+        </div>
     </div>
 </div>
 
-
+<div class ="container">
 <div class="workspace-card">
     <div class="workspace-image img-fluid">
         <% @workspace.photos %>
         <div class="image-container">
-            <%= cl_image_tag @workspace.photos.first.key %>
+            <%= cl_image_tag @workspace.photos.first.key, :width => 500, :crop => "pad"%>
             <div class="heart">
                 <%= render "heart" %>
             </div>
@@ -42,9 +44,7 @@
     </div>
 
     <ul class="workspace-infos">
-
-    <ul class="workspace-infos">
-      <div class="description-adress-show">
+      <div class="description-address-show">
         <li><i class="fa-solid fa-circle-info fa-xl me-2" style="color: #3E567E;"></i><%= @workspace.description %></li>
         <li><i class="fa-solid fa-location-dot fa-xl me-2" style="color: #3E567E;"></i><%= @workspace.address %></li>
       </div>
