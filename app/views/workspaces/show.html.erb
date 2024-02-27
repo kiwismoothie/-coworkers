@@ -29,12 +29,19 @@
     </div>
 </div>
 
-  <div class="workspace-card">
-    <div class="workspace-image .img-fluid">
-      <% @workspace.photos %>
-      <%= cl_image_tag @workspace.photos.first.key %>
-      <%= render "heart" %>
+
+<div class="workspace-card">
+    <div class="workspace-image img-fluid">
+        <% @workspace.photos %>
+        <div class="image-container">
+            <%= cl_image_tag @workspace.photos.first.key %>
+            <div class="heart">
+                <%= render "heart" %>
+            </div>
+        </div>
     </div>
+
+    <ul class="workspace-infos">
 
     <ul class="workspace-infos">
       <div class="description-adress-show">
