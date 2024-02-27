@@ -32,6 +32,7 @@
 </div>
 
 <div class ="container">
+  <div class="row">
 <div class="workspace-card">
     <div class="workspace-image img-fluid">
         <% @workspace.photos %>
@@ -42,12 +43,17 @@
             </div>
         </div>
     </div>
+</div>
+</div>
+
 
     <ul class="workspace-infos">
       <div class="description-address-show">
         <li><i class="fa-solid fa-circle-info fa-xl me-2" style="color: #3E567E;"></i><%= @workspace.description %></li>
         <li><i class="fa-solid fa-location-dot fa-xl me-2" style="color: #3E567E;"></i><%= @workspace.address %></li>
       </div>
+
+      <div class ="container">
       <div class="font-awesome d-flex justify-content-between">
         <li><% if @workspace.capacity == 1 %>
           <i class="fa-solid fa-user fa-2xl" style="color: #3E567E;"></i>
@@ -97,6 +103,8 @@
           <% end %>
         </li>
       </div>
+      </div>
+
         <li class="workspace-info-date">
           <%= simple_form_for([@workspace, @booking]) do |f| %>
           <div>Date souhaitée :</div>
