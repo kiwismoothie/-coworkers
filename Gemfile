@@ -27,7 +27,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "pg_search"
 # Use Redis adapter to run Action Cable in production
-gem "redis", ">= 4.0.1"
+gem "redis", ">= 5.1.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -61,6 +61,8 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
+
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -81,3 +83,6 @@ gem "geocoder"
 
 # Pour geolocalisation 100km autour de l'adresse
 gem 'rest-client'
+
+gem 'derailed_benchmarks', group: :development
+gem 'stackprof', group: :development
