@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_14_101935) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_14_104117) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -120,6 +120,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_14_101935) do
     t.float "longitude"
     t.text "description"
     t.boolean "parking"
+    t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_workspaces_on_user_id"
   end
 
