@@ -90,3 +90,6 @@ gem 'stackprof', group: :development
 
 # money gem
 gem 'money-rails'
+
+
+gem "puma_worker_killer"
