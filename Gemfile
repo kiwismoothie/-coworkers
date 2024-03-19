@@ -93,3 +93,6 @@ gem 'money-rails'
 
 
 gem "puma_worker_killer"
+
+
+plugin 'bundler-graph'
