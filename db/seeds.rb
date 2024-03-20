@@ -225,7 +225,7 @@ workspace2 = Workspace.new(
   desired_skill: "fullstack",
   capacity: 1,
   name: "Bureau de la fête",
-  price: 8
+  price_cents: 80000
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481482/bureau-e_pzjbmg.jpg")
 workspace2.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -244,7 +244,7 @@ workspace3 = Workspace.new(
   desired_skill: "fullstack",
   capacity: 1,
   name: "Ici ça boss !",
-  price: 10
+  price_cents: 10
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702568817/bureau2_f7i2yk.jpg")
 workspace3.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
