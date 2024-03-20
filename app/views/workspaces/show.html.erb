@@ -51,7 +51,7 @@
       <div class="description-address-show">
         <li><i class="fa-solid fa-circle-info fa-xl me-2" style="color: #3E567E;"></i><%= @workspace.description %></li>
         <li><i class="fa-solid fa-location-dot fa-xl me-2" style="color: #3E567E;"></i><%= @workspace.address %></li>
-        <li><i class="fa-solid fa-credit-card fa-xl me-2" style="color: #3E567E;"></i><%= humanized_money_with_symbol(@workspace.price) %></li>
+        <li><i class="fa-solid fa-credit-card fa-xl me-2" style="color: #3E567E;"></i><%= humanized_money_with_symbol(@workspace.price_cents) %></li>
 
       </div>
 
