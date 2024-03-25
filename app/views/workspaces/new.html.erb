@@ -38,7 +38,9 @@
             <div class="workspace-label">Animaux :</div>
               <%= f.input :animals, collection: [ "Aucun", "Chat", "Chien"], label: false %>
             <div class="workspace-label">Ambiance :</div>
-              <%= f.input :animals, collection: [ "Calme", "Animé"], label: false %>
+              <%= f.input :ambiance, collection: [ "Calme", "Animé"], label: false %>
+              <div class="workspace-label">Prix par jour :</div>
+              <%= f.input :price_cents, collection: [ 5, 10, 15], label: false %>
               <%= f.button :submit, "Proposer mon workspace", class: 'container btn yellow-btn btn-lg btn-block text-white' %>
           </div>
       <% end %>
