@@ -7,12 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Bookmark.destroy_all
-Message.destroy_all
-Chatroom.destroy_all
-Booking.destroy_all
-Workspace.destroy_all
-User.destroy_all
+Bookmark.destroy_all if Rails.env.development?
+Message.destroy_all if Rails.env.development?
+Chatroom.destroy_all if Rails.env.development?
+Booking.destroy_all if Rails.env.development?
+Workspace.destroy_all if Rails.env.development?
+User.destroy_all if Rails.env.development?
 
 Kevin = User.new(
   first_name: "Kevin",
@@ -134,7 +134,7 @@ workspace_cid = Workspace.new(
   description: "Un espace de travail calme et agréable au centre de Paris.",
   capacity: 3,
   name: "Grand bureaux chez Cid",
-  price_cents: 400
+  price_cents: 4000
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702549176/bureau-new_yovkow.png")
 workspace_cid.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -153,7 +153,7 @@ workspace_isabelle = Workspace.new(
   desired_skill: "comptabilité",
   capacity: 1,
   name: "Grand immeuble et jolie vue",
-  price_cents: 500
+  price_cents: 5000
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702549803/image_2_ka0iek.png")
 workspace_isabelle.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -187,7 +187,7 @@ workspace_murielle = Workspace.new(
   description: "Sur les champs Elysées",
   capacity: 1,
   name: "Très bien situé",
-  price_cents: 800
+  price_cents: 8000
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702549796/image_byzjuw.png")
 workspace_murielle.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -206,7 +206,7 @@ workspace1 = Workspace.new(
   desired_skill: "fullstack",
   capacity: 1,
   name: "Office parisien",
-  price_cents: 800
+  price_cents: 8000
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785333/Coworkers/toulouse.jpg")
 workspace1.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -225,7 +225,7 @@ workspace2 = Workspace.new(
   desired_skill: "fullstack",
   capacity: 1,
   name: "Bureau de la fête",
-  price_cents: 80000
+  price_cents: 8000
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481482/bureau-e_pzjbmg.jpg")
 workspace2.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -244,7 +244,7 @@ workspace3 = Workspace.new(
   desired_skill: "fullstack",
   capacity: 1,
   name: "Ici ça boss !",
-  price_cents: 10
+  price_cents: 10000
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702568817/bureau2_f7i2yk.jpg")
 workspace3.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -263,7 +263,7 @@ workspace4 = Workspace.new(
   desired_skill: "fullstack",
   capacity: 1,
   name: "Maison de la bière",
-  price_cents: 800
+  price_cents: 8000
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1701785332/Coworkers/nantes.jpg")
 workspace4.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -282,7 +282,7 @@ workspace5 = Workspace.new(
   desired_skill: "fullstack",
   capacity: 3,
   name: "La maison des chats",
-  price_cents: 900
+  price_cents: 9000
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702568744/bureau_1_gil6ia.jpg")
 workspace5.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -301,7 +301,7 @@ workspace6 = Workspace.new(
   desired_skill: "fullstack",
   capacity: 2,
   name: "La maison du bonheur",
-  price_cents: 450
+  price_cents: 5000
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481471/bureau-b_hgd6fv.jpg")
 workspace6.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -319,7 +319,7 @@ workspace7 = Workspace.new(
   desired_skill: "fullstack",
   capacity: 2,
   name: "A Belleville",
-  price_cents: 950
+  price_cents: 9000
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481472/bureau-d_bbissx.png")
 workspace7.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -337,7 +337,7 @@ workspace8 = Workspace.new(
   desired_skill: "Marketing",
   capacity: 1,
   name: "Joli espace dans le 15ème",
-  price_cents: 800
+  price_cents: 8000
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481483/bureau-f_jxqrjb.jpg")
 workspace8.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
@@ -355,7 +355,7 @@ workspace9 = Workspace.new(
   desired_skill: "Marketing",
   capacity: 3,
   name: "Ambiance chaleureuse chez moi",
-  price_cents: 600
+  price_cents: 6000
 )
 file = URI.open("https://res.cloudinary.com/dpuyx30vh/image/upload/v1702481471/bureau-c_q8fyxd.jpg")
 workspace9.photos.attach([{io: file, filename: "nes.jpg", content_type: "image/jpg"}])
