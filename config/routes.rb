@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'workspaces/:workspace_id/create_chatroom', to: 'chatrooms#create_chatroom', as: 'workspace_create_chatroom'
   patch "users/:id", to: "users#update", as: :user
 
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
   resource :profil, only: [:show, :update]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -16,7 +17,9 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:index, :destroy]
 
   resources :workspaces do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:create, :show] do
+      resources :payments, only: :new
+    end
     resources :bookmarks, only: [:create]
   end
 

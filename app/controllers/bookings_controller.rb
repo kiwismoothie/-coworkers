@@ -11,12 +11,31 @@ class BookingsController < ApplicationController
     @booking.workspace = @workspace
     @booking.user = current_user
     @booking.status = "en cours"
+    # Assuming you have a Price object associated with your workspace
+price = Stripe::Price.create(
+  unit_amount: @workspace.price_cents,
+  currency: 'eur',
+  product_data: {
+    name: @workspace.name
+  }
+)
 
-    if @booking.save
-      redirect_to dashboard_path, notice: 'Demande envoyée ! 🕒 Attendez maintenant la réponse. '
-    else
-      render "workspaces/show", status: :unprocessable_entity
-    end
+session = Stripe::Checkout::Session.create(
+  payment_method_types: ['card'],
+  mode: 'payment', # Specify the mode here
+  line_items: [{
+    price: price.id, # Use the ID of the Price object
+    quantity: 1
+  }],
+  success_url: 'https://www.google.com',
+  cancel_url: 'https://www.google.com'
+)
+
+
+
+    @booking.update(checkout_session_id: session.id)
+    redirect_to new_workspace_booking_payment_path(booking_id: @booking.id)
+
   end
 
   def accept
