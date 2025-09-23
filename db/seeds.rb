@@ -7,12 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Bookmark.destroy_all if Rails.env.development?
-Message.destroy_all if Rails.env.development?
-Chatroom.destroy_all if Rails.env.development?
-Booking.destroy_all if Rails.env.development?
-Workspace.destroy_all if Rails.env.development?
-User.destroy_all if Rails.env.development?
+Bookmark.destroy_all if Rails.env.development?|| Rails.env.production?
+Message.destroy_all if Rails.env.development?|| Rails.env.production?
+Chatroom.destroy_all if Rails.env.development?|| Rails.env.production?
+Booking.destroy_all if Rails.env.development?|| Rails.env.production?
+Workspace.destroy_all if Rails.env.development?|| Rails.env.production?
+User.destroy_all if Rails.env.development?|| Rails.env.production?
 
 Kevin = User.new(
   first_name: "Kevin",
