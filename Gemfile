@@ -78,6 +78,12 @@ group :test do
   gem "selenium-webdriver"
 end
 
+
+
+group :production do
+  gem 'pg' # PostgreSQL pour Heroku
+end
+
 # Gemfile
 gem "geocoder"
 
