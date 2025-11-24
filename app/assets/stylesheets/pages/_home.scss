@@ -1,208 +1,29 @@
-.logo-carr {
-  margin: 12px auto;
-  width: 50%;
-}
-
-.icones{
+.logo-carr { margin: 12px auto; width: 50%; } .icones{ display: flex; justify-content: center; gap: 10px; } .icone{ display: inline-block; } .small-text { font-size: 12px; /* Vous pouvez ajuster la taille selon vos préférences */ } /* Sur les tablettes */ @media (min-width: 908px) { .logo-carr { max-width: 30%; } } /* Sur les écrans plus grands*/ @media (min-width: 1568px) { .logo-carr { max-width: 25%; } } .search-container { display: flex; justify-content: center; width: 100%; } .search-input { width: 90%; max-width: 500px; padding: 10px 20px; background-color: transparent; transition: transform 250ms ease-in-out; font-size: 15px; line-height: 20px; color: #000000; background-repeat: no-repeat; background-size: 16px 16px; background-position: 95% center; border-radius: 50px; border: 1px solid #686868; transition: all 250ms ease-in-out; &::placeholder { color: rgb(32, 32, 32); letter-spacing: 1.1px; } &:hover, &:focus { padding: 12px 0; outline: 0; border: 1px solid transparent; border-bottom: 1px solid #575756; border-radius: 0; background-position: 100% center; } } .btn-no-style{ background: none; border: none; padding: 0; font: inherit; cursor: pointer; outline: inherit; margin-left: 1rem; } .tag-item { display: inline-block; } .tag-selector { position: absolute; transform: scale(0); } .tag-selector + label { cursor: pointer; font-size: 0.7rem; border-radius: 50rem; padding: 0.1rem 0.5rem; color: #CAE4FF; margin-right: 0.6rem; margin-bottom: 0.4rem; } .tag-selector:checked + label { color: #004792; } /* PAS TOUCHER */ .icon-item { display: inline-block; } .icon-selector + label { cursor: pointer; display: inline-block; font-size: 1rem; border-radius: 50rem; padding: 0.1rem 0.5rem; color: #CAE4FF; margin-right: 0.6rem; margin-bottom: 0.4rem; } .icon-selector:checked + label { color: #004792; } @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap"); :root { /* Colors */ --brand-color: hsl(29, 97%, 64%); --black: hsl(0, 0%, 0%); --white: hsl(0, 0%, 100%); /* Fonts */ --font-title: "Montserrat", sans-serif; --font-text: "Lato", sans-serif; } /* RESET */ /* Box sizing rules */ *, *::before, *::after { box-sizing: border-box; } /* CARD COMPONENT */ .card { width: 180px; height: 250px; border-radius: 10px; box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25); overflow: hidden; color: white; } .card__background { object-fit: cover; max-width: 100%; height: 100%; } .card__content { background: linear-gradient( 180deg, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.90) 100% ); position: absolute; bottom: 0; left: 0; right: 0; padding: 30px 10px 10px 10px; } h2.card__title { font-size: 16px; font-weight: 600; text-shadow: 1px 1px 1px hsla(0%, 0%, 0%, 0.75); } p.card__description { font-size: 12px; } .divider{ height: 4px; width: 50px; background-color: #fb9100; margin-bottom: 10px; } .card-list{ display: flex; gap: 10px; overflow-x: auto; overflow-y: hidden; flex-wrap: nowrap; padding: 10px; -webkit-overflow-scrolling: touch; } .card-list li{ flex: 0 0 auto }
+/* REASSURANCE */
+.reassurance {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-around;
+  background: white;
+  padding: 20px 20px; /* <-- ici : ajout de padding horizontal */
+  margin: 16px 16px 0; /* ← le changement important */
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.icone{
-  display: inline-block;
+.reass-item {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ← ajoute ça ! */
+  font-size: 14px;
+  gap: 6px;
+  color: #4f5d73;
 }
 
-.small-text {
-  font-size: 12px; /* Vous pouvez ajuster la taille selon vos préférences */
-}
-
-/* Sur les tablettes */
-@media (min-width: 908px) {
-  .logo-carr {
-    max-width: 30%;
-  }
-}
-
-/* Sur les écrans plus grands*/
-@media (min-width: 1568px) {
-  .logo-carr {
-    max-width: 25%;
-  }
+.reass-item i {
+  font-size: 12px;
+  opacity: 0.8;
 }
 
 .search-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.search-input {
-  width: 90%;
-  max-width: 500px;
-  padding: 10px 20px;
-  background-color: transparent;
-  transition: transform 250ms ease-in-out;
-  font-size: 15px;
-  line-height: 20px;
-  color: #000000;
-  background-repeat: no-repeat;
-  background-size: 16px 16px;
-  background-position: 95% center;
-  border-radius: 50px;
-  border: 1px solid #686868;
-  transition: all 250ms ease-in-out;
-
-  &::placeholder {
-    color: rgb(32, 32, 32);
-    letter-spacing: 1.1px;
-  }
-
-  &:hover,
-  &:focus {
-    padding: 12px 0;
-    outline: 0;
-    border: 1px solid transparent;
-    border-bottom: 1px solid #575756;
-    border-radius: 0;
-    background-position: 100% center;
-  }
-}
-
-.btn-no-style{
-  background: none;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  margin-left: 1rem;
-}
-
-.tag-item {
-  display: inline-block;
-}
-
-.tag-selector {
-  position: absolute;
-  transform: scale(0);
-}
-
-.tag-selector + label {
-  cursor: pointer;
-  font-size: 0.7rem;
-  border-radius: 50rem;
-  padding: 0.1rem 0.5rem;
-  color: #CAE4FF;
-  margin-right: 0.6rem;
-  margin-bottom: 0.4rem;
-}
-
-.tag-selector:checked + label {
-  color: #004792;
-}
-
-
-
-/* PAS TOUCHER */
-
-.icon-item {
-  display: inline-block;
-}
-
-.icon-selector + label {
-  cursor: pointer;
-  display: inline-block;
-  font-size: 1rem;
-  border-radius: 50rem;
-  padding: 0.1rem 0.5rem;
-  color: #CAE4FF;
-  margin-right: 0.6rem;
-  margin-bottom: 0.4rem;
-}
-
-.icon-selector:checked + label {
-  color: #004792;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap");
-
-:root {
-  /* Colors */
-  --brand-color: hsl(29, 97%, 64%);
-  --black: hsl(0, 0%, 0%);
-  --white: hsl(0, 0%, 100%);
-  /* Fonts */
-  --font-title: "Montserrat", sans-serif;
-  --font-text: "Lato", sans-serif;
-}
-
-/* RESET */
-
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* CARD COMPONENT */
-
-.card {
-  width: 180px;
-  height: 250px;
-  border-radius: 10px;
-  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  color: white;
-}
-
-.card__background {
-  object-fit: cover;
-  max-width: 100%;
-  height: 100%;
-}
-
-.card__content {
-  background: linear-gradient(
-    180deg,
-    hsla(0, 0%, 0%, 0) 0%,
-    hsla(0, 0%, 0%, 0.90) 100%
-  );
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 30px 10px 10px 10px;
-  }
-
-h2.card__title {
-  font-size: 16px;
-  font-weight: 600;
-  text-shadow: 1px 1px 1px hsla(0%, 0%, 0%, 0.75);
-}
-
-p.card__description {
-  font-size: 12px;
-}
-
-.divider{
-  height: 4px;
-  width: 50px;
-  background-color: #fb9100;
-  margin-bottom: 10px;
-}
-
-.card-list{
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  flex-wrap: nowrap;
-  padding: 10px;
-  -webkit-overflow-scrolling: touch;
-}
-
-.card-list li{
-  flex: 0 0 auto
+  margin-bottom: 16px; /* ou 20px si tu veux plus d’air */
 }

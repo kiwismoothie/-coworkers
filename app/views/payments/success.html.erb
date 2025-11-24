@@ -1,0 +1,5 @@
+<div class="container py-4">
+  <h1>Paiement réussi ! 🎉</h1>
+  <p>Merci pour votre réservation de <strong><%= @booking.workspace.name %></strong>.</p>
+  <p>Nous avons bien reçu votre paiement de <strong><%= humanized_money_with_symbol(@booking.workspace.price) %></strong>.</p>
+</div>
