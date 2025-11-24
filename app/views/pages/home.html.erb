@@ -1,7 +1,7 @@
 <div class="container mt-15">
   <div class="row">
     <div class="col-12 text-center logo-carr mb-10">
-      <img class="img-fluid" src="https://i.ibb.co/CBtyrxS/logo-coworkers-6.png" alt="Coworkers-Logo">
+      <%= image_tag "logo.png", class: "img-fluid" %>
     </div>
   </div>
 </div>
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="search-container align-items-center d-flex">
-        <input type="text" id="search-input" class="search-input" placeholder="Où souhaitez-vous télétravailler ?" name="query">
+        <input type="text" id="search-input" class="search-input" placeholder="Où cherchez-vous votre FlowWorker ?" name="query">
         <button type="submit" class="yellow-btn-mini-home">
           <i class="fa-solid fa-magnifying-glass fa-2sl" style="color: #f7f7f7;"></i>
         </button>
@@ -47,9 +47,16 @@
   </div>
 </div>
 
+<!-- Bandeau réassurance -->
+  <section class="reassurance">
+    <div class="reass-item"><i class="fa-solid fa-shield"></i> Profils vérifiés</div>
+    <div class="reass-item"><i class="fa-solid fa-lock"></i> Paiement sécurisé</div>
+    <div class="reass-item"><i class="fa-solid fa-star"></i> Assurance incluse</div>
+  </section>
+
 <div class="container mt-4">
   <div class="mt-4">
-    <h3 style="font-size: 22px;">Workspaces populaires</h3>
+    <h3 style="font-size: 22px;">FlowWorkers et bureaux populaires</h3>
   </div>
 </div>
 <div class="container">

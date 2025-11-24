@@ -32,7 +32,7 @@ Rails.application.routes.draw do
       patch :accept
       patch :decline
     end
-  end
+  end 
   # Defines the root path route ("/")
   # root "posts#index"
 end
